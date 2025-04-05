@@ -4,18 +4,11 @@ services:
     build:
       dockerfile: docker/Dockerfile
       context: ..
-
-  dev:
-    <<: *base-settings
+    environment:
+      - DISPLAY=$DISPLAY
     volumes:
-      - settings:/home/mudlet/settings
-      - build:/home/mudlet/build
-      - ../CMakeLists.txt:/home/mudlet/CMakeLists.txt
-      - ../src:/home/mudlet/src
-      - ../translations:/home/mudlet/translations
-      - ../test:/home/mudlet/test
-    command: qtcreator CMakeLists.txt -settingspath /home/mudlet/settings/
+      - ../build:/home/mudlet/build:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix
 
-volumes:
-  build:
-  settings:
+volumes: 
+  ../build:
