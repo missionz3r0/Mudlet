@@ -2,7 +2,6 @@
 --- Mudlet Table Utils
 ----------------------------------------------------------------------------------
 
-
 --- Tests if a table is empty: this is useful in situations where you find
 --- yourself wanting to do 'if my_table == {}' and such.
 ---
@@ -14,55 +13,56 @@
 ---   end
 ---   </pre>
 function table.is_empty(tbl)
-  assert(type(tbl) == "table", string.format("table.is_empty: bad argument #1 type (table expected, got %s!)", type(tbl)))
-  return next(tbl) == nil
+	assert(
+		type(tbl) == "table",
+		string.format("table.is_empty: bad argument #1 type (table expected, got %s!)", type(tbl))
+	)
+	return next(tbl) == nil
 end
 
 -- The filter() method creates a new table with all elements that pass the test
 -- implemented by the provided function.
 function table.n_filter(t, cb)
-  local filtered = {}
-  for i, v in ipairs(t) do
-    if cb(v, i, t) then
-      filtered[#filtered + 1] = v
-    end
-  end
-  return filtered
+	local filtered = {}
+	for i, v in ipairs(t) do
+		if cb(v, i, t) then
+			filtered[#filtered + 1] = v
+		end
+	end
+	return filtered
 end
 
 -- The flatten() method creates a new table with all sub-table elements concatenated into it recursively.
 function table.n_flatten(input)
-  local flattened = {}
-  for _, element in ipairs(input) do
-    if type(element) == 'table' then
-      for _, v in ipairs(table.n_flatten(element)) do
-        flattened[#flattened + 1] = v
-      end
-    else
-      flattened[#flattened + 1] = element
-    end
-  end
-  return flattened
+	local flattened = {}
+	for _, element in ipairs(input) do
+		if type(element) == "table" then
+			for _, v in ipairs(table.n_flatten(element)) do
+				flattened[#flattened + 1] = v
+			end
+		else
+			flattened[#flattened + 1] = element
+		end
+	end
+	return flattened
 end
 
 --- Lua debug function that prints the content of a Lua table on the screen, split up in keys and values.
 --- Useful if you want to see what the capture groups contain i. e. the Lua table "matches".
 ---
 --- @see display
-function printTable( map )
-  echo("-------------------------------------------------------\n");
-  for k, v in pairs( map ) do
-    echo( "key=" .. k .. " value=" .. v .. "\n" )
-  end
-  echo("-------------------------------------------------------\n");
+function printTable(map)
+	echo("-------------------------------------------------------\n")
+	for k, v in pairs(map) do
+		echo("key=" .. k .. " value=" .. v .. "\n")
+	end
+	echo("-------------------------------------------------------\n")
 end
-
-
 
 -- NOT LUADOC
 -- This is supporting function for printTable().
-function __printTable( k, v )
-  insertText("\nkey = " .. tostring(k) .. " value = " .. tostring( v )  )
+function __printTable(k, v)
+	insertText("\nkey = " .. tostring(k) .. " value = " .. tostring(v))
 end
 
 -- originally found at https://stackoverflow.com/questions/15706270/sort-a-table-in-lua
@@ -79,20 +79,22 @@ end
 --end
 -- --"Joe has 23 thingies\nTom has 40 thingies\nMary has 50 thingies"
 function spairs(tbl, order)
-  local keys = table.keys(tbl)
-  if order then
-    table.sort(keys, function(a,b) return order(tbl, a, b) end)
-  else
-    table.sort(keys)
-  end
+	local keys = table.keys(tbl)
+	if order then
+		table.sort(keys, function(a, b)
+			return order(tbl, a, b)
+		end)
+	else
+		table.sort(keys)
+	end
 
-  local i = 0
-  return function()
-    i = i + 1
-    if keys[i] then
-      return keys[i], tbl[keys[i]]
-    end
-  end
+	local i = 0
+	return function()
+		i = i + 1
+		if keys[i] then
+			return keys[i], tbl[keys[i]]
+		end
+	end
 end
 
 --- Lua debug function that prints the content of a Lua table on the screen. <br/>
@@ -100,33 +102,27 @@ end
 ---
 --- @see display
 --- @see printTable
-function listPrint( map )
-  echo("-------------------------------------------------------\n");
-  for k, v in ipairs( map ) do
-    echo( k .. ". ) " .. v .. "\n" );
-  end
-  echo("-------------------------------------------------------\n");
+function listPrint(map)
+	echo("-------------------------------------------------------\n")
+	for k, v in ipairs(map) do
+		echo(k .. ". ) " .. v .. "\n")
+	end
+	echo("-------------------------------------------------------\n")
 end
-
-
 
 --- <b><u>TODO</u></b> listAdd( list, what )
-function listAdd( list, what )
-  table.insert( list, what );
+function listAdd(list, what)
+	table.insert(list, what)
 end
-
-
 
 --- <b><u>TODO</u></b> listRemove( list, what )
-function listRemove( list, what )
-  for k, v in ipairs( list ) do
-    if v == what then
-      table.remove( list, k )
-    end
-  end
+function listRemove(list, what)
+	for k, v in ipairs(list) do
+		if v == what then
+			table.remove(list, k)
+		end
+	end
 end
-
-
 
 --- Gets the actual size of non-index based tables. <br/><br/>
 ---
@@ -138,43 +134,43 @@ end
 ---   myTableSize = # myTable
 ---   </pre>
 function table.size(t)
-  if not t then
-    return 0
-  end
-  local i = 0
-  for k, v in pairs(t) do
-    i = i + 1
-  end
-  return i
+	if not t then
+		return 0
+	end
+	local i = 0
+	for k, v in pairs(t) do
+		i = i + 1
+	end
+	return i
 end
-
-
 
 --- Determines if a table contains a value as a key or as a value (recursive).
 function table._contains(t, value)
-  if type(t) ~= "table" then
-    return nil, "first parameter passed isn't a table"
-  end
+	if type(t) ~= "table" then
+		return nil, "first parameter passed isn't a table"
+	end
 
-  for k, v in pairs(t) do
-    if v == value then
-      return true
-    elseif k == value then
-      return true
-    elseif type(v) == "table" then
-      if table.contains(v, value) then
-        return true
-      end
-    end
-  end
-  return false
+	for k, v in pairs(t) do
+		if v == value then
+			return true
+		elseif k == value then
+			return true
+		elseif type(v) == "table" then
+			if table.contains(v, value) then
+				return true
+			end
+		end
+	end
+	return false
 end
 
 function table.contains(tbl, ...)
-  for _,item in ipairs({...}) do
-    if table._contains(tbl, item) then return true end
-  end
-  return false
+	for _, item in ipairs({ ... }) do
+		if table._contains(tbl, item) then
+			return true
+		end
+	end
+	return false
 end
 
 --- Checks each item in a table against a provided function and returns a table of items
@@ -183,41 +179,65 @@ end
 --- @param func function which is called as func(key,value) for each item in tbl
 --- @return table of key-value pairs for which func returns true.
 function table.collect(tbl, func)
-  local tbl_type = type(tbl)
-  assert(tbl_type == "table", string.format("table.collect: bad argument #1 type (table to collect items from as table expected, got %s)", tbl_type))
-  local func_type = type(func)
-  assert(func_type == "function", string.format("table.collect: bad argument #2 type (function to run against each item in tbl as function expected, got %s)", func_type))
-  local matches = {}
-  for key,value in pairs(tbl) do
-    if func(key,value) == true then
-      matches[key] = value
-    end
-  end
-  return matches
+	local tbl_type = type(tbl)
+	assert(
+		tbl_type == "table",
+		string.format(
+			"table.collect: bad argument #1 type (table to collect items from as table expected, got %s)",
+			tbl_type
+		)
+	)
+	local func_type = type(func)
+	assert(
+		func_type == "function",
+		string.format(
+			"table.collect: bad argument #2 type (function to run against each item in tbl as function expected, got %s)",
+			func_type
+		)
+	)
+	local matches = {}
+	for key, value in pairs(tbl) do
+		if func(key, value) == true then
+			matches[key] = value
+		end
+	end
+	return matches
 end
 
 --- Checks each item in a table against a provided function and returns a table of items
---- for which the function returns true. Unlike table.collect it ignores keys and returns 
+--- for which the function returns true. Unlike table.collect it ignores keys and returns
 --- a table which is guaranteed to be traversable using ipairs()
 --- @param tbl table to collect items from
 --- @param func function which is called as func(value) for each item in tbl
 --- @return table of values for which func(value) returns true. Ignores keys, traversable using ipairs
 function table.n_collect(tbl, func)
-  local tbl_type = type(tbl)
-  assert(tbl_type == "table", string.format("table.n_collect: bad argument #1 type (table to collect items from as table expected, got %s)", tbl_type))
-  local func_type = type(func)
-  assert(func_type == "function", string.format("table.n_collect: bad argument #2 type (function to run against each item in tbl as function expected, got %s)", func_type))
-  local matches = {}
-  for key,value in pairs(tbl) do
-    if func(value) == true and not table.contains(matches, value) then
-      table.insert(matches, value)
-    end
-  end
-  return matches
+	local tbl_type = type(tbl)
+	assert(
+		tbl_type == "table",
+		string.format(
+			"table.n_collect: bad argument #1 type (table to collect items from as table expected, got %s)",
+			tbl_type
+		)
+	)
+	local func_type = type(func)
+	assert(
+		func_type == "function",
+		string.format(
+			"table.n_collect: bad argument #2 type (function to run against each item in tbl as function expected, got %s)",
+			func_type
+		)
+	)
+	local matches = {}
+	for key, value in pairs(tbl) do
+		if func(value) == true and not table.contains(matches, value) then
+			table.insert(matches, value)
+		end
+	end
+	return matches
 end
 
 -- not LDoc: table.matches and table.n_matches below do not use table.collect
--- or n_collect above in order to reduce the potential number of times tables 
+-- or n_collect above in order to reduce the potential number of times tables
 -- need to be looped.
 
 --- Checks each item in a table against each other argument using string.match
@@ -228,24 +248,42 @@ end
 --- @return returns a table which contains every key value pair from tbl for which the value string.matches
 ---         if check_keys is passed as true, then the key value pair will be added if either the key or the value string.matches
 function table.matches(tbl, ...)
-  local tbl_type = type(tbl)
-  assert(tbl_type == "table", string.format("table.matches: bad argument #1 type (table to check using string.match as table expected, got %s)", tbl_type))
-  local patterns = {...}
-  local matches = {}
-  local check_keys
-  if type(patterns[#patterns]) == "boolean" then check_keys = table.remove(patterns) end
-  for index,pattern in ipairs(patterns) do
-    local ptype = type(pattern)
-    assert(ptype == "string", string.format("table.matches: bad argument #%d type (pattern to check as string expected, got %s)", index+1, ptype))
-    for key,value in pairs(tbl) do
-      local keyType = type(key)
-      local valueType = type(value)
-      if ((valueType == "string" or valueType == "number") and string.match(value, pattern)) or (check_keys and ((keyType == "string" or keyType == "number") and string.match(key, pattern))) then
-        matches[key] = value
-      end
-    end
-  end
-  return matches
+	local tbl_type = type(tbl)
+	assert(
+		tbl_type == "table",
+		string.format(
+			"table.matches: bad argument #1 type (table to check using string.match as table expected, got %s)",
+			tbl_type
+		)
+	)
+	local patterns = { ... }
+	local matches = {}
+	local check_keys
+	if type(patterns[#patterns]) == "boolean" then
+		check_keys = table.remove(patterns)
+	end
+	for index, pattern in ipairs(patterns) do
+		local ptype = type(pattern)
+		assert(
+			ptype == "string",
+			string.format(
+				"table.matches: bad argument #%d type (pattern to check as string expected, got %s)",
+				index + 1,
+				ptype
+			)
+		)
+		for key, value in pairs(tbl) do
+			local keyType = type(key)
+			local valueType = type(value)
+			if
+				((valueType == "string" or valueType == "number") and string.match(value, pattern))
+				or (check_keys and ((keyType == "string" or keyType == "number") and string.match(key, pattern)))
+			then
+				matches[key] = value
+			end
+		end
+	end
+	return matches
 end
 
 --- Checks each item in a table against each other argument using string.match. Returns a list
@@ -256,23 +294,39 @@ end
 --- @return returns a which contains every unique value from tbl for which the value string.matches
 ---         does not preserve the order or keys of the original table, but does return a table traverable using ipairs
 function table.n_matches(tbl, ...)
-  local tbl_type = type(tbl)
-  assert(tbl_type == "table", string.format("table.n_matches: bad argument #1 type (table to check using string.match as table expected, got %s)", tbl_type))
-  local patterns = {...}
-  local matches = {}
-  for index,pattern in ipairs(patterns) do
-    local ptype = type(pattern)
-    assert(ptype == "string", string.format("table.n_matches: bad argument #%d type (pattern to check as string expected, got %s)", index+1, ptype))
-    for key,value in pairs(tbl) do
-      local valueType = type(value)
-      if (valueType == "string" or valueType == "number") and string.match(value, pattern) and not table.index_of(matches, value) then
-        table.insert(matches, value)
-      end
-    end
-  end
-  return matches
+	local tbl_type = type(tbl)
+	assert(
+		tbl_type == "table",
+		string.format(
+			"table.n_matches: bad argument #1 type (table to check using string.match as table expected, got %s)",
+			tbl_type
+		)
+	)
+	local patterns = { ... }
+	local matches = {}
+	for index, pattern in ipairs(patterns) do
+		local ptype = type(pattern)
+		assert(
+			ptype == "string",
+			string.format(
+				"table.n_matches: bad argument #%d type (pattern to check as string expected, got %s)",
+				index + 1,
+				ptype
+			)
+		)
+		for key, value in pairs(tbl) do
+			local valueType = type(value)
+			if
+				(valueType == "string" or valueType == "number")
+				and string.match(value, pattern)
+				and not table.index_of(matches, value)
+			then
+				table.insert(matches, value)
+			end
+		end
+	end
+	return matches
 end
-
 
 --- Table Union.
 ---
@@ -315,50 +369,46 @@ end
 ---   }
 ---   </pre>
 function table.union(...)
-  local sets = { ... }
-  local union = {}
+	local sets = { ... }
+	local union = {}
 
-  for _, set in ipairs(sets) do
-    for key, val in pairs(set) do
-      if union[key] and union[key] ~= val then
-        if type(union[key]) == 'table' then
-          table.insert(union[key], val)
-        else
-          union[key] = { union[key], val }
-        end
-      else
-        union[key] = val
-      end
-    end
-  end
+	for _, set in ipairs(sets) do
+		for key, val in pairs(set) do
+			if union[key] and union[key] ~= val then
+				if type(union[key]) == "table" then
+					table.insert(union[key], val)
+				else
+					union[key] = { union[key], val }
+				end
+			else
+				union[key] = val
+			end
+		end
+	end
 
-  return union
+	return union
 end
-
-
 
 --- Table Union.
 ---
 --- @return Returns a numerically indexed table that is the union of the provided tables. This is
 ---   a union of unique values. The order and keys of the input tables are not preserved.
 function table.n_union(...)
-  local sets = { ... }
-  local union = {}
-  local union_keys = {}
+	local sets = { ... }
+	local union = {}
+	local union_keys = {}
 
-  for _, set in ipairs(sets) do
-    for key, val in pairs(set) do
-      if not union_keys[val] then
-        union_keys[val] = true
-        table.insert(union, val)
-      end
-    end
-  end
+	for _, set in ipairs(sets) do
+		for key, val in pairs(set) do
+			if not union_keys[val] then
+				union_keys[val] = true
+				table.insert(union, val)
+			end
+		end
+	end
 
-  return union
+	return union
 end
-
-
 
 --- Table Intersection.
 ---
@@ -399,37 +449,35 @@ end
 ---   }
 ---   </pre>
 function table.intersection(...)
-  local sets = { ... }
-  if #sets < 2 then
-    return false
-  end
+	local sets = { ... }
+	if #sets < 2 then
+		return false
+	end
 
-  local intersection = {}
+	local intersection = {}
 
-  local function intersect(set1, set2)
-    local result = {}
-    for key, val in pairs(set1) do
-      if set2[key] then
-        if _comp(val, set2[key]) then
-          result[key] = val
-        end
-      end
-    end
-    return result
-  end
+	local function intersect(set1, set2)
+		local result = {}
+		for key, val in pairs(set1) do
+			if set2[key] then
+				if _comp(val, set2[key]) then
+					result[key] = val
+				end
+			end
+		end
+		return result
+	end
 
-  intersection = intersect(sets[1], sets[2])
+	intersection = intersect(sets[1], sets[2])
 
-  for i, _ in ipairs(sets) do
-    if i > 2 then
-      intersection = intersect(intersection, sets[i])
-    end
-  end
+	for i, _ in ipairs(sets) do
+		if i > 2 then
+			intersection = intersect(intersection, sets[i])
+		end
+	end
 
-  return intersection
+	return intersection
 end
-
-
 
 --- Table Intersection.
 ---
@@ -437,131 +485,126 @@ end
 ---   This is an intersection of unique values. The order and keys of the input tables are
 ---   not preserved.
 function table.n_intersection(...)
-  local sets = { ... }
-  if #sets < 2 then
-    return false
-  end
+	local sets = { ... }
+	if #sets < 2 then
+		return false
+	end
 
-  local intersection = {}
+	local intersection = {}
 
-  local function intersect(set1, set2)
-    local intersection_keys = {}
-    local result = {}
-    for _, val1 in pairs(set1) do
-      for _, val2 in pairs(set2) do
-        if _comp(val1, val2) and not intersection_keys[val1] then
-          table.insert(result, val1)
-          intersection_keys[val1] = true
-        end
-      end
-    end
-    return result
-  end
+	local function intersect(set1, set2)
+		local intersection_keys = {}
+		local result = {}
+		for _, val1 in pairs(set1) do
+			for _, val2 in pairs(set2) do
+				if _comp(val1, val2) and not intersection_keys[val1] then
+					table.insert(result, val1)
+					intersection_keys[val1] = true
+				end
+			end
+		end
+		return result
+	end
 
-  intersection = intersect(sets[1], sets[2])
+	intersection = intersect(sets[1], sets[2])
 
-  for i, _ in ipairs(sets) do
-    if i > 2 then
-      intersection = intersect(intersection, sets[i])
-    end
-  end
+	for i, _ in ipairs(sets) do
+		if i > 2 then
+			intersection = intersect(intersection, sets[i])
+		end
+	end
 
-  return intersection
+	return intersection
 end
-
-
 
 --- Table Complement.
 ---
 --- @return Returns a table that is the relative complement of the first table with respect to
 ---   the second table. Returns a complement of key/value pairs.
 function table.complement(set1, set2)
-  if not set1 and set2 then
-    return false
-  end
-  if type(set1) ~= 'table' or type(set2) ~= 'table' then
-    return false
-  end
+	if not set1 and set2 then
+		return false
+	end
+	if type(set1) ~= "table" or type(set2) ~= "table" then
+		return false
+	end
 
-  local complement = {}
+	local complement = {}
 
-  for key, val in pairs(set1) do
-    if not _comp(set2[key], val) then
-      complement[key] = val
-    end
-  end
-  return complement
+	for key, val in pairs(set1) do
+		if not _comp(set2[key], val) then
+			complement[key] = val
+		end
+	end
+	return complement
 end
-
-
 
 --- Table Complement.
 ---
 --- @return Returns a table that is the relative complement of the first table with respect to
 ---   the second table. Returns a complement of values.
 function table.n_complement(set1, set2)
-  if not set1 and set2 then
-    return false
-  end
+	if not set1 and set2 then
+		return false
+	end
 
-  local complement = {}
+	local complement = {}
 
-  for _, val1 in pairs(set1) do
-    local insert = true
-    for _, val2 in pairs(set2) do
-      if _comp(val1, val2) then
-        insert = false
-      end
-    end
-    if insert then
-      table.insert(complement, val1)
-    end
-  end
+	for _, val1 in pairs(set1) do
+		local insert = true
+		for _, val2 in pairs(set2) do
+			if _comp(val1, val2) then
+				insert = false
+			end
+		end
+		if insert then
+			table.insert(complement, val1)
+		end
+	end
 
-  return complement
+	return complement
 end
 
-
 function table.update(t1, t2)
-  local tbl = {}
-  for k, v in pairs(t1) do
-    tbl[k] = v
-  end
-  for k, v in pairs(t2) do
-    if type(v) == "table" and type(tbl[k]) == "table" then
-      tbl[k] = table.update(tbl[k], v)
-    else
-      tbl[k] = v
-    end
-  end
-  return tbl
+	local tbl = {}
+	for k, v in pairs(t1) do
+		tbl[k] = v
+	end
+	for k, v in pairs(t2) do
+		if type(v) == "table" and type(tbl[k]) == "table" then
+			tbl[k] = table.update(tbl[k], v)
+		else
+			tbl[k] = v
+		end
+	end
+	return tbl
 end
 
 ---Returns the index of the value in a table
 function table.index_of(table, element)
-  for index, value in ipairs(table) do
-    if value == element then
-      return index
-    end
-  end
-  return nil
+	for index, value in ipairs(table) do
+		if value == element then
+			return index
+		end
+	end
+	return nil
 end
 
 -- returns a deep copy of the table with the metatable intact. Credit to Steve Donovan of Penlight.
 function table.deepcopy(t)
-  if type(t) ~= 'table' then
-    return t
-  end
-  local mt = getmetatable(t)
-  local res = {}
-  for k, v in pairs(t) do
-    if type(v) == 'table' then
-      v = table.deepcopy(v)
-    end
-    res[k] = v
-  end
-  setmetatable(res, mt)
-  return res
+	if type(t) ~= "table" then
+		return t
+	end
+	local mt = getmetatable(t)
+	local res = {}
+	for k, v in pairs(t) do
+		if type(v) == "table" then
+			v = table.deepcopy(v)
+		end
+		res[k] = v
+	end
+	setmetatable(res, mt)
+	return res
 end
 
 -- Table keys
@@ -581,12 +624,12 @@ end
 ---   -- run table.sort(keys) and keys == { "malfunction", "name", "type" }
 ---   </pre>
 function table.keys(t)
-  local keys={}
-  local index=0
+	local keys = {}
+	local index = 0
 
-  for key,_ in pairs(t) do
-    index=index+1
-    keys[index]=key
-  end
+	for key, _ in pairs(t) do
+		index = index + 1
+		keys[index] = key
+	end
 	return keys
 end
