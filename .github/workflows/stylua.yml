@@ -1,0 +1,45 @@
+name: Format lua files with StyLua
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * fri'
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Run StyLua formatter
+      uses: JohnnyMorganz/stylua-action@v4
+      with:
+        # Pin to a specific version to avoid unexpected formatting changes
+        version: '2.3.1'
+        args: src/mudlet-lua CI/update-autocompletion.lua
+
+    - name: Check for changes
+      id: getdiff
+      run: |
+        if git diff --quiet "${{ matrix.path }}"; then
+          echo "No changes detected"
+          echo "changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "Changes detected"
+          echo "changes=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Create pull request
+      if: steps.getdiff.outputs.changes == 'true'
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        add-paths: src/mudlet-lua/
+        branch: stylua-auto-format
+        commit-message: "(autocommit) Apply StyLua formatting changes"
+        title: "Infrastructure: Format lua files with StyLua"
+        body: |
+          #### Brief overview of PR changes/additions
+          An automated PR to style Mudlet's lua files.
+          #### Motivation for adding to Mudlet
+          So mudlet's lua files have a consistent format.
+        author: mudlet-machine-account <mudlet-machine-account@users.noreply.github.com>
