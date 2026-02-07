@@ -42,6 +42,7 @@ RUN apt-get update && apt-get install -y \
 
 run rm -rf /var/lib/apt/lists/*
 
+
 RUN luarocks install luautf8 && \
     luarocks install lua-yajl && \
     luarocks install lrexlib-pcre2
@@ -64,4 +65,6 @@ COPY --chown=mudlet:mudlet templates templates
 COPY --chown=mudlet:mudlet test test
 COPY --chown=mudlet:mudlet translations translations
 
-CMD cd build && cmake .. -G Ninja && ninja -j 2
+RUN cd build && cmake .. -G Ninja && ninja -j 2
+
+CMD ./build/src/mudlet

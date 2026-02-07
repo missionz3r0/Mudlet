@@ -1,12 +1,20 @@
+x-podman:
+  in_pod: false
+
 services:
   mudlet:
     build:
       dockerfile: docker/Dockerfile
       context: ..
     container_name: mudlet_dev
+    environment:
+      XDG_RUNTIME_DIR: /tmp
+      WAYLAND_DISPLAY: $WAYLAND_DISPLAY
     volumes:
       - ../build:/home/mudlet/build:rw
-      - /tmp/.X11-unix:/tmp/.X11-unix
+      - type: bind
+        source: $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY
+        target: /tmp/$WAYLAND_DISPLAY
 
 volumes: 
   ../build:
