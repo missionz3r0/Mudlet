@@ -1,62 +1,50 @@
-FROM ubuntu:24.04
+FROM ubuntu:25.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Dependencies
-RUN apt-get update && apt-get install --no-install-recommends -y \
+RUN apt-get update && apt-get install -y \
     build-essential \
     ca-certificates \
     ccache \
     clang \
-    clang-format \
-    clang-tidy \
     cmake \
-    flatpak-builder \
-    gdb \
     git \
-    libboost-all-dev \
+    libassimp-dev \
     libboost-dev \
-    libglib2.0-dev \
+    libcurl4-openssl-dev \
     libglu1-mesa-dev \
-    libgstreamer1.0-dev \
     libhunspell-dev \
     liblua5.1-0-dev \
-    libpcre3-dev \
+    libpcre2-dev \
     libpugixml-dev \
     libpulse-dev \
-    libsecret-1-dev \
-    libyajl-dev \
-    libzip-dev \
-    lua-filesystem \
-    lua-sql-sqlite3 \
-    lua-zip \
-    lua5.1 \
-    luarocks \
-    mesa-common-dev \
-    ninja-build \
-    ubuntu-restricted-extras \
-    wget \
-    zlib1g-dev \
-    # QT6
     libqt6core5compat6-dev \
     libqt6opengl6-dev \
-    qmake6-bin \
-    qt6-base-dev \
+    libsecret-1-dev \
+    libssl-dev \
+    libxkbcommon-dev \
+    libyajl-dev \
+    libzip-dev \
+    libzstd-dev \
+    lua-filesystem \
+    lua-rex-pcre2 \
+    lua-sql-sqlite3 \
+    lua-zip \
+    luarocks \
+    ninja-build \
+    openssl \
     qt6-multimedia-dev \
     qt6-speech-dev \
-    qt6-speech-flite-plugin \
-    qt6-speech-speechd-plugin \
     qt6-tools-dev \
-    qt6-tools-dev-tools \
-    qtkeychain-qt6-dev
-
-RUN flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    qtkeychain-qt6-dev \
+    zlib1g-dev
 
 run rm -rf /var/lib/apt/lists/*
 
 RUN luarocks install luautf8 && \
     luarocks install lua-yajl && \
-    luarocks install lrexlib-pcre
+    luarocks install lrexlib-pcre2
 
 # Without this, clang-tidy/format doesn't find the correct c++ headers
 ENV CPLUS_INCLUDE_PATH="${CPLUS_INCLUDE_PATH:+${CPLUS_INCLUDE_PATH}:}/usr/lib/gcc/x86_64-linux-gnu/9/include"
@@ -76,8 +64,4 @@ COPY --chown=mudlet:mudlet templates templates
 COPY --chown=mudlet:mudlet test test
 COPY --chown=mudlet:mudlet translations translations
 
-RUN echo 15385 > /proc/sys/user/max_user_namespaces
-
-RUN flatpak-builder --install-deps-from=flathub --install ./build ./CI/org.mudlet.mudlet.yml
-
-CMD ./build/mudlet.flatpak
+CMD cd build && cmake .. -G Ninja && ninja -j 2

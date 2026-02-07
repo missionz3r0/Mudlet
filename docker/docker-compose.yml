@@ -1,11 +1,9 @@
 services:
-  mudlet: &base-settings
-    image: mudlet:dev
+  mudlet:
     build:
       dockerfile: docker/Dockerfile
       context: ..
-    environment:
-      - DISPLAY=$DISPLAY
+    container_name: mudlet_dev
     volumes:
       - ../build:/home/mudlet/build:rw
       - /tmp/.X11-unix:/tmp/.X11-unix
