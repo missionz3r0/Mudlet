@@ -22,13 +22,26 @@
 
 #include "TEasyButtonBar.h"
 
+#include "ActionUnit.h"
 #include "Host.h"
 #include "TAction.h"
-#include "TConsole.h"
 #include "TFlipButton.h"
+#include "TMainConsole.h"
+#include "utils.h"
 
+#include <QAbstractButton>
+#include <QDebug>
 #include <QGridLayout>
+#include <QLayout>
+#include <QObject>
+#include <QPointer>
+#include <QPushButton>
 #include <QScopeGuard>
+#include <QSize>
+#include <QSizePolicy>
+#include <QVBoxLayout>
+
+#include <algorithm>
 
 
 TEasyButtonBar::TEasyButtonBar(TAction* pA, QString name, QWidget* pW)

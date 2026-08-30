@@ -22,8 +22,13 @@
 #include "LuaLiteral.h"
 #include "utils.h"
 
+#include <QLatin1Char>
+#include <QList>
+#include <QSet>
 #include <QUrl>
 #include <QUrlQuery>
+
+#include <utility>
 
 THyperlinkSelectionManager::THyperlinkSelectionManager()
 : QObject(nullptr)

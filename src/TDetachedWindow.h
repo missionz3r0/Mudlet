@@ -28,7 +28,12 @@
 #include <QToolButton>
 #include <QKeySequence>
 #include <QLabel>
+#include <QList>
 #include <QMap>
+#include <QPoint>
+#include <QSize>
+#include <QString>
+#include <QStringList>
 #include <QStackedWidget>
 #include <QDockWidget>
 #include <functional>
