@@ -24,6 +24,8 @@
 #include "SignInStoreReconciler.h"
 #include "utils.h"
 
+#include <QByteArray>
+#include <QCoreApplication>
 #include <QElapsedTimer>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -32,11 +34,15 @@
 #include <QScopedPointer>
 #include <QString>
 #include <QVariantMap>
+#include <QStringList>
 
 #include <chrono>
 #include <functional>
 
+class Host;
 class OAuthClientFlow;
+class QJsonObject;
+class QUrl;
 
 
 class GMCPAuthenticator

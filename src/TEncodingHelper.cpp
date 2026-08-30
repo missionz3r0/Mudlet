@@ -20,8 +20,11 @@
 #include "TEncodingHelper.h"
 #include "TEncodingTable.h"
 #include "TTextCodec.h"
+#include <QChar>
 #include <QDebug>
 #include <QStringDecoder>
+#include <QVector>
+#include <QtGlobal>
 #include <QStringEncoder>
 #include <QTextCodec>
 
