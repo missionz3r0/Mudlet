@@ -22,6 +22,9 @@
 
 #include "EditorCommand.h"
 
+#include <QList>
+#include <QString>
+
 class Host;
 
 // Undo command for moving items. Handles reparenting and position changes in the editor tree.
