@@ -22,6 +22,7 @@
 #include "SecureStringUtils.h"
 #include "utils.h"
 
+#include <QByteArray>
 #include <QCoreApplication>
 #include <QDebug>
 #include <QDir>
@@ -34,7 +35,10 @@
 #include <QCryptographicHash>
 #include <QStandardPaths>
 #include <QTimer>
+#include <QIODevice>
 #include <QVersionNumber>
+
+#include <utility>
 #if defined(INCLUDE_OWN_QT6_KEYCHAIN)
 #include <qtkeychain/keychain.h>
 #else

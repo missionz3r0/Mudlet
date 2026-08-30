@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 #include <QHash>
+#include <QList>
 #include <QNetworkAccessManager>
 #include <QObject>
 #include <QStringList>

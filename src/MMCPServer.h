@@ -20,10 +20,17 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <QList>
+#include <QPair>
 #include <QPointer>
+#include <QString>
 #include <QTcpServer>
+#include <QVariant>
+#include <QtGlobal>
 
 #include "utils.h"
+#include <string>
+
 
 class QString;
 

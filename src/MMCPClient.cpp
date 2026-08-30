@@ -23,12 +23,21 @@
 #include "MMCPServer.h"
 #include "TEvent.h"
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QChar>
+#include <QDateTime>
+#include <QDebug>
 #include <QHostAddress>
+#include <QLatin1Char>
+#include <QList>
+#include <QStringList>
 #include <QTcpSocket>
 #include <QRegularExpression>
 #include <QtGlobal>
 #include <chrono>
+#include <cstdint>
+#include <sstream>
 
 using namespace std::chrono_literals;
 

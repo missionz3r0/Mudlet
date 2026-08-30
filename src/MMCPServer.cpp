@@ -22,11 +22,18 @@
 #include "Host.h"
 #include "MMCP.h"
 #include "MMCPClient.h"
-#include "mudlet.h"
 #include "TEvent.h"
+#include "TMainConsole.h"
+#include "utils.h"
 
+#include <cstdio>
+#include <sstream>
 #include <string>
 
+#include <QByteArray>
+#include <QChar>
+#include <QLatin1Char>
+#include <QRegularExpression>
 #include <QTcpServer>
 #include <QHostAddress>
 #include <QListIterator>

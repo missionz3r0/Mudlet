@@ -23,6 +23,8 @@
 #include "Host.h"
 #include "utils.h"
 
+#include <QByteArray>
+#include <QCoreApplication>
 #include <QElapsedTimer>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -30,11 +32,14 @@
 #include <QPointer>
 #include <QString>
 #include <QVariantMap>
+#include <QStringList>
 
 #include <chrono>
 #include <functional>
 
+class Host;
 class OAuthClientFlow;
+class QUrl;
 
 
 class GMCPAuthenticator
