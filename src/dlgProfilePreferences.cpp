@@ -30,7 +30,6 @@
 #include "Host.h"
 #include "TAction.h"
 #include "TAlias.h"
-#include "TConsole.h"
 #include "TKey.h"
 #include "TMainConsole.h"
 #include "TMap.h"
@@ -41,10 +40,16 @@
 #include "TTextEdit.h"
 #include "TTimer.h"
 #include "TTrigger.h"
-#include "dlgIRC.h"
 #include "dlgMapper.h"
 #include "dlgTriggerEditor.h"
+#include "mudlet.h"
+#include "edbee/edbee.h"
+#include "edbee/models/textdocument.h"
+#include "edbee/models/textgrammar.h"
 #include "edbee/views/texteditorscrollarea.h"
+#if defined(INCLUDE_3DMAPPER)
+#include <QOpenGLWidget>
+#endif
 #include "MMCP.h"
 #include "utils.h"
 
@@ -76,6 +81,7 @@
 #include <QUiLoader>
 #include <QLineEdit>
 #include <QHBoxLayout>
+#include <QApplication>
 #include "../3rdparty/kdtoolbox/singleshot_connect/singleshot_connect.h"
 
 using namespace std::chrono_literals;

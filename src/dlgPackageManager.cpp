@@ -23,20 +23,58 @@
 
 #include "dlgPackageManager.h"
 
+#include "Host.h"
+#include "PackageItemDelegate.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "TMainConsole.h"
+#include "utils.h"
 
+#include <QAbstractButton>
+#include <QButtonGroup>
+#include <QByteArray>
 #include <QCloseEvent>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
+#include <QFontMetrics>
+#include <QFrame>
+#include <QIODevice>
+#include <QIcon>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QJsonValueRef>
+#include <QLabel>
+#include <QLatin1String>
+#include <QLineEdit>
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <QMap>
 #include <QMessageBox>
 #include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QObject>
+#include <QPixmap>
+#include <QPointer>
 #include <QProgressDialog>
+#include <QPushButton>
 #include <QSettings>
+#include <QStringList>
+#include <QTextBrowser>
 #include <QTimer>
+#include <QUrl>
+#include <QVariant>
 #include <QVersionNumber>
+#include <QWidget>
+#include <QNetworkReply>
+
+#include <chrono>
+#include <memory>
+#include <utility>
 
 using namespace std::chrono_literals;
 

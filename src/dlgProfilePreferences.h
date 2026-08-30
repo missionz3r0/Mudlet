@@ -25,15 +25,23 @@
 
 
 #include "mudlet.h"
+#include "enums.h"
 
 #include "ui_profile_preferences.h"
 #include <QDialog>
+#include <QKeySequence>
 #include <QList>
 #include <QMap>
+#include <QPointer>
+#include <QTextOption>
 
 class Host;
+class QAction;
 class QCloseEvent;
+class QComboBox;
 class QDoubleSpinBox;
+class QMenu;
+class QTemporaryFile;
 class TAction;
 class TAlias;
 class TKey;
