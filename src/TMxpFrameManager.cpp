@@ -20,20 +20,34 @@
 
 #include "TMxpFrameManager.h"
 #include "Host.h"
+#include "TBuffer.h"
+#include "TCommandLine.h"
 #include "TConsole.h"
 #include "TDockWidget.h"
-#include "TLabel.h"
 #include "TMainConsole.h"
+#include "TMxpProcessor.h"
 #include "TTextEdit.h"
+#include "utils.h"
 
+#include <QChar>
+#include <QColor>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QEventLoop>
+#include <QFont>
 #include <QFontMetrics>
 #include <QFrame>
-#include <QMainWindow>
+#include <QLayout>
+#include <QPoint>
+#include <QRegularExpression>
 #include <QSizePolicy>
+#include <QTabWidget>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QWidget>
+#include <QtGlobal>
+
+#include <utility>
 
 TMxpFrame::~TMxpFrame()
 {

@@ -19,7 +19,11 @@
  ***************************************************************************/
 
 #include "TMxpFormattingTagsHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
+#include "utils.h"
+
+#include <QtGlobal>
 
 bool TMxpFormattingTagsHandler::supports(TMxpContext& ctx, TMxpClient& client, MxpTag* tag)
 {

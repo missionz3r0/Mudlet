@@ -19,6 +19,8 @@
 
 #include "TMxpImageTagHandler.h"
 
+#include <QtGlobal>
+
 TMxpTagHandlerResult TMxpImageTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)
 {
     Q_UNUSED(ctx)

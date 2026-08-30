@@ -21,6 +21,11 @@
  ***************************************************************************/
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+#include "utils.h"
+
+#include <QMap>
+#include <QString>
 
 // Handles MXP <FRAME> tag for creating internal/external windows
 // Usage: <FRAME name="frameName" INTERNAL align="left" width="25%" height="30c" scrolling="YES">
