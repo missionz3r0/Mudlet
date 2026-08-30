@@ -32,6 +32,7 @@
 #include "TConsoleModel.h"
 #include "TDebug.h"
 #include "TLuaInterpreter.h"
+#include "TMainConsole.h"
 #include "TMatchState.h"
 #include "TMedia.h"
 #include "TMediaData.h"

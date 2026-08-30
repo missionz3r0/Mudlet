@@ -23,9 +23,24 @@
 #include "mudlet.h"
 #include "utils.h"
 
+#include "../3rdparty/discord/rpc/include/discord_rpc.h"
+
 #include <QtDebug>
+#include <QByteArray>
+#include <QChar>
+#include <QFlags>
 #include <QHash>
+#include <QHashIterator>
+#include <QLatin1String>
+#include <QLibrary>
+#include <QList>
+#include <QApplication>
+#include <QStringList>
+#include <QTimer>
+#include <QVectorIterator>
 #include <chrono>
+#include <cstring>
+#include <utility>
 
 using namespace std::chrono_literals;
 
