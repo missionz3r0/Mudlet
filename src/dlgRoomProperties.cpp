@@ -24,11 +24,43 @@
 #include "dlgRoomProperties.h"
 #include "Host.h"
 #include "TMap.h"
-#include "TRoomDB.h"
+#include "TRoom.h"
+#include "utils.h"
 
+#include <QAbstractButton>
+#include <QChar>
+#include <QCheckBox>
 #include <QColorDialog>
+#include <QComboBox>
+#include <QCursor>
+#include <QFontMetrics>
+#include <QHBoxLayout>
+#include <QHashIterator>
+#include <QIcon>
+#include <QLabel>
+#include <QLineEdit>
+#include <QList>
+#include <QListView>
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <QMap>
+#include <QMapIterator>
 #include <QMenu>
+#include <QNonConstOverload>
 #include <QPainter>
+#include <QPixmap>
+#include <QPushButton>
+#include <QRegularExpression>
+#include <QScopedPointer>
+#include <QSizePolicy>
+#include <QSpinBox>
+#include <QVBoxLayout>
+#include <QVector>
+#include <QWidget>
+#include <QApplication>
+
+#include <algorithm>
+#include <utility>
 
 
 dlgRoomProperties::dlgRoomProperties(Host* pHost, QWidget* pParentWidget)

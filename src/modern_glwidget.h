@@ -31,6 +31,7 @@
 #include <winsock2.h>
 #endif
 
+#include <QColor>
 #include <QElapsedTimer>
 #include <QMatrix4x4>
 #include <QVector3D>
@@ -41,7 +42,11 @@
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLWidget>
 #include <QPointer>
+#include <QSize>
+#include <QString>
 #include <QTimer>
+#include <QVector>
+#include <QtGlobal>
 #include <QEasingCurve>
 
 #include "GeometryManager.h"

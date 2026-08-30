@@ -22,9 +22,11 @@
 
 #include "glwidget.h"
 #include "modern_glwidget.h"
+#include <QString>
 
 class TMap;
 class Host;
+class QOpenGLWidget;
 class QWidget;
 
 namespace GLWidgetFactory {

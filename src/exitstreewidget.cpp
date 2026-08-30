@@ -23,6 +23,10 @@
 #include "exitstreewidget.h"
 
 #include <QtEvents>
+#include <QAbstractItemView>
+#include <QKeyEvent>
+#include <QList>
+#include <QTreeWidgetItem>
 
 
 ExitsTreeWidget::ExitsTreeWidget(QWidget* pParent)
