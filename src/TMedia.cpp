@@ -24,17 +24,37 @@
 
 #include "TMedia.h"
 
+#include "HostManager.h"
+#include "TEvent.h"
+#include "TMainConsole.h"
+#include "enums.h"
+#include "mudlet.h"
+#include "utils.h"
+
+#include <QByteArray>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QJsonValueRef>
+#include <QLatin1Char>
+#include <QLatin1String>
 #include <QMetaMethod>
+#include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
+#include <QNetworkRequest>
 #include <QRandomGenerator>
 #include <QSaveFile>
+#include <QScopedPointer>
+#include <QSslConfiguration>
 #include <QStandardPaths>
+#include <QtGlobal>
+#include <QNetworkReply>
 #include <QTimer>
+
+#include <algorithm>
 
 namespace {
 // Holds TMediaPlayer::reservedForPlay() for as long as a play() call is setting that player up,

@@ -33,7 +33,6 @@
 #include "Host.h"
 #include "TBuffer.h"
 #include "TMxpProcessor.h"
-#include "TConsole.h"
 #include "TDebug.h"
 #include "TEvent.h"
 #include "TMainConsole.h"
@@ -41,31 +40,61 @@
 #include "TMedia.h"
 #include "TRoomDB.h"
 #include "GMCPAuthenticator.h"
-#include "TTextCodec.h"
 #include "TEncodingHelper.h"
+#include "TLuaInterpreter.h"
+#include "TMediaData.h"
+#include "TRoom.h"
+#include "discord.h"
+#include "enums.h"
 #include "utils.h"
-#include "TTextEdit.h"
 #include "dlgComposer.h"
-#include "dlgMapper.h"
 #include "mudlet.h"
-#if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
-#endif
 #include "MMCPServer.h"
 
+#include <QChar>
+#include <QColor>
 #include <QCoreApplication>
 #include <QDataStream>
+#include <QDebug>
+#include <QFile>
+#include <QHostAddress>
+#include <QHostInfo>
+#include <QIODevice>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QMutableByteArrayListIterator>
+#include <QNetworkAccessManager>
 #include <QNetworkProxy>
+#include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QRegularExpression>
 #include <QSaveFile>
+#include <QScopedPointer>
 #include <QScopeGuard>
 #include <QSettings>
 #include <QSignalBlocker>
 #include <QSslError>
+#include <QStringBuilder>
+#include <QTime>
+#include <QTimer>
 #include <QtGlobal>
+#include <QUrl>
+#include <QVariant>
+#include <QVersionNumber>
+#include <QApplication>
+
+#include <zlib.h>
+
+#include <algorithm>
+#include <chrono>
+#include <compare>
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <vector>
 
 using namespace std::chrono_literals;
 

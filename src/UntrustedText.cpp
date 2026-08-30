@@ -21,6 +21,9 @@
 
 #include "utils.h"
 
+#include <QChar>
+#include <QList>
+
 bool UntrustedText::unsafeCharacter(char32_t codePoint)
 {
     // C0 controls, DEL, and C1 controls - which include CR, LF and NEL.

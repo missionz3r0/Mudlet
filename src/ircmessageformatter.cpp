@@ -21,7 +21,17 @@
 
 #include "ircmessageformatter.h"
 
+#include <Irc>
 #include <IrcTextFormat>
+
+#include <QDateTime>
+#include <QFlags>
+#include <QLatin1Char>
+#include <QList>
+#include <QObject>
+#include <QStringList>
+#include <QTime>
+#include <QtGlobal>
 
 QString IrcMessageFormatter::formatMessage(IrcMessage* message, bool isForLua)
 {
