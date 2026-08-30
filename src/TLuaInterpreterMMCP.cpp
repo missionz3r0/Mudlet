@@ -26,6 +26,23 @@
 #include "MMCPClient.h"
 #include "MMCPServer.h"
 #include "TLuaInterpreter.h"
+#include "utils.h"
+
+#include <QByteArray>
+#include <QList>
+#include <QListIterator>
+#include <QPair>
+#include <QPointer>
+#include <QString>
+#include <QStringLiteral>
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lua.h>
+#else
+#include <lua.h>
+#endif
+}
 
 int TLuaInterpreter::mmcpChatTo(lua_State* L)
 {

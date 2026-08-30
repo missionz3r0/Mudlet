@@ -32,45 +32,76 @@
 
 #include "TLuaInterpreter.h"
 
-#include "EAction.h"
 #include "Host.h"
+#include "T2DMap.h"
 #include "TArea.h"
-#include "TCommandLine.h"
-#include "TConsole.h"
 #include "TDebug.h"
-#include "TEvent.h"
-#include "TLabel.h"
 #include "TMap.h"
 #include "TMapLabel.h"
-#include "TMedia.h"
 #include "TMapView.h"
 #include "TMapViewManager.h"
+#include "TRoom.h"
 #include "TRoomDB.h"
-#include "TTextEdit.h"
-#include "TTimer.h"
-#include "dlgComposer.h"
-#include "dlgIRC.h"
 #include "dlgMapper.h"
-#include "dlgModuleManager.h"
-#include "dlgTriggerEditor.h"
 #include "mapInfoContributorManager.h"
-#include "mudlet.h"
+#include "utils.h"
+#include "TMainConsole.h"
 #if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
+#include "modern_glwidget.h"
+#include <QOpenGLWidget>
 #endif
 
+#include <algorithm>
+#include <cstddef>
 #include <limits>
 #include <math.h>
+#include <memory>
+#include <optional>
+#include <tuple>
+#include <utility>
 
+#include <QByteArray>
+#include <QChar>
 #include <QCollator>
+#include <QColor>
+#include <QComboBox>
 #include <QCoreApplication>
 #include <QDesktopServices>
 #include <QFileInfo>
+#include <QHashIterator>
+#include <QLatin1String>
+#include <QList>
+#include <QMap>
+#include <QMapIterator>
 #include <QMovie>
+#include <QMultiMap>
+#include <QPair>
+#include <QPointer>
+#include <QPointF>
+#include <QRect>
+#include <QScopedPointer>
+#include <QSet>
+#include <QSetIterator>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 #include <QVector>
+#include <QNetworkReply>
 #ifdef QT_TEXTTOSPEECH_LIB
 #include <QTextToSpeech>
 #endif // QT_TEXTTOSPEECH_LIB
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lua.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+#endif
+}
 
 // No documentation available in wiki - internal function
 static bool isMain(const QString& name)
