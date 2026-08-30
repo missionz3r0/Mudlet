@@ -24,9 +24,26 @@
 #include <QTextBoundaryFinder>
 #include "TAccessibleTextEdit.h"
 #include "TBuffer.h"
-#include "TConsole.h"
+#include "THyperlinkStyling.h"
+#include "TLinkStore.h"
+#include "TTextEdit.h"
 #include "Host.h"
-#include "mudlet.h"
+
+#include <QColor>
+#include <QFlags>
+#include <QFont>
+#include <QLatin1Char>
+#include <QList>
+#include <QPoint>
+#include <QPointer>
+#include <QRegion>
+#include <QSize>
+#include <QStringList>
+
+#include <algorithm>
+#include <deque>
+#include <utility>
+#include <vector>
 
 TTextEdit* TAccessibleTextEdit::textEdit() const
 {

@@ -34,16 +34,27 @@
 #include "TimerUnit.h"
 #include "TriggerUnit.h"
 #include "mudlet.h"
+#include "utils.h"
 
 #include <QAction>
 #include <QComboBox>
 #include <QCompleter>
+#include <QIcon>
 #include <QLabel>
 #include <QLineEdit>
+#include <QList>
 #include <QMenu>
+#include <QMultiMap>
+#include <QPair>
+#include <QPointer>
+#include <QSignalBlocker>
 #include <QStyle>
 #include <QTimer>
 #include <QToolButton>
+
+#include <chrono>
+#include <functional>
+#include <utility>
 
 using namespace std::chrono_literals;
 

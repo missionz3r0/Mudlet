@@ -38,21 +38,43 @@
 #include "TTextProperties.h"
 #include "widechar_width.h"
 #include "TEncodingHelper.h"
+#include "TMxpFrameManager.h"
+#include "TMxpMudlet.h"
+#include "TMxpNodeBuilder.h"
+#include "TMxpProcessor.h"
 #include "SentryWrapper.h"
+#include "TMainConsole.h"
+#include "ctelnet.h"
 
+#include <QChar>
+#include <QDateTime>
+#include <QDebug>
+#include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonParseError>
 #include <QJsonValue>
+#include <QJsonValueRef>
+#include <QObject>
 #include <QRegularExpression>
+#include <QStringBuilder>
+#include <QStringView>
+#include <QSysInfo>
 #include <QTextBoundaryFinder>
+#include <QTextStream>
 #include <QTime>
 #include <QTimer>
+#include <QtGlobal>
+#include <QUrl>
 #include <QUrlQuery>
 
 #include <algorithm>
+#include <cassert>
+#include <cstddef>
+#include <cstdint>
 #include <iterator>
+#include <queue>
 #include <utility>
 #include <chrono>
 

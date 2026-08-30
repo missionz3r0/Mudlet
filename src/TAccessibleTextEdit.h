@@ -26,9 +26,18 @@
 
 #include "TTextEdit.h"
 
+#include <QAccessible>
 #include <QAccessibleInterface>
 #include <QAccessibleTextInterface>
 #include <QAccessibleWidget>
+#include <QLatin1String>
+#include <QObject>
+#include <QRect>
+#include <QString>
+#include <QWidget>
+#include <QtGlobal>
+
+class TTextEdit;
 
 class TAccessibleTextEdit : public QAccessibleWidget, public QAccessibleTextInterface
 {
