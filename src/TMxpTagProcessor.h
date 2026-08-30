@@ -23,7 +23,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <QList>
 #include <QMap>
+#include <QPair>
 #include <QString>
 #include <QVector>
 

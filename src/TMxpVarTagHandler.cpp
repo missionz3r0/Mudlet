@@ -23,6 +23,9 @@
 
 #include "TMxpVarTagHandler.h"
 #include "TMxpClient.h"
+#include "utils.h"
+
+#include <QtGlobal>
 
 bool TMxpVarTagHandler::supports(TMxpContext& ctx, TMxpClient& client, MxpTag* tag)
 {

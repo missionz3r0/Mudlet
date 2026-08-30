@@ -23,6 +23,10 @@
 
 
 #include "TMxpTagProcessor.h"
+#include "MxpTag.h"
+#include "TMxpClient.h"
+#include "TMxpTagHandler.h"
+#include "utils.h"
 #include "TMxpBRTagHandler.h"
 #include "TMxpColorTagHandler.h"
 #include "TMxpCustomElementTagHandler.h"
@@ -42,12 +46,14 @@
 #include "TMxpStatTagHandler.h"
 #include "TMxpSupportTagHandler.h"
 #include "TMxpTagHandlerResult.h"
-#include "TMxpTagParser.h"
 #include "TMxpVarTagHandler.h"
 #include "TMxpVersionTagHandler.h"
 
 #ifdef DEBUG_MXP_PROCESSING
 #include <QDebug>
+#include <QSharedPointer>
+
+#include <utility>
 #endif
 
 TMxpTagHandlerResult TMxpTagProcessor::handleTag(TMxpContext& ctx, TMxpClient& client, MxpTag* tag)
