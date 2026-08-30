@@ -20,6 +20,12 @@
 #include "RenderCommand.h"
 
 #include <QDebug>
+#include <QMatrix3x3>
+#include <QOpenGLBuffer>
+#include <QOpenGLFunctions>
+#include <QOpenGLShaderProgram>
+#include <QVector4D>
+#include <QtGlobal>
 
 RenderCubeCommand::RenderCubeCommand(
         float x, float y, float z, float size, float r, float g, float b, float a, const QMatrix4x4& projectionMatrix, const QMatrix4x4& viewMatrix, const QMatrix4x4& modelMatrix)

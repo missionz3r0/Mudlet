@@ -20,6 +20,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <cstddef>
 #include <vector>
 #include <memory>
 #include <QOpenGLBuffer>
@@ -29,6 +30,8 @@
 
 #include "RenderCommand.h"
 #include "GeometryManager.h"
+
+class GeometryManager;
 
 class RenderCommandQueue : protected QOpenGLFunctions
 {

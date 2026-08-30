@@ -20,10 +20,18 @@
 #include "ShaderManager.h"
 #include "ResourceManager.h"
 
+#include <QByteArray>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QFileSystemWatcher>
+#include <QIODevice>
+#include <QList>
+#include <QOpenGLShader>
+#include <QOpenGLShaderProgram>
 #include <QStandardPaths>
+#include <QStringList>
+#include <QTimer>
 #include <QCoreApplication>
 #include <chrono>
 

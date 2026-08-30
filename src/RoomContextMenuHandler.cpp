@@ -29,6 +29,11 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QObject>
+#include <QPointer>
+#include <QSet>
+#include <QString>
+
+#include <memory>
 
 RoomContextMenuHandler::RoomContextMenuHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)
