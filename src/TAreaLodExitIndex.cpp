@@ -19,6 +19,9 @@
 
 #include "TAreaLodExitIndex.h"
 
+#include <QList>
+#include <QMap>
+
 #include <algorithm>
 
 void TAreaLodExitIndex::beginRebuild()

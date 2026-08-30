@@ -24,6 +24,8 @@
 
 #include "TArea.h"
 
+#include "TRoom.h"
+
 
 #include "Host.h"
 #include "T2DMap.h"

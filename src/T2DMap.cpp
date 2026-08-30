@@ -29,7 +29,6 @@
 #include "Host.h"
 #include "MudletPaths.h"
 #include "TArea.h"
-#include "TConsole.h"
 #include "TEvent.h"
 #include "CustomLineDrawContextMenuHandler.h"
 #include "CustomLineDrawHandler.h"
@@ -43,16 +42,18 @@
 #include "RoomMoveActivationHandler.h"
 #include "RoomMoveDragHandler.h"
 #include "SelectionRectangleHandler.h"
+#include "TAreaGridIndex.h"
+#include "TMap.h"
+#include "TMapLabel.h"
 #include "TRoom.h" // For DIR_XXX defines
 #include "TRoomDB.h"
+#include "dlgMapLabel.h"
 #include "dlgMapper.h"
 #include "dlgRoomExits.h"
 #include "dlgRoomProperties.h"
+#include "enums.h"
 #include "mudlet.h"
 #include "utils.h"
-#if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
-#endif
 
 
 #include <QAction>
@@ -75,14 +76,64 @@
 #else
 #include <QtConcurrentTask>
 #endif
+#include <QAbstractButton>
+#include <QAbstractScrollArea>
+#include <QByteArray>
+#include <QChar>
+#include <QCheckBox>
+#include <QColorDialog>
+#include <QDebug>
+#include <QDialogButtonBox>
+#include <QElapsedTimer>
+#include <QEvent>
+#include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QFlags>
+#include <QFontMetrics>
+#include <QFrame>
+#include <QFutureWatcher>
+#include <QGridLayout>
+#include <QHeaderView>
+#include <QIcon>
+#include <QImage>
+#include <QLatin1String>
+#include <QLinearGradient>
+#include <QLineEdit>
+#include <QListWidgetItem>
 #include <QMap>
 #include <QMapIterator>
 #include <QMenu>
+#include <QMouseEvent>
+#include <QMutableMapIterator>
+#include <QObject>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPair>
+#include <QPen>
+#include <QPolygonF>
+#include <QRadialGradient>
+#include <QRegion>
+#include <QRgb>
+#include <QSetIterator>
+#include <QSettings>
+#include <QSizePolicy>
 #include <QStandardPaths>
+#include <QStringList>
+#include <QtGlobal>
 #include <QTimer>
+#include <QTreeWidgetItem>
+#include <QVariant>
+#include <QVector>
+#include <QVector2D>
+#include <QVector3D>
+#include <QWheelEvent>
 #include <QtEvents>
-#include <QtUiTools>
+#include <QUiLoader>
 #include <QWidget>
+
+#include <cstdlib>
+#include <tuple>
 #include <QAbstractItemView>
 #include <QDialog>
 #include <QLabel>
@@ -98,8 +149,10 @@
 #include <cmath>
 
 #include <algorithm>
+#include <QApplication>
 
 #include "mapInfoContributorManager.h"
+#include "TMainConsole.h"
 
 
 // qsls cannot be shared so define a common instance to use when

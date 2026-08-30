@@ -19,6 +19,9 @@
 
 #include "TAreaZLevelIndex.h"
 
+#include <QHashIterator>
+#include <QSet>
+
 const QSet<int> TAreaZLevelIndex::csmEmptySet;
 
 void TAreaZLevelIndex::addRoom(int id, int z)

@@ -22,8 +22,12 @@
 
 #include <QComboBox>
 #include <QPointer>
+#include <QString>
 #include <QToolButton>
 #include <QWidget>
+#include <QtGlobal>
+
+#include <utility>
 
 class Host;
 class T2DMap;
