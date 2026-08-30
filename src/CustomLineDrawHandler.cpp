@@ -24,8 +24,13 @@
 #include "TRoomDB.h"
 
 #include <QEvent>
+#include <QList>
+#include <QMap>
 #include <QMouseEvent>
 #include <QPointF>
+#include <QString>
+
+#include <memory>
 
 CustomLineDrawHandler::CustomLineDrawHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)
