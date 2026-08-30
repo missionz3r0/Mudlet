@@ -21,6 +21,9 @@
 #ifndef MUDLET_TMXPFONTTAGHANDLER_H
 #define MUDLET_TMXPFONTTAGHANDLER_H
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 
 // <FONT FACE=name [SIZE=size] [COLOR=foreground] [BACK=background]>
 class TMxpFontTagHandler : public TMxpSingleTagHandler

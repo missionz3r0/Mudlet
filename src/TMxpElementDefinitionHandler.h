@@ -20,7 +20,12 @@
 
 #ifndef MUDLET_TMXPELEMENTDEFINITIONHANDLER_H
 #define MUDLET_TMXPELEMENTDEFINITIONHANDLER_H
+#include "MxpTag.h"
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+#include "utils.h"
+
+#include <QtGlobal>
 
 // https://www.zuggsoft.com/zmud/mxp.htm#ELEMENT
 // <!ELEMENT element-name [definition] [ATT=attribute-list] [TAG=tag] [FLAG=flags] [OPEN] [DELETE] [EMPTY]>
