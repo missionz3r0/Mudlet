@@ -32,17 +32,30 @@
 #include <QColor>
 #include <QFont>
 #include <QFutureWatcher>
+#include <QGradientStops>
+#include <QLineF>
+#include <QMap>
 #include <QPixmap>
+#include <QPoint>
 #include <QPointer>
 #include <QPointF>
+#include <QRect>
+#include <QRectF>
+#include <QSet>
+#include <QSize>
+#include <QSizeF>
 #include <QString>
+#include <QtGlobal>
 #include <QTreeWidget>
 #include <QWidget>
 
 #include <QList>
 #include <memory>
 #include <optional>
+#include <utility>
 
+class dlgMapLabel;
+class dlgRoomProperties;
 class Host;
 class TArea;
 class TMap;

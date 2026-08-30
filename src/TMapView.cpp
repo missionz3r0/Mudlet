@@ -25,10 +25,22 @@
 #include "TRoomDB.h"
 #include "utils.h"
 
+#include <QAbstractButton>
 #include <QApplication>
+#include <QComboBox>
+#include <QDebug>
+#include <QFont>
 #include <QHBoxLayout>
+#include <QKeyValueIterator>
 #include <QLabel>
+#include <QMap>
+#include <QPalette>
+#include <QSizePolicy>
+#include <QToolButton>
 #include <QVBoxLayout>
+#include <QtGlobal>
+
+#include <memory>
 
 TMapView::TMapView(int viewId, Host* pHost, TMap* pMap, QWidget* parent)
 : QWidget(parent)

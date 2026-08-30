@@ -23,41 +23,92 @@
 
 #include "TMap.h"
 
+#include "TAstar.h"
+
 #include "Host.h"
+#include "T2DMap.h"
 #include "TArea.h"
 #include "TConsole.h"
 #include "TEvent.h"
 #include "TMapLabel.h"
 #include "TMapView.h"
 #include "TMapViewManager.h"
+#include "TRoom.h"
 #include "TRoomDB.h"
 #include "XMLimport.h"
+#include "ctelnet.h"
 #include "dlgMapper.h"
+#include "enums.h"
 #include "TLuaInterpreter.h"
 #include "mapInfoContributorManager.h"
 #include "mudlet.h"
+#include "dlgTriggerEditor.h"
+#include "TMainConsole.h"
+#if defined(INCLUDE_3DMAPPER)
+#include "glwidget.h"
+#include "modern_glwidget.h"
+#endif
 
+#include <QApplication>
 #include <QBuffer>
+#include <QByteArray>
 #include <QDataStream>
+#include <QDateTime>
+#include <QDebug>
+#include <QDir>
 #include <QElapsedTimer>
+#include <QFile>
+#include <QFileDevice>
+#include <QFlags>
 #include <QFontMetrics>
+#include <QHashIterator>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonParseError>
 #include <QJsonValue>
+#include <QJsonValueRef>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QListIterator>
+#include <QMapIterator>
 #include <QMetaMethod>
+#include <QMultiMap>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
 #include <QPainter>
+#include <QPen>
 #include <QPixmap>
+#include <QPoint>
+#include <QRect>
+#include <QRectF>
 #include <QSaveFile>
+#include <QSetIterator>
 #include <QSizeF>
+#include <QStringBuilder>
+#include <QStringList>
+#include <QStringView>
+#include <QTextStream>
+#include <QTimer>
+#include <QTreeWidget>
+#include <QUrl>
+#include <QVector3D>
+#include <QVersionNumber>
 #include <QXmlStreamReader>
+#include <algorithm>
 #include <chrono>
+#include <functional>
 #include <limits>
+#include <list>
 #include <queue>
+#include <type_traits>
 
 #ifndef Q_MOC_RUN
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/properties.hpp>
+#include <boost/property_map/property_map.hpp>
 #include <boost/range/iterator_range.hpp>
+#include <boost/tuple/tuple.hpp>
 #endif
 
 using namespace std::chrono_literals;
