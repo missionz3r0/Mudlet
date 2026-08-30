@@ -22,6 +22,8 @@
 #include "Host.h"
 #include "utils.h"
 
+#include <QFrame>
+#include <QPalette>
 #include <QTextOption>
 
 TTextBox::TTextBox(Host* pHost, const QString& name, QWidget* parent)

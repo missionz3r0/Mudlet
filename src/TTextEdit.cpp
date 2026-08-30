@@ -24,7 +24,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "TAccessibleTextEdit.h"
 #include "TTextEdit.h"
 
 #include "Host.h"
@@ -32,37 +31,84 @@
 #include "TConsole.h"
 #include "TDebug.h"
 #include "TDebugFilterBar.h"
-#include "TDockWidget.h"
 #include "TEvent.h"
+#include "TCommandLine.h"
 #include "THyperlinkSelectionManager.h"
 #include "THyperlinkVisibilityManager.h"
+#include "TLinkStore.h"
+#include "TLuaInterpreter.h"
 #include "mudlet.h"
 #include "utils.h"
-#include "widechar_width.h"
 #include "TTextProperties.h"
+#include "TMainConsole.h"
 
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <cstdint>
+#include <cstdlib>
+#include <deque>
+#include <iterator>
 #include <QtEvents>
 #include <QtGlobal>
+#include <QAbstractSlider>
 #include <QAccessible>
+#include <QAccessibleInterface>
 #include <QAccessibleTextCursorEvent>
 #include <QAccessibleTextInsertEvent>
+#include <QAccessibleTextInterface>
+#include <QAccessibleTextRemoveEvent>
+#include <QAccessibleTextSelectionEvent>
+#include <QAction>
 #include <QApplication>
+#include <QByteArray>
 #include <QChar>
 #include <QClipboard>
+#include <QContextMenuEvent>
+#include <QCursor>
+#include <QDebug>
 #include <QDesktopServices>
+#include <QEvent>
+#include <QFlags>
+#include <QFocusEvent>
+#include <QFont>
+#include <QFontInfo>
+#include <QFontMetrics>
+#include <QFontMetricsF>
+#include <QGuiApplication>
 #include <QHash>
+#include <QIcon>
+#include <QImage>
+#include <QKeyEvent>
+#include <QKeySequence>
+#include <QLatin1Char>
+#include <QMapIterator>
+#include <QMenu>
+#include <QMouseEvent>
+#include <QPaintEvent>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPair>
+#include <QPen>
+#include <QPointF>
+#include <QRegularExpression>
+#include <QRgb>
 #include <QScrollBar>
-#include <QStringRef>
+#include <QSet>
+#include <QSize>
+#include <QStringBuilder>
+#include <QStringView>
 #include <QTextBoundaryFinder>
+#include <QUrl>
+#include <QVariant>
+#include <QVector>
+#include <QWheelEvent>
 #include <QLabel>
 #include <QToolTip>
 #include <QWidgetAction>
 #include <QVersionNumber>
+#include <QTimer>
+#include <QLineEdit>
 
 using namespace std::chrono_literals;
 
