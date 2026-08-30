@@ -15,13 +15,21 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "Host.h"
 #include "SingleLineTextEdit.h"
 #include "TrailingWhitespaceMarker.h"
+#include "TriggerHighlighter.h"
+#include "edbee/edbee.h"
+#include "edbee/views/texttheme.h"
 
 #include <QColor>
 #include <QKeyEvent>
+#include <QList>
+#include <QMimeData>
 #include <QPalette>
+#include <QRegularExpression>
+#include <QTextCursor>
+#include <QTextOption>
+#include <QWidget>
 
 SingleLineTextEdit::SingleLineTextEdit(QWidget* parent)
 : QPlainTextEdit(parent)

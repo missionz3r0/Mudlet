@@ -22,6 +22,7 @@
 
 #include <QList>
 #include <QMap>
+#include <QString>
 #include <QUndoStack>
 
 #include "EditorCommand.h"

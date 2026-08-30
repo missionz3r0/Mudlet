@@ -22,6 +22,7 @@
 #include <QString>
 #include <QLineEdit>
 #include <SingleLineTextEdit.h>
+#include <QPlainTextEdit>
 
 void markQString(QString* input);
 void unmarkQString(QString* input);

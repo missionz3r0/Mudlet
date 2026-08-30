@@ -29,7 +29,20 @@
 #include "VarUnit.h"
 
 #include <QtEvents>
+#include <QAbstractItemModel>
+#include <QAbstractItemView>
+#include <QCursor>
+#include <QDebug>
+#include <QDropEvent>
+#include <QFlags>
 #include <QHeaderView>
+#include <QIcon>
+#include <QListIterator>
+#include <QMouseEvent>
+#include <QPixmap>
+#include <QPointF>
+#include <QRect>
+#include <QString>
 #include <QToolTip>
 
 TTreeWidget::TTreeWidget(QWidget* pW)

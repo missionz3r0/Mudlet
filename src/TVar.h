@@ -24,8 +24,10 @@
 
 
 #include <QDebug>
+#include <QDebugStateSaver>
 #include <QList>
 #include <QString>
+#include <QtGlobal>
 
 extern "C" {
 #if defined(INCLUDE_VERSIONED_LUA_HEADERS)
