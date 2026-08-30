@@ -21,8 +21,15 @@
 #ifndef MUDLET_TMXPCUSTOMELEMENTTAGHANDLER_H
 #define MUDLET_TMXPCUSTOMELEMENTTAGHANDLER_H
 
+#include "MxpTag.h"
 #include "TMxpContext.h"
+#include "TMxpElementRegistry.h"
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QMap>
+#include <QString>
+#include <QtGlobal>
 
 class TMxpCustomElementTagHandler : public TMxpTagHandler
 {
