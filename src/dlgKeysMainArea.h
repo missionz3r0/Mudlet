@@ -25,6 +25,9 @@
 
 #include "ui_keybindings_main_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 
 class dlgKeysMainArea : public QWidget, public Ui::keybindings_main_area
 {

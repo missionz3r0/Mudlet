@@ -24,6 +24,9 @@
 
 #include "ui_aliases_main_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 
 class dlgAliasMainArea : public QWidget, public Ui::aliases_main_area
 {
