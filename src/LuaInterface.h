@@ -25,8 +25,11 @@
 
 #include "TVar.h"
 
+#include <QList>
 #include <QScopedPointer>
 #include <QSet>
+#include <QString>
+#include <QStringList>
 
 #include <utility>
 

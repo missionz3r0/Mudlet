@@ -19,7 +19,13 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <QByteArray>
+#include <QChar>
 #include <QDebug>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QListIterator>
+#include <QObject>
 
 #include "LuaInterface.h"
 #include "VarUnit.h"
@@ -31,11 +37,9 @@ extern "C" {
 #if defined(INCLUDE_VERSIONED_LUA_HEADERS)
 #include <lua5.1/lauxlib.h>
 #include <lua5.1/lua.h>
-#include <lua5.1/lualib.h>
 #else
 #include <lauxlib.h>
 #include <lua.h>
-#include <lualib.h>
 #endif
 }
 

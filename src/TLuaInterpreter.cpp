@@ -29,40 +29,68 @@
 #include "TLuaInterpreter.h"
 
 
-#include "EAction.h"
+#include "ActionUnit.h"
+#include "AliasUnit.h"
 #include "Host.h"
+#include "KeyUnit.h"
+#include "ScriptUnit.h"
+#include "T2DMap.h"
+#include "TAction.h"
 #include "TAlias.h"
+#include "TBuffer.h"
 #include "TCommandLine.h"
 #include "TConsole.h"
 #include "TDebug.h"
 #include "TEvent.h"
-#include "TFlipButton.h"
 #include "TForkedProcess.h"
 #include "TGameDetails.h"
-#include "TLabel.h"
+#include "TKey.h"
 #include "TMap.h"
 #include "TMapLabel.h"
-#include "TRoomDB.h"
-#include "TTextEdit.h"
+#include "TScript.h"
 #include "TEncodingHelper.h"
 #include "TTimer.h"
+#include "TTrigger.h"
+#include "TimerUnit.h"
+#include "TriggerUnit.h"
+#include "ctelnet.h"
 #include "dlgComposer.h"
 #include "dlgIRC.h"
 #include "dlgMapper.h"
 #include "dlgModuleManager.h"
 #include "dlgTriggerEditor.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "TMainConsole.h"
 #if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
+#include <QOpenGLWidget>
 #endif
 
 #include <math.h>
 
 #include <QtConcurrentRun>
+#include <QAbstractSocket>
+#include <QAction>
 #include <QApplication>
+#include <QChar>
 #include <QCollator>
+#include <QComboBox>
 #include <QCoreApplication>
+#include <QDate>
+#include <QDateTime>
+#include <QDebug>
 #include <QDesktopServices>
+#include <QDir>
+#include <QElapsedTimer>
+#include <QEnterEvent>
+#include <QEvent>
+#include <QFile>
+#include <QFlag>
+#include <QFlags>
+#include <QFont>
+#include <QFuture>
+#include <QFutureWatcher>
+#include <QGuiApplication>
 #include <QSettings>
 #if defined(Q_OS_MACOS)
 // Only used for this OS:
@@ -71,13 +99,60 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonParseError>
+#include <QJsonValueRef>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QMapIterator>
+#include <QMouseEvent>
+#include <QNetworkRequest>
+#include <QObject>
+#include <QPoint>
+#include <QPointF>
+#include <QQueue>
 #include <QSaveFile>
+#include <QScopedPointer>
+#include <QSet>
+#include <QSizeF>
+#include <QString>
+#include <QSysInfo>
+#include <QSystemTrayIcon>
+#include <QTableWidget>
+#include <QTableWidgetItem>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTextStream>
+#include <QTime>
+#include <QToolButton>
+#include <QUrl>
+#include <QVariant>
+#include <QVector3D>
+#include <QWheelEvent>
 #include <QFileInfo>
 #include <QVector>
+#include <algorithm>
+#include <cassert>
+#include <chrono>
+#include <cstddef>
+#include <cstring>
+#include <functional>
 #include <limits>
+#include <unordered_map>
+#include <vector>
+#include <hunspell/hunspell.h>
+#include <QFileSystemWatcher>
+#include <QNetworkCookie>
+#include <QNetworkCookieJar>
+#include <QNetworkReply>
+#include <QApplication>
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lualib.h>
+#endif
+}
 
 using namespace std::chrono_literals;
 

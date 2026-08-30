@@ -30,9 +30,33 @@
 #include "TLuaInterpreter.h"
 
 #include "Host.h"
-#include "TEvent.h"
 #include "TMedia.h"
-#include "mudlet.h"
+#include "TMediaData.h"
+#include "ctelnet.h"
+
+#include <QByteArray>
+#include <QDir>
+#include <QLatin1String>
+#include <QList>
+#include <QListIterator>
+#include <QNetworkReply>
+#include <QScopedPointer>
+#include <QString>
+#include <QtGlobal>
+
+#include <string>
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lua.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+#endif
+}
 
 // The argument parsers below hold QStrings and TMediaData while they run, so
 // they type-check with TLuaInterpreter::check...Arg() and leave the raise until
