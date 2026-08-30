@@ -24,6 +24,7 @@
 #include <QMap>
 #include <QSet>
 #include <QString>
+#include <QtGlobal>
 
 #include "THyperlinkStyling.h"
 

@@ -22,6 +22,7 @@
 
 #include <QHash>
 #include <QJsonObject>
+#include <QList>
 #include <QMap>
 #include <QObject>
 #include <QString>

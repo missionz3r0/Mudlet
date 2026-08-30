@@ -25,12 +25,18 @@
 
 #include "Host.h"
 #include "TAction.h"
-#include "TEasyButtonBar.h"
-#include "TToolBar.h"
+#include "utils.h"
 
+#include <QFlags>
+#include <QIcon>
 #include <QMenu>
+#include <QRect>
+#include <QSizePolicy>
+#include <QString>
+#include <QStyle>
 #include <QStyleOptionButton>
 #include <QStylePainter>
+#include <QtGlobal>
 
 TFlipButton::TFlipButton(TAction* pTAction, Host* pHost)
 : QPushButton(nullptr)
