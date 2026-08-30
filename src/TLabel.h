@@ -35,6 +35,10 @@
 #include <QSet>
 #include <QString>
 #include <QVideoWidget>
+#include <QtGlobal>
+
+class QMovie;
+class QVideoWidget;
 
 #include <memory>
 

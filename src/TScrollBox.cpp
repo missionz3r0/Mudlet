@@ -19,9 +19,17 @@
 
 
 #include "TScrollBox.h"
-#include "mudlet.h"
+
+#include "Host.h"
 
 #include <QtEvents>
+#include <QChildEvent>
+#include <QEvent>
+#include <QHideEvent>
+#include <QMoveEvent>
+#include <QObject>
+#include <QResizeEvent>
+#include <QShowEvent>
 
 
 TScrollBox::TScrollBox(Host* pH, QWidget* pW)
