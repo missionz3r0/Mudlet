@@ -26,23 +26,31 @@
 
 #include "Host.h"
 #include "mudlet.h"
+#include "enums.h"
 
 #include "ui_profile_preferences.h"
 #include <QDialog>
 #include <QHash>
+#include <QKeySequence>
 #include <QList>
 #include <QMap>
+#include <QPointer>
+#include <QTextOption>
 #include <QVariant>
 
+class QAction;
 class QCloseEvent;
+class QComboBox;
 class QDoubleSpinBox;
 class QEvent;
 class QFrame;
 class QListWidget;
 class QListWidgetItem;
+class QMenu;
 class QResizeEvent;
 class QScrollArea;
 class QStackedWidget;
+class QTemporaryFile;
 class QToolButton;
 class QVBoxLayout;
 class TAction;

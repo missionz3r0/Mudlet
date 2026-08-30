@@ -25,6 +25,9 @@
 
 #include "ui_system_message_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 
 class dlgSystemMessageArea : public QWidget, public Ui::system_message_area
 {

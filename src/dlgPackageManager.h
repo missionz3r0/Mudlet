@@ -28,12 +28,17 @@
 #include "ui_package_manager.h"
 #include <QButtonGroup>
 #include <QDialog>
+#include <QHash>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QList>
 #include <QListWidget>
 #include <QTextBrowser>
+#include <QString>
+#include <QtGlobal>
 
 class Host;
+class PackageItemDelegate;
 class QNetworkReply;
 
 enum class NavigationView { Explore, Installed, Updates };

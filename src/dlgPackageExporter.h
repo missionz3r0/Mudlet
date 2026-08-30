@@ -32,6 +32,8 @@
 
 #include <memory>
 
+struct zip;
+
 class Host;
 class QCloseEvent;
 class QGroupBox;
