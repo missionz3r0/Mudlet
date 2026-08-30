@@ -20,16 +20,30 @@
 
 #include "EditorDeleteItemCommand.h"
 
+#include "ActionUnit.h"
+#include "AliasUnit.h"
 #include "EditorItemXMLHelpers.h"
 #include "Host.h"
+#include "KeyUnit.h"
+#include "ScriptUnit.h"
 #include "TAction.h"
 #include "TAlias.h"
 #include "TKey.h"
 #include "TScript.h"
 #include "TTimer.h"
 #include "TTrigger.h"
+#include "TimerUnit.h"
+#include "TriggerUnit.h"
+
+#include <QMap>
+#include <QObject>
+#include <QPointer>
+#include <QSet>
 
 #include <algorithm>
+#include <functional>
+#include <list>
+#include <utility>
 
 EditorDeleteItemCommand::EditorDeleteItemCommand(EditorViewType viewType, const QList<DeletedItemInfo>& deletedItems, Host* host)
 : EditorCommand(generateText(viewType, deletedItems.size(), deletedItems.isEmpty() ? QString() : deletedItems.first().itemName), host)

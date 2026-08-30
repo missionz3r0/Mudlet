@@ -32,8 +32,8 @@
 #include "ScriptUnit.h"
 #include "KeyUnit.h"
 #include "ActionUnit.h"
+#include "EditorCommand.h"
 #include "XMLexport.h"
-#include "XMLimport.h"
 #include "utils.h"
 
 #include <QDebug>

@@ -22,6 +22,7 @@
 
 #include <QProxyStyle>
 #include <QStyleFactory>
+#include <QString>
 
 class AltFocusMenuBarDisable : public QProxyStyle
 {
