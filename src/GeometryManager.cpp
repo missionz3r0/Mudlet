@@ -18,11 +18,31 @@
  ***************************************************************************/
 
 #include "GeometryManager.h"
+
+#include <assimp/Importer.hpp>
+#include <assimp/color4.h>
+#include <assimp/defs.h>
+#include <assimp/material.h>
+#include <assimp/mesh.h>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+#include <assimp/texture.h>
+#include <assimp/types.h>
 #include "ResourceManager.h"
 
+#include <QByteArray>
 #include <QDebug>
 #include <QFile>
+#include <QIODevice>
 #include <QImage>
+#include <QOpenGLBuffer>
+#include <QOpenGLContext>
+#include <QOpenGLVertexArrayObject>
+#include <QString>
+#include <QVector3D>
+
+#include <memory>
+#include <utility>
 
 GeometryManager::GeometryManager() {}
 

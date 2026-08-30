@@ -23,6 +23,7 @@
 
 #include <QMap>
 #include <QMultiMap>
+#include <QString>
 
 class QString;
 
