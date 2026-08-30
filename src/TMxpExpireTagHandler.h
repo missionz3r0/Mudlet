@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+#include "utils.h"
 
 // <EXPIRE name>
 // Removes all links tagged with the given expire name

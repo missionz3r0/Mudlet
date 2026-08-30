@@ -21,9 +21,14 @@
 #define MUDLET_TENTITYTAGHANDLER_H
 
 
+#include "MxpTag.h"
 #include "TMxpClient.h"
 #include "TMxpContext.h"
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+#include "utils.h"
+
+#include <QtGlobal>
 
 //<!ENTITY Name Value [DESC=description] [PRIVATE] [PUBLISH] [DELETE] [ADD] [REMOVE]>
 class TMxpEntityTagHandler : public TMxpTagHandler
