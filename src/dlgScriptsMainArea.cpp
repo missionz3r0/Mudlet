@@ -21,6 +21,9 @@
 
 #include "dlgScriptsMainArea.h"
 
+#include <QLineEdit>
+#include <QString>
+
 
 dlgScriptsMainArea::dlgScriptsMainArea(QWidget* pParentWidget)
 : QWidget(pParentWidget)

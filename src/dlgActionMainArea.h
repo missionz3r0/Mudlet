@@ -25,6 +25,9 @@
 
 #include "ui_actions_main_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 
 class dlgActionMainArea : public QWidget, public Ui::actions_main_area
 {

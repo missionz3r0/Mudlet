@@ -25,8 +25,17 @@
 #include "TVar.h"
 #include "utils.h"
 
+#include <QBrush>
+#include <QColor>
 #include <QDebug>
+#include <QFlags>
+#include <QIcon>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QList>
+#include <QListIterator>
 #include <QLocale>
+#include <QPixmap>
 #include <QTreeWidgetItem>
 
 extern "C" {

@@ -22,6 +22,12 @@
 
 #include "dlgActionMainArea.h"
 
+#include <QComboBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QSpinBox>
+#include <QString>
+
 
 dlgActionMainArea::dlgActionMainArea(QWidget* pParentWidget)
 : QWidget(pParentWidget)
