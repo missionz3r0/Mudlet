@@ -19,7 +19,11 @@
  ***************************************************************************/
 
 #include "TMxpColorTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
+
+#include <QString>
+#include <QtGlobal>
 bool TMxpColorTagHandler::supports(TMxpContext& ctx, TMxpClient& client, MxpTag* tag)
 {
     Q_UNUSED(ctx)

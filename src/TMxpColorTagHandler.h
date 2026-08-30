@@ -21,6 +21,7 @@
 #define MUDLET_TMXPCOLORTAGHANDLER_H
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
 
 // <C> <COLOR FORE=foreground [BACK=background]>
 class TMxpColorTagHandler : public TMxpTagHandler
