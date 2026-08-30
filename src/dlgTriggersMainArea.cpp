@@ -21,6 +21,9 @@
 
 #include "dlgTriggersMainArea.h"
 
+#include <QLineEdit>
+#include <QString>
+
 
 dlgTriggersMainArea::dlgTriggersMainArea(QWidget* pParentWidget)
 : QWidget(pParentWidget)

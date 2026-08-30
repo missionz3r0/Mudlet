@@ -25,6 +25,9 @@
 
 #include "ui_timers_main_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 
 class dlgTimersMainArea : public QWidget, public Ui::timers_main_area
 {

@@ -19,10 +19,12 @@
 
 
 #include "dlgSourceEditorFindArea.h"
-#include "ui_dlgPackageExporter.h"
 
 #include <QDebug>
+#include <QEvent>
 #include <QKeyEvent>
+#include <QLineEdit>
+#include <QObject>
 
 dlgSourceEditorFindArea::dlgSourceEditorFindArea(QWidget* pParentWidget)
 : QWidget(pParentWidget)
