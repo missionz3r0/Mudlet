@@ -21,8 +21,19 @@
  ***************************************************************************/
 
 #include "TMxpProcessor.h"
+#include "MxpTag.h"
+#include "TEntityResolver.h"
+#include "TMxpClient.h"
+#include "TMxpElementRegistry.h"
+#include "TMxpTagHandlerResult.h"
 #include "TStringUtils.h"
+#include "utils.h"
+#include <QByteArray>
 #include <QDebug>
+#include <QScopedPointer>
+#include <QSet>
+
+#include <cstddef>
 
 // Static sets of MXP tags from the specification
 // See: https://www.zuggsoft.com/zmud/mxp.htm

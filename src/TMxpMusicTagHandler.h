@@ -22,6 +22,9 @@
 #define MUDLET_TMXPMUSICTAGHANDLER_H
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 
 // <music FName="never_gonna_give_you_up.mp3" [V=100] [L=1] [C=1] [T="misc"] [U="https://www.example.com/sounds/"]>
 class TMxpMusicTagHandler : public TMxpSingleTagHandler

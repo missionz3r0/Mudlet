@@ -20,7 +20,11 @@
 
 #include "TMediaData.h"
 #include "TMxpSoundTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
+#include "utils.h"
+
+#include <QtGlobal>
 
 TMxpTagHandlerResult TMxpSoundTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)
 {

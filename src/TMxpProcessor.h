@@ -29,6 +29,9 @@
 #include "TMxpTagProcessor.h"
 
 #include <QSet>
+#include <QString>
+
+#include <string>
 
 class Host;
 

@@ -22,6 +22,9 @@
 #define MUDLET_TMXPSOUNDTAGHANDLER_H
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 
 // <sound FName="mm_door_close1.*" [V=100] [L=1] [P=50] [T="misc"] [U="https://www.example.com/sounds/"]>
 class TMxpSoundTagHandler : public TMxpSingleTagHandler
