@@ -25,9 +25,22 @@
 
 #include "ui_connection_profiles.h"
 #include <optional>
+#include <QChar>
+#include <QDialog>
+#include <QIcon>
+#include <QList>
+#include <QListWidgetItem>
+#include <QPair>
+#include <QPalette>
 #include <QRegularExpression>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 #include <QTimer>
 #include <QKeyEvent>
+#include <QVariant>
+#include <QVector>
+#include <QDir>
 
 class QDir;
 class QTabBar;

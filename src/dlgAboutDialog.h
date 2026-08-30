@@ -24,6 +24,12 @@
 
 
 #include "ui_about_dialog.h"
+
+#include <QDialog>
+#include <QString>
+#include <QTextDocument>
+#include <QtGlobal>
+
 #include <memory>
 
 struct aboutMaker {

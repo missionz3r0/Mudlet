@@ -23,11 +23,25 @@
 
 #include "dlgNotepad.h"
 
+#include "Host.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QAction>
 #include <QApplication>
+#include <QByteArray>
+#include <QChar>
 #include <QCloseEvent>
+#include <QColor>
+#include <QDebug>
 #include <QDir>
+#include <QEvent>
+#include <QFile>
+#include <QFlags>
+#include <QIODevice>
+#include <QIcon>
+#include <QKeySequence>
 #include <QHBoxLayout>
 #include <QInputDialog>
 #include <QJsonArray>
@@ -43,11 +57,20 @@
 #include <QPlainTextEdit>
 #include <QSaveFile>
 #include <QShortcut>
+#include <QSize>
 #include <QStringConverter>
+#include <QTabWidget>
+#include <QTextCharFormat>
+#include <QTextCursor>
 #include <QTextDocument>
+#include <QTextEdit>
 #include <QTextStream>
 #include <QTimer>
+#include <QToolBar>
 #include <QToolButton>
+#include <QTabBar>
+#include <QVBoxLayout>
+#include <QWidget>
 #include <chrono>
 
 using namespace std::chrono;

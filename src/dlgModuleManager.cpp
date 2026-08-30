@@ -23,12 +23,35 @@
 
 #include "dlgModuleManager.h"
 
+#include "Host.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "TMainConsole.h"
+#include "utils.h"
 
+#include <QAbstractButton>
+#include <QDebug>
+#include <QDir>
 #include <QFileDialog>
+#include <QFileInfo>
+#include <QHeaderView>
+#include <QLabel>
+#include <QLatin1String>
+#include <QList>
+#include <QMap>
+#include <QMapIterator>
 #include <QMessageBox>
+#include <QPointer>
+#include <QPushButton>
 #include <QSettings>
+#include <QStringList>
+#include <QTableWidget>
+#include <QTableWidgetItem>
 #include <QTimer>
+#include <QVariant>
+#include <QWidget>
+
+#include <chrono>
 
 using namespace std::chrono_literals;
 

@@ -27,10 +27,31 @@
 #include "dlgAboutDialog.h"
 
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QChar>
+#include <QColor>
+#include <QFont>
+#include <QImage>
+#include <QLabel>
+#include <QLatin1String>
+#include <QList>
 #include <QPainter>
+#include <QPixmap>
+#include <QPointF>
+#include <QStringList>
+#include <QSysInfo>
+#include <QTextBrowser>
 #include <QTextLayout>
+#include <QTextLine>
+#include <QUrl>
+#include <QVariant>
+#include <QVector>
+#include <QVectorIterator>
+#include <QtConfig>
 #include <QDebug>
+
+#include <utility>
 
 #if defined(Q_OS_WINDOWS)
 #include <wow64apiset.h>

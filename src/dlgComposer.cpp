@@ -28,12 +28,28 @@
 #include "TBuffer.h"
 #include "TEncodingHelper.h"
 #include "TMainConsole.h"
+#include "ctelnet.h"
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QAbstractButton>
+#include <QAction>
+#include <QByteArray>
+#include <QChar>
+#include <QEvent>
+#include <QFont>
 #include <QKeyEvent>
+#include <QLineEdit>
+#include <QList>
 #include <QMenu>
 #include <QMouseEvent>
+#include <QPlainTextEdit>
+#include <QPointF>
+#include <QPushButton>
+#include <QTextCharFormat>
 #include <QTextCursor>
+#include <QWidget>
+#include <hunspell/hunspell.h>
 
 
 dlgComposer::dlgComposer(Host* pH)

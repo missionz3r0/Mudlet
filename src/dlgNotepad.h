@@ -25,7 +25,12 @@
 
 
 #include "ui_notes_editor.h"
+#include <QList>
+#include <QMainWindow>
 #include <QPointer>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 
 class Host;
 class QCloseEvent;
