@@ -24,12 +24,28 @@
 #include "TToolBar.h"
 
 
+#include "ActionUnit.h"
+#include "Host.h"
 #include "TAction.h"
-#include "TConsole.h"
 #include "TFlipButton.h"
 #include "mudlet.h"
+#include "TMainConsole.h"
+#include "utils.h"
 
+#include <QAbstractButton>
+#include <QFlags>
+#include <QGridLayout>
+#include <QMouseEvent>
+#include <QMoveEvent>
+#include <QObject>
+#include <QPoint>
+#include <QPushButton>
 #include <QScopeGuard>
+#include <QSize>
+#include <QSizePolicy>
+#include <QWidget>
+
+#include <algorithm>
 
 
 TToolBar::TToolBar(Host* pHost, TAction* pA, const QString& name, QWidget* pW)

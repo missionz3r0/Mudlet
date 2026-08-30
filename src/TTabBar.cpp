@@ -29,7 +29,20 @@
 #include "utils.h"
 
 #include <QApplication>
+#include <QBrush>
+#include <QColor>
+#include <QDragEnterEvent>
+#include <QDragMoveEvent>
+#include <QDropEvent>
 #include <QEvent>
+#include <QFlags>
+#include <QFont>
+#include <QFontMetrics>
+#include <QList>
+#include <QPen>
+#include <QPointF>
+#include <QPolygon>
+#include <QStyle>
 #include <QStyleOption>
 #include <QStyleOptionTab>
 #include <QPainter>
@@ -39,6 +52,7 @@
 #include <QMimeData>
 #include <QScreen>
 #include <QDateTime>
+#include <QWidget>
 
 // Constants for improved drag detection
 static const int VERTICAL_MOVEMENT_RATIO_THRESHOLD = 60; // Percentage of movement that must be vertical
