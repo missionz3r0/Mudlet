@@ -28,6 +28,10 @@
 #include <QtCore>
 
 #include "Host.h"
+#include <functional>
+
+class Host;
+
 
 struct lua_State;
 
