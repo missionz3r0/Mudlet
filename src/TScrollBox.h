@@ -22,6 +22,8 @@
 
 #include <QScrollArea>
 #include <QPointer>
+#include <QWidget>
+#include <QtGlobal>
 
 class Host;
 
