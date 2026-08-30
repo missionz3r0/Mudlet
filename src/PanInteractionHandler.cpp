@@ -21,7 +21,9 @@
 
 #include "TMap.h"
 
+#include <QEvent>
 #include <QMouseEvent>
+#include <QPointF>
 #include <QtGlobal>
 
 PanInteractionHandler::PanInteractionHandler(T2DMap& mapWidget)

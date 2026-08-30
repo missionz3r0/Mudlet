@@ -19,7 +19,11 @@
 
 #include "CameraController.h"
 
+#include <QVector3D>
 #include <QtGlobal>
+
+#include <cmath>
+#include <numbers>
 
 using namespace std::numbers;
 

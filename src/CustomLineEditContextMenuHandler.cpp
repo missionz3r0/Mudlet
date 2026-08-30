@@ -26,8 +26,13 @@
 
 #include <QAction>
 #include <QEvent>
+#include <QList>
+#include <QMap>
 #include <QMenu>
 #include <QMouseEvent>
+#include <QObject>
+
+#include <memory>
 
 CustomLineEditContextMenuHandler::CustomLineEditContextMenuHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)

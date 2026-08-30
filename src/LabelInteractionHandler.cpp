@@ -26,11 +26,21 @@
 
 #include <QMap>
 #include <QAction>
+#include <QEvent>
+#include <QMapIterator>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QMutableMapIterator>
+#include <QObject>
+#include <QPoint>
 #include <QRectF>
+#include <QSet>
+#include <QSizeF>
+#include <QString>
+#include <QVector3D>
 #include <QtGlobal>
+
+#include <memory>
 
 LabelInteractionHandler::LabelInteractionHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)

@@ -27,8 +27,10 @@
 #include <QString>
 
 #include <list>
+#include <tuple>
 
 class Host;
+class QMovie;
 class TLabel;
 
 
