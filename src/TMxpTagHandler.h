@@ -25,7 +25,11 @@
 #include "TMxpTagHandlerResult.h"
 #include "utils.h"
 
+#include <QChar>
 #include <QString>
+#include <QtGlobal>
+
+#include <utility>
 
 class TMxpClient;
 class TMxpContext;

@@ -19,9 +19,14 @@
 #ifndef MUDLET_TMXPSTATTAGHANDLER_H
 #define MUDLET_TMXPSTATTAGHANDLER_H
 
+#include "MxpTag.h"
 #include "TMxpClient.h"
 #include "TMxpContext.h"
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+#include "utils.h"
+
+#include <QtGlobal>
 
 // Handles STAT/GAUGE tags - silently consumed since Mudlet has no built-in status bar
 class TMxpStatTagHandler : public TMxpTagHandler

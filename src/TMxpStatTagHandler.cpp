@@ -18,6 +18,8 @@
  ***************************************************************************/
 #include "TMxpStatTagHandler.h"
 
+#include <QtGlobal>
+
 #ifdef DEBUG_MXP_PROCESSING
 #include <QDebug>
 #endif
