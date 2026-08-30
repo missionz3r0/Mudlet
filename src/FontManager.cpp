@@ -22,9 +22,14 @@
 
 #include "FontManager.h"
 #include "MudletPaths.h"
+#include "enums.h"
 #include "utils.h"
 
+#include <QDebug>
 #include <QDir>
+#include <QFlags>
+#include <QList>
+#include <QStringList>
 #include <QFileInfo>
 #include <QDesktopServices>
 #include <QFontDatabase>

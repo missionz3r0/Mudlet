@@ -20,9 +20,18 @@
 
 #include "MudletInstanceCoordinator.h"
 #include "Host.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "utils.h"
+
+#include <QByteArray>
+#include <QChar>
 #include <QLocalSocket>
+#include <QMutexLocker>
+#include <QTimer>
+
 #include <chrono>
+#include <utility>
 
 using namespace std::chrono_literals;
 

@@ -22,9 +22,14 @@
 
 #include "Host.h"
 #include <QHash>
+#include <QList>
 #include <QLocalServer>
 #include <QMutex>
+#include <QString>
 #include <QStringList>
+#include <QtGlobal>
+
+class Host;
 
 class MudletInstanceCoordinator : public QLocalServer
 {
