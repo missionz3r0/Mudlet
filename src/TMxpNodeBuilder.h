@@ -23,6 +23,9 @@
 #include "TStringUtils.h"
 
 #include <QByteArray>
+#include <QList>
+
+#include <string>
 
 class TMxpNodeBuilder
 {
