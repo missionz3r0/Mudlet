@@ -23,8 +23,11 @@
  ***************************************************************************/
 
 
+#include <QList>
+#include <QModelIndex>
 #include <QPointer>
 #include <QTreeWidget>
+#include <QtGlobal>
 
 class Host;
 

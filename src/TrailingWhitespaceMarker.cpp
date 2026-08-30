@@ -18,10 +18,14 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <QLineEdit>
-#include <QString>
+#include "TrailingWhitespaceMarker.h"
 
-#include <SingleLineTextEdit.h>
+#include <QLineEdit>
+#include <QPlainTextEdit>
+#include <QString>
+#include <QTextCursor>
+
+#include <algorithm>
 
 void unmarkQString(QString* text)
 {

@@ -24,7 +24,14 @@
 #include "EditorCommand.h"
 
 #include <QDebug>
+#include <QList>
+#include <QMap>
+#include <QPair>
+#include <QUndoCommand>
+
+#include <functional>
 #include <typeinfo>
+#include <utility>
 
 EditorUndoStack::EditorUndoStack(QObject* parent)
 : QUndoStack(parent)

@@ -19,9 +19,12 @@
  ***************************************************************************/
 
 #include "TriggerHighlighter.h"
+#include <QString>
 
 #include <QMimeData>
 #include <QPlainTextEdit>
+class QMimeData;
+class TriggerHighlighter;
 
 class SingleLineTextEdit : public QPlainTextEdit
 {
