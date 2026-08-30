@@ -23,6 +23,9 @@
 
 #include "ui_source_editor_find_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 class QEvent;
 
 /*namespace Ui {
