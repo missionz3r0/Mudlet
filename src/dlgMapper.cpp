@@ -25,29 +25,65 @@
 #include "dlgMapper.h"
 
 #include "Host.h"
-#include "TConsole.h"
+#include "T2DMap.h"
 #include "TMainConsole.h"
 #include "TMap.h"
+#include "TRoom.h"
 #include "TRoomDB.h"
+#include "enums.h"
 #include "mapInfoContributorManager.h"
 #include "mudlet.h"
+#include "utils.h"
+#if defined(INCLUDE_3DMAPPER)
+#include "glwidget_integration.h"
+#include "modern_glwidget.h"
+#endif
 
+#include <QAbstractButton>
+#include <QAction>
+#include <QComboBox>
+#include <QDebug>
+#include <QDialog>
 #include <QElapsedTimer>
+#include <QFont>
+#include <QFontMetrics>
 #include <QEvent>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QFrame>
 #include <QLabel>
+#include <QList>
 #include <QListWidget>
+#include <QMap>
+#include <QMapIterator>
 #include <QMenu>
 #include <QMessageBox>
+#include <QNonConstOverload>
+#include <QOpenGLWidget>
 #include <QPainter>
+#include <QPalette>
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QPushButton>
+#include <QRect>
+#include <QScopedPointer>
+#include <QSet>
 #include <QSettings>
+#include <QSize>
+#include <QSizePolicy>
+#include <QSlider>
+#include <QStringList>
+#include <QSurfaceFormat>
 #include <QTimer>
+#include <QToolButton>
 #include <QVBoxLayout>
+#include <QVariant>
+#include <QApplication>
+#include <QtGlobal>
+
+#include <chrono>
+#include <functional>
+#include <memory>
 
 using namespace std::chrono_literals;
 

@@ -27,10 +27,14 @@
 #include <QCoreApplication>
 #include <QColor>
 #include <QDebug>
+#include <QDebugStateSaver>
 #include <QHash>
+#include <QList>
 #include <QMap>
 #include <QSet>
+#include <QString>
 #include <QVector3D>
+#include <QtGlobal>
 
 class XMLimport;
 class XMLexport;

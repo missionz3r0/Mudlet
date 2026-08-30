@@ -21,10 +21,21 @@
 #include "dlgMapLabel.h"
 #include "mudlet.h"
 #include "utils.h"
+#include <QCheckBox>
 #include <QColorDialog>
+#include <QComboBox>
+#include <QDir>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QFontDialog>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPlainTextEdit>
+#include <QPushButton>
 #include <QSettings>
+#include <QToolButton>
+#include <QVariant>
+#include <QApplication>
 
 static QString BUTTON_STYLESHEET = qsl("QPushButton { background-color: rgba(%1, %2, %3, %4); }");
 

@@ -25,10 +25,30 @@
 #include "Host.h"
 #include "TArea.h"
 #include "T2DMap.h"
+#include "TMap.h"
+#include "TRoom.h"
 #include "mudlet.h"
 
+#include <QChar>
+#include <QDataStream>
+#include <QDebug>
 #include <QElapsedTimer>
+#include <QHashIterator>
+#include <QLatin1Char>
+#include <QListIterator>
+#include <QMapIterator>
+#include <QMultiMap>
+#include <QMutableHashIterator>
+#include <QMutableSetIterator>
+#include <QPointer>
 #include <QRegularExpression>
+#include <QSet>
+#include <QSetIterator>
+#include <QStringList>
+#include <QtGlobal>
+
+#include <algorithm>
+#include <cassert>
 
 const QString ROOM_UI_SHOWNAME = qsl("room.ui_showName");
 const QString ROOM_UI_NAMEPOS = qsl("room.ui_nameOffset");

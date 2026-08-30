@@ -29,12 +29,26 @@
 #include "TMap.h"
 #include "TRoomDB.h"
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QChar>
+#include <QDataStream>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QJsonValueRef>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QMapIterator>
+#include <QMultiMap>
+#include <QMutableMapIterator>
+#include <QPointF>
+#include <QSetIterator>
 #include <QString>
 #include <QStringBuilder>
+#include <QStringList>
+
+#include <algorithm>
 
 
 // Helper needed to allow Qt::PenStyle enum to be unserialised (read from file)
