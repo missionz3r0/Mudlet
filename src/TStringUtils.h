@@ -21,6 +21,7 @@
 #define MUDLET_TSTRINGUTILS_H
 
 #include <QByteArray>
+#include <QChar>
 #include <QString>
 #include <QStringList>
 #include <functional>

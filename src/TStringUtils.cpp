@@ -17,8 +17,11 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "TStringUtils.h"
+#include "utils.h"
 
 #include "TEncodingHelper.h"
+
+#include <QByteArray>
 
 
 bool TStringUtils::isQuote(QChar ch)

@@ -23,21 +23,34 @@
 #include "TCommandLine.h"
 #include "TMainConsole.h"
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QBrush>
+#include <QColor>
+#include <QEvent>
+#include <QFont>
 #include <QFrame>
 #include <QGuiApplication>
 #include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QLabel>
+#include <QLatin1String>
 #include <QMenu>
 #include <QMenuBar>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPalette>
+#include <QPen>
+#include <QPoint>
+#include <QPointer>
 #include <QPushButton>
 #include <QSettings>
 #include <QTextDocumentFragment>
 #include <QToolBar>
 #include <QVBoxLayout>
+#include <QVariant>
+
+#include <initializer_list>
 
 namespace {
 constexpr int spotlightMargin = 6;
