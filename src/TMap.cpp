@@ -199,6 +199,17 @@ MapFileCheck fileHoldsMapData(QFile& file)
 }
 } // anonymous namespace
 
+struct TMap::Graph
+{
+    typedef boost::adjacency_list<boost::listS, boost::vecS, boost::directedS, boost::no_property, boost::property<boost::edge_weight_t, cost>> mygraph_t;
+    typedef boost::property_map<mygraph_t, boost::edge_weight_t>::type WeightMap;
+    typedef mygraph_t::edge_descriptor edge_descriptor;
+    static_assert(std::is_same_v<mygraph_t::vertex_descriptor, vertex>,
+                  "TMap::vertex must stay Boost.Graph's vertex_descriptor");
+
+    mygraph_t g;
+};
+
 TMap::TMap(Host* pH, const QString& profileName)
 : mDefaultAreaName(tr("Default Area"))
 , mUnnamedAreaName(tr("Unnamed Area"))
@@ -207,6 +218,7 @@ TMap::TMap(Host* pH, const QString& profileName)
 , mpHost(pH)
 , mProfileName(profileName)
 {
+    mpGraph = std::make_unique<Graph>();
     restore16ColorSet();
 
     // TODO: https://github.com/Mudlet/Mudlet/issues/6436
@@ -926,8 +938,7 @@ void TMap::initGraph()
     _time.start();
     locations.clear();
     roomidToIndex.clear();
-    g.clear();
-    g = mygraph_t();
+    mpGraph->g = Graph::mygraph_t();
     unsigned int roomCount = 0;
     unsigned int edgeCount = 0;
     QSet<unsigned int> unUsableRoomSet;
@@ -962,7 +973,7 @@ void TMap::initGraph()
     }
 
     for (unsigned int i = 0; i < roomCount; ++i) {
-        boost::add_vertex(g);
+        boost::add_vertex(mpGraph->g);
     }
 
     // searchGraph() keeps its per-room state between searches, so a rebuild has
@@ -1009,12 +1020,12 @@ void TMap::initGraph()
         QHashIterator<unsigned int, route> itRoute = bestRoutes;
         while (itRoute.hasNext()) {
             itRoute.next();
-            edge_descriptor e;
+            Graph::edge_descriptor e;
             bool inserted; // This is always going to be false as it gets set if
                            // we had tried to insert a parallel edge into a graph
                            // that does not support them - but we've just been
                            // and disposed of those already!
-            tie(e, inserted) = add_edge(roomidToIndex.value(source), roomidToIndex.value(itRoute.key()), itRoute.value().cost, g);
+            tie(e, inserted) = add_edge(roomidToIndex.value(source), roomidToIndex.value(itRoute.key()), itRoute.value().cost, mpGraph->g);
             edgeHash.insert(qMakePair(source, itRoute.key()), itRoute.value());
             // The key is made from the QPair<edgeSourceRoomId, edgeTargetRoomId>...
             edgeCount++;
@@ -1075,8 +1086,8 @@ bool TMap::searchGraph(const vertex start, const vertex goal)
         mSearchTouched.clear();
     }
 
-    const WeightMap weights = boost::get(boost::edge_weight, g);
-    distance_heuristic<mygraph_t, cost, std::vector<location>> heuristic(locations, goal);
+    const Graph::WeightMap weights = boost::get(boost::edge_weight, mpGraph->g);
+    distance_heuristic<Graph::mygraph_t, cost, std::vector<location>> heuristic(locations, goal);
 
     typedef std::pair<cost, vertex> frontierEntry;
     std::priority_queue<frontierEntry, std::vector<frontierEntry>, std::greater<frontierEntry>> frontier;
@@ -1099,8 +1110,8 @@ bool TMap::searchGraph(const vertex start, const vertex goal)
             return true;
         }
 
-        for (const auto& exit : boost::make_iterator_range(boost::out_edges(current, g))) {
-            const vertex neighbour = boost::target(exit, g);
+        for (const auto& exit : boost::make_iterator_range(boost::out_edges(current, mpGraph->g))) {
+            const vertex neighbour = boost::target(exit, mpGraph->g);
             const cost throughCurrent = mSearchDistance[current] + boost::get(weights, exit);
             if (throughCurrent >= mSearchDistance[neighbour]) {
                 continue;
@@ -1220,7 +1231,7 @@ bool TMap::findPath(int from, int to)
     }
     vertex const goal = roomidToIndex.value(to);
 
-    const auto vertexCount = static_cast<std::size_t>(num_vertices(g));
+    const auto vertexCount = static_cast<std::size_t>(num_vertices(mpGraph->g));
     if (vertexCount == 0) {
         qDebug() << "TMap::findPath(" << from << "," << to << ") FAIL: map graph has no vertices.";
         return false;

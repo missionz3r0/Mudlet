@@ -358,6 +358,7 @@ set(mudlet_HDRS
     LuaLiteral.h
     MacMicrophonePermission.h
     mapInfoContributorManager.h
+    mapRouteTypes.h
     MiddleMousePanHandler.h
     MMCP.h
     MMCPClient.h
