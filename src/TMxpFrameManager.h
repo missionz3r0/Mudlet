@@ -20,10 +20,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "utils.h"
 
-#include <QBoxLayout>
-#include <QHBoxLayout>
 #include <QList>
 #include <QMap>
 #include <QMargins>
@@ -33,7 +30,6 @@
 #include <QString>
 #include <QStringList>
 #include <QTabWidget>
-#include <QVBoxLayout>
 #include <QWidget>
 
 class Host;
