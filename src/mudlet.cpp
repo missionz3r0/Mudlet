@@ -66,7 +66,6 @@
 #include <QAccessible>
 #include <QAccessibleAnnouncementEvent>
 #include <QApplication>
-#include <QtUiTools/quiloader.h>
 #include <QCollator>
 #include <QDesktopServices>
 #include <QFile>
@@ -76,29 +75,22 @@
 #include <QKeyEvent>
 #include <QJsonObject>
 #include <QJsonValue>
-#include <QNetworkDiskCache>
 #include <QLibraryInfo>
 #include <QMediaDevices>
-#include <QMediaPlayer>
 #include <QMessageBox>
 #include <QMimeData>
 #include <QPoint>
 #include <QScreen>
-#include <QScrollBar>
 #include <QSettings>
 #include <QShortcut>
 #include <QSplitter>
-#include <QStyleFactory>
 #include <QStyleHints>
-#include <QTableWidget>
 #include <QTextBoundaryFinder>
 #include <QTextStream>
 #include <QTimer>
 #include <QToolBar>
 #include <QToolButton>
-#include <QToolTip>
 #include <QTranslator>
-#include <QVariantHash>
 
 #include <QRandomGenerator>
 
@@ -134,10 +126,8 @@
 #include <unistd.h>
 #elif defined(Q_OS_UNIX)
 // Including both GNU/Linux and FreeBSD
-#include <sys/resource.h>
 #include <sys/sysinfo.h>
 #include <sys/types.h>
-#include <unistd.h>
 #else
 // Any other OS?
 #endif
