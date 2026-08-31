@@ -21,7 +21,6 @@
 #define FILEOPENHANDLER_H
 
 #include <QObject>
-#include <QFileOpenEvent>
 
 class FileOpenHandler : public QObject
 {

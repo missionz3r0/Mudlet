@@ -21,9 +21,7 @@
 #define MUDLET_DARKTHEME_H
 
 #include <QProxyStyle>
-#include <QStyleFactory>
 
-#include "utils.h"
 
 class DarkTheme : public QProxyStyle
 {

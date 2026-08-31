@@ -20,7 +20,6 @@
 #ifndef MUDLETINSTANCECOORDINATOR_H
 #define MUDLETINSTANCECOORDINATOR_H
 
-#include "Host.h"
 #include <QHash>
 #include <QList>
 #include <QLocalServer>
