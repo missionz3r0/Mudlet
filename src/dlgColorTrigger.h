@@ -26,7 +26,6 @@
 
 #include "ui_color_trigger.h"
 
-#include <QPointer>
 
 class Host;
 class TTrigger;

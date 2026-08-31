@@ -23,7 +23,6 @@
 #include <QRegularExpression>
 #include <QString>
 #include <QVector>
-#include "edbee/views/texttheme.h"
 
 namespace edbee {
 class TextThemeRule;

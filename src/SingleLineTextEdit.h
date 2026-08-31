@@ -18,12 +18,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "TriggerHighlighter.h"
 #include <QPlainTextEdit>
 #include <QString>
 
-#include <QMimeData>
-#include <QPlainTextEdit>
 class QMimeData;
 class TriggerHighlighter;
 
