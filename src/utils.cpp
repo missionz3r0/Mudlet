@@ -21,10 +21,14 @@
 
 #include "utils.h"
 
+#include <QDateTime>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QMap>
+#include <QtGlobal>
+
+#include <cstdlib>
 
 #include <zip.h>
 
@@ -35,6 +39,30 @@
 #if defined(LIBZIP_VERSION_MAJOR) && (LIBZIP_VERSION_MAJOR < 1)
 #error Mudlet requires a version of libzip of at least 1.0
 #endif
+
+// Qt 6.9 deprecated QDateTime::setOffsetFromUtc(int) and made it hard to
+// replicate the exact strings that we had before:
+QString utils::dateStamp()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+    auto localNow = QDateTime::currentDateTime();
+    const int offset = localNow.offsetFromUtc();
+    if (offset) {
+        unsigned hoursOff = abs(offset / 3600);
+        unsigned minutesOff = (abs(offset) - hoursOff * 3600) / 60;
+        return localNow.toString(Qt::ISODate).append(qsl("%1%2:%3")
+                                                             .arg(offset >= 0 ? QLatin1Char('+') : QLatin1Char('-'))
+                                                             .arg(hoursOff, 2, 10, QLatin1Char('0'))
+                                                             .arg(minutesOff, 2, 10, QLatin1Char('0')));
+    }
+    return localNow.toString(Qt::ISODate).append(qsl("+00:00"));
+#else
+    auto localNow = QDateTime::currentDateTime();
+    const int offset = localNow.offsetFromUtc();
+    localNow.setOffsetFromUtc(offset);
+    return localNow.toString(Qt::ISODate);
+#endif
+}
 
 bool utils::unzip(const QString& archivePath, const QString& destination, const QDir& tmpDir)
 {

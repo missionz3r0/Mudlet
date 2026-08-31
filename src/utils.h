@@ -22,14 +22,16 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <QDateTime>
-#include <QEnterEvent>
+#include <QPair>
 #include <QString>
+#include <QStringLiteral>
+#include <QVector>
 
 #include <cstdint>
 #include <cstring>
 
 class QDir;
+class QEnterEvent;
 
 #define qsl(s) QStringLiteral(s)
 
@@ -101,28 +103,7 @@ public:
     // qsl all over the place:
     static QString richText(const QString& text) { return qsl("<p>%1</p>").arg(text); }
 
-    // Qt 6.9 deprecated QDateTime::setOffsetFromUtc(int) and made it hard to
-    // replicate the exact strings that we had before:
-    static QString dateStamp() {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-        auto localNow = QDateTime::currentDateTime();
-        const int offset = localNow.offsetFromUtc();
-        if (offset) {
-            unsigned hoursOff = abs(offset/3600);
-            unsigned minutesOff = (abs(offset) - hoursOff * 3600) / 60;
-            return localNow.toString(Qt::ISODate).append(qsl("%1%2:%3")
-                                                                 .arg(offset >= 0 ? QLatin1Char('+') : QLatin1Char('-'))
-                                                                 .arg(hoursOff, 2, 10, QLatin1Char('0'))
-                                                                 .arg(minutesOff, 2, 10, QLatin1Char('0')));
-        }
-        return localNow.toString(Qt::ISODate).append(qsl("+00:00"));
-#else
-        auto localNow = QDateTime::currentDateTime();
-        const int offset = localNow.offsetFromUtc();
-        localNow.setOffsetFromUtc(offset);
-        return localNow.toString(Qt::ISODate);
-#endif
-    }
+    static QString dateStamp();
 
     // Unpacks archivePath into destination, creating any folders the archive needs
     // through tmpDir. Called from a worker thread, so nothing in here may touch the
