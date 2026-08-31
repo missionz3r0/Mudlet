@@ -48,15 +48,8 @@
 #include <QTextOption>
 #include <QTime>
 
-#if defined(INCLUDE_OWN_QT6_KEYCHAIN)
-#include <qtkeychain/keychain.h>
-#else
-#include <qt6keychain/keychain.h>
-#endif
 #include <array>
 #include <optional>
-#include <hunspell/hunspell.hxx>
-#include <hunspell/hunspell.h>
 
 struct Hunhandle;
 namespace QKeychain {
@@ -70,26 +63,18 @@ class QDockWidget;
 class QHBoxLayout;
 class QKeyEvent;
 class QMediaDevices;
-class QMediaPlayer;
 class QMenu;
 class QLabel;
-class QListWidget;
-class QPushButton;
 class QNetworkRequest;
 class QSettings;
 class QShortcut;
 class QSplitter;
-class QTableWidget;
-class QTableWidgetItem;
-class QTextEdit;
 class QToolBar;
 class QToolButton;
 class QTimer;
 
 class dlgAboutDialog;
 class dlgConnectionProfiles;
-class FileOpenHandler;
-class dlgIRC;
 class dlgNotepad;
 class dlgPackageManager;
 class dlgModuleManager;
@@ -103,14 +88,9 @@ class SpeechRecognizer;
 class TConsole;
 class TDebugFilterBar;
 class TDetachedWindow;
-class TDockWidget;
-class TEvent;
-class TLabel;
 class TMainConsole;
 class translation;
-class TScrollBox;
 class TTabBar;
-class TToolBar;
 class TUiTour;
 
 class mudlet : public QMainWindow, public Ui::main_window

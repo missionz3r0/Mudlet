@@ -73,7 +73,6 @@
 #include <QAccessible>
 #include <QAccessibleAnnouncementEvent>
 #include <QApplication>
-#include <QtUiTools/quiloader.h>
 #include <QCollator>
 #include <QDesktopServices>
 #include <QFile>
@@ -84,30 +83,23 @@
 #include <QKeyEvent>
 #include <QJsonObject>
 #include <QJsonValue>
-#include <QNetworkDiskCache>
 #include <QMediaDevices>
-#include <QMediaPlayer>
 #include <QMessageBox>
 #include <QMimeData>
 #include <QPoint>
 #include <QScopeGuard>
 #include <QScreen>
-#include <QScrollBar>
 #include <QSettings>
 #include <QShortcut>
 #include <QSplitter>
 #include <QSslConfiguration>
-#include <QStyleFactory>
 #include <QStyleHints>
-#include <QTableWidget>
 #include <QTextBoundaryFinder>
 #include <QTextStream>
 #include <QTimer>
 #include <QToolBar>
 #include <QToolButton>
-#include <QToolTip>
 #include <QTranslator>
-#include <QVariantHash>
 
 #include <QRandomGenerator>
 
