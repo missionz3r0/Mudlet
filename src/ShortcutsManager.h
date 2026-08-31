@@ -29,7 +29,6 @@
 #include <QMap>
 #include <QObject>
 #include <QString>
-#include <QShortcut>
 #include <QStringList>
 #include <QKeySequence>
 

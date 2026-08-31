@@ -23,10 +23,7 @@
 #include <QByteArray>
 #include <QChar>
 #include <QString>
-#include <QStringList>
-#include <functional>
 #include <string>
-#include "utils.h"
 
 #define CHAR_NEW_LINE '\n'
 #define CHAR_CARRIAGE_RETURN '\r'

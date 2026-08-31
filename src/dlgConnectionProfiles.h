@@ -37,7 +37,6 @@
 #include <QStringList>
 #include <QtGlobal>
 #include <QTimer>
-#include <QKeyEvent>
 #include <QVariant>
 #include <QVector>
 #include <QDir>

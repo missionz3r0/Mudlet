@@ -23,8 +23,6 @@
  ***************************************************************************/
 
 
-#include "PackageItemDelegate.h"
-
 #include "ui_package_manager.h"
 #include <QButtonGroup>
 #include <QDialog>
@@ -33,7 +31,6 @@
 #include <QJsonObject>
 #include <QList>
 #include <QListWidget>
-#include <QTextBrowser>
 #include <QString>
 #include <QtGlobal>
 

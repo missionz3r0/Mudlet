@@ -28,7 +28,6 @@
 #include <QFileInfo>
 #include <QPointer>
 #include <QTextEdit>
-#include <zip.h>
 
 #include <memory>
 
