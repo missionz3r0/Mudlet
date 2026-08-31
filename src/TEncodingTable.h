@@ -26,8 +26,6 @@
 #include <QChar>
 #include <QList>
 #include <QMap>
-#include <QPair>
-#include <QString>
 #include <QVector>
 
 // a map of encoding names to encodings

@@ -28,7 +28,6 @@
 #include <QVariant>
 #include <QtGlobal>
 
-#include "utils.h"
 #include <string>
 
 
