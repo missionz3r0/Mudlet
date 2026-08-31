@@ -34,24 +34,53 @@
 #include "TCommandLine.h"
 #include "TLuaInterpreter.h"
 #include "TimerUnit.h"
-#include "TMainConsole.h"
 #include "TriggerUnit.h"
 #include "ctelnet.h"
-#include "dlgTriggerEditor.h"
 #include "enums.h"
+#include "TFontAttributes.h"
+#include "searchOptions.h"
+#include "utils.h"
 
 #include <QColor>
+#include <QDateTime>
+#include <QDebug>
+#include <QDebugStateSaver>
 #include <QFile>
 #include <QFont>
 #include <QFuture>
+#include <QKeySequence>
+#include <QLatin1String>
 #include <QList>
+#include <QMap>
 #include <QMargins>
+#include <QObject>
+#include <QPair>
 #include <QPointer>
 #include <QRect>
+#include <QScopedPointer>
+#include <QSet>
+#include <QSize>
 #include <QStack>
+#include <QString>
+#include <QStringList>
 #include <QTextStream>
+#include <QTime>
+#include <QTimer>
+#include <QtGlobal>
 
+#include <map>
 #include <memory>
+#include <optional>
+#include <tuple>
+#include <utility>
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lua.h>
+#else
+#include <lua.h>
+#endif
+}
 
 #include "TMxpMudlet.h"
 #include "TMxpProcessor.h"
@@ -73,6 +102,7 @@ class TMedia;
 class GMCPAuthenticator;
 class TRoom;
 class TConsole;
+class dlgTriggerEditor;
 class TMainConsole;
 struct TConsoleModel;
 class dlgNotepad;
@@ -420,8 +450,8 @@ public:
     // Store/retrieve all the settings in one call:
     void setPlayerRoomStyleDetails(const quint8 styleCode, const quint8 outerDiameter = 120, const quint8 innerDiameter = 70, const QColor& outerColor = QColor(), const QColor& innerColor = QColor());
     void getPlayerRoomStyleDetails(quint8& styleCode, quint8& outerDiameter, quint8& innerDiameter, QColor& outerColor, QColor& innerColor);
-    void setSearchOptions(const dlgTriggerEditor::SearchOptions);
-    void setBufferSearchOptions(const TConsole::SearchOptions);
+    void setSearchOptions(const editorSearch::SearchOptions);
+    void setBufferSearchOptions(const bufferSearch::SearchOptions);
     std::pair<bool, QString> setMapperTitle(const QString&);
     std::optional<QString> getMapperTitle() const;
     QDockWidget* mapWidget() const;
@@ -517,21 +547,9 @@ public:
     bool showIdsInEditor() const { return mShowIDsInEditor; }
     void initMMCPServer();
     bool setMMCPChatName(const QString&);
-    void setShowIdsInEditor(const bool isShown)
-    {
-        mShowIDsInEditor = isShown;
-        if (mpEditorDialog) {
-            mpEditorDialog->showIDLabels(isShown);
-        }
-    }
+    void setShowIdsInEditor(const bool isShown);
     bool getF3SearchEnabled() const { return mF3SearchEnabled; }
-    void setF3SearchEnabled(const bool enabled)
-    {
-        mF3SearchEnabled = enabled;
-        if (mpConsole) {
-            mpConsole->setF3SearchEnabled(enabled);
-        }
-    }
+    void setF3SearchEnabled(const bool enabled);
     bool getForceMXPProcessorOn() const { return mForceMXPProcessorOn; }
     void setForceMXPProcessorOn(bool value)
     {
@@ -859,8 +877,8 @@ public:
     QTime mTimerDebugOutputSuppressionInterval;
     std::unique_ptr<QNetworkProxy> mpConnectionProxy;
     QString mProfileStyleSheet;
-    dlgTriggerEditor::SearchOptions mSearchOptions = dlgTriggerEditor::SearchOptionNone;
-    TConsole::SearchOptions mBufferSearchOptions = TConsole::SearchOption::SearchOptionNone;
+    editorSearch::SearchOptions mSearchOptions = editorSearch::SearchOptionNone;
+    bufferSearch::SearchOptions mBufferSearchOptions = bufferSearch::SearchOptionNone;
     QPointer<dlgIRC> mpDlgIRC;
     QPointer<MMCPServer> mMMCPServer;
     QPointer<dlgProfilePreferences> mpDlgProfilePreferences;

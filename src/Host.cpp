@@ -305,8 +305,8 @@ Host::Host(int port, const QString& hostname, const QString& login, const QStrin
 , mpMedia(new TMedia(this, hostname))
 , mpAuth(new GMCPAuthenticator(this))
 , mTimerDebugOutputSuppressionInterval(QTime())
-, mSearchOptions(dlgTriggerEditor::SearchOption::SearchOptionNone)
-, mBufferSearchOptions(TConsole::SearchOption::SearchOptionNone)
+, mSearchOptions(editorSearch::SearchOptionNone)
+, mBufferSearchOptions(bufferSearch::SearchOptionNone)
 , mpDlgIRC(nullptr)
 , mMMCPServer(nullptr)
 , mpDlgProfilePreferences(nullptr)
@@ -3764,7 +3764,7 @@ void Host::getPlayerRoomStyleDetails(quint8& styleCode, quint8& outerDiameter, q
 
 // Used to set the searchOptions here and the one in the editor if present, for
 // use by the XMLimporter class:
-void Host::setSearchOptions(const dlgTriggerEditor::SearchOptions optionsState)
+void Host::setSearchOptions(const editorSearch::SearchOptions optionsState)
 {
     mSearchOptions = optionsState;
     if (mpEditorDialog) {
@@ -3772,9 +3772,25 @@ void Host::setSearchOptions(const dlgTriggerEditor::SearchOptions optionsState)
     }
 }
 
-void Host::setBufferSearchOptions(const TConsole::SearchOptions optionsState)
+void Host::setBufferSearchOptions(const bufferSearch::SearchOptions optionsState)
 {
     mBufferSearchOptions = optionsState;
+}
+
+void Host::setShowIdsInEditor(const bool isShown)
+{
+    mShowIDsInEditor = isShown;
+    if (mpEditorDialog) {
+        mpEditorDialog->showIDLabels(isShown);
+    }
+}
+
+void Host::setF3SearchEnabled(const bool enabled)
+{
+    mF3SearchEnabled = enabled;
+    if (mpConsole) {
+        mpConsole->setF3SearchEnabled(enabled);
+    }
 }
 
 // The single answer to "does this profile have a map widget on screen right

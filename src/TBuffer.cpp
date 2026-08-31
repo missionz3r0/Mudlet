@@ -36,7 +36,6 @@
 #include "TTextEdit.h"
 #include "UntrustedText.h"
 #include "TTextProperties.h"
-#include "widechar_width.h"
 #include "TEncodingHelper.h"
 #include "TMxpFrameManager.h"
 #include "TMxpMudlet.h"
@@ -394,6 +393,19 @@ TBuffer::~TBuffer()
         // The timeout lambda captures 'this':
         mpServerWrapFlushTimer->stop();
         QObject::disconnect(mpServerWrapFlushTimer, nullptr, nullptr, nullptr);
+    }
+}
+
+void TBuffer::setConsole(TConsole* pConsole)
+{
+    Q_ASSERT(mpConsole.isNull() || mpConsole.data() == pConsole);
+    mpConsole = pConsole;
+}
+
+void TBuffer::detachConsole(const TConsole* pConsole)
+{
+    if (mpConsole.data() == pConsole) {
+        mpConsole = nullptr;
     }
 }
 

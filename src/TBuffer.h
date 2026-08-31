@@ -24,23 +24,29 @@
  ***************************************************************************/
 
 
+#include "Host.h"
 #include "TEncodingTable.h"
 #include "THyperlinkStyling.h"
 #include "TLinkStore.h"
 #include "utils.h"
 
-#include <QChar>
+#include <QByteArray>
 #include <QColor>
 #include <QDebug>
+#include <QDebugStateSaver>
+#include <QFlags>
+#include <QLatin1String>
+#include <QList>
 #include <QMap>
 #include <QPoint>
 #include <QPointer>
-#include <QQueue>
 #include <QSet>
 #include <QString>
 #include <QStringList>
+#include <QtGlobal>
 #include <QVector>
 
+#include <cstddef>
 #include <deque>
 #include <memory>
 #include <string>
@@ -320,19 +326,10 @@ public:
     // A second live view attaching to the same model would silently steal it
     // from the first, so trip on that rather than leave detachConsole() to
     // guess which one owns the binding:
-    void setConsole(TConsole* pConsole)
-    {
-        Q_ASSERT(mpConsole.isNull() || mpConsole.data() == pConsole);
-        mpConsole = pConsole;
-    }
+    void setConsole(TConsole* pConsole);
     // Ignores views other than the bound one, so a departing view cannot orphan
     // a successor that has already attached.
-    void detachConsole(const TConsole* pConsole)
-    {
-        if (mpConsole.data() == pConsole) {
-            mpConsole = nullptr;
-        }
-    }
+    void detachConsole(const TConsole* pConsole);
     QPoint insert(QPoint&, const QString& text, int, int, int, int, int, int, bool bold, bool italics, bool underline, bool strikeout);
     bool insertInLine(QPoint& cursor, const QString& what, const TChar& format);
     void expandLine(int y, int count, TChar&);

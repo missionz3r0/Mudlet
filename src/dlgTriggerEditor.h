@@ -27,58 +27,36 @@
 
 
 #include "EditorCommand.h"
+#include "searchOptions.h"
 #include "ui_trigger_editor.h"
+#include "utils.h"
 
 #include <QPointer>
 #include <unordered_map>
 
-#include "TAction.h"
-#include "TAlias.h"
-#include "TKey.h"
-#include "TScript.h"
-#include "TTimer.h"
-#include "TTreeWidget.h"
-#include "TTrigger.h"
-#include "TVar.h"
-#include "dlgSourceEditorArea.h"
-#include "dlgSourceEditorFindArea.h"
-#include "dlgSystemMessageArea.h"
-#include "dlgTimersMainArea.h"
-#include "dlgTriggersMainArea.h"
-#include "dlgVarsMainArea.h"
-#include "SingleLineTextEdit.h"
-#include "EditorUndoStack.h"
-
-#include <QDialog>
-#include <QDockWidget>
-#include <QFlag>
+#include <QByteArray>
+#include <QColor>
 #include <QIcon>
-#include <QListWidgetItem>
-#include <QScrollArea>
-#include <QTreeWidget>
-#include <QDesktopServices>
+#include <QList>
+#include <QMainWindow>
+#include <QMap>
+#include <QRegularExpression>
 #include <QSet>
+#include <QString>
 #include <QStringList>
+#include <QTextOption>
+#include <QTreeWidgetItem>
 #include <QVector>
 
-// Edbee editor includes
-#include "edbee/edbee.h"
-#include "edbee/models/changes/mergablechangegroup.h"
-#include "edbee/models/chardocument/chartextdocument.h"
-#include "edbee/models/textdocument.h"
-#include "edbee/models/texteditorconfig.h"
-#include "edbee/models/textgrammar.h"
-#include "edbee/models/textundostack.h"
-#include "edbee/models/textautocompleteprovider.h"
-#include "edbee/texteditorcommand.h"
-#include "edbee/texteditorcontroller.h"
-#include "edbee/texteditorwidget.h"
-#include "edbee/views/components/texteditorcomponent.h"
-#include "edbee/views/textselection.h"
+class QScrollArea;
+class QTreeWidgetItem;
 
-#include "edbee/models/textsearcher.h" // These three are required for search highlighting
-#include "edbee/views/texttheme.h"
-#include "edbee/views/textrenderer.h"
+namespace edbee {
+class TextDocument;
+class TextEditorWidget;
+class TextSearcher;
+class TextUndoStack;
+}
 
 class dlgTimersMainArea;
 class dlgSystemMessageArea;
@@ -91,11 +69,25 @@ class dlgAliasMainArea;
 class dlgScriptsMainArea;
 class dlgKeysMainArea;
 class dlgTriggerPatternEdit;
+class EditorUndoStack;
+class Host;
+class QAction;
+class QFont;
 class QLabel;
 class QFrame;
+class QListWidgetItem;
+class QSplitter;
+class QTextDocument;
+class QToolBar;
 class QToolButton;
+class QWidget;
+class SingleLineTextEdit;
 class TAction;
+class TAlias;
 class TKey;
+class TScript;
+class TTimer;
+class TTrigger;
 class TVar;
 class TConsole;
 class dlgVarsMainArea;
@@ -165,21 +157,13 @@ class dlgTriggerEditor : public QMainWindow, private Ui::trigger_editor
     };
 
 public:
-    // This needs to be public so that the options can be used from the Host class:
-    enum SearchOption {
-        // Unset:
-        SearchOptionNone = 0x0,
-        SearchOptionCaseSensitive = 0x1,
-        SearchOptionIncludeVariables = 0x2,
-        SearchOptionWholeWord = 0x4 /*,
-        SearchOptionRegExp = 0x8 */
-    };
+    using SearchOption = editorSearch::SearchOption;
+    using SearchOptions = editorSearch::SearchOptions;
+    using enum editorSearch::SearchOption;
 
     Q_DISABLE_COPY(dlgTriggerEditor)
     dlgTriggerEditor(Host*);
     ~dlgTriggerEditor();
-
-    Q_DECLARE_FLAGS(SearchOptions, SearchOption)
 
     void closeEvent(QCloseEvent* event) override;
     void focusInEvent(QFocusEvent*) override;
@@ -821,7 +805,5 @@ private:
     QString descNewItem;
     QString descPackageItem;
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(dlgTriggerEditor::SearchOptions)
 
 #endif // MUDLET_DLGTRIGGEREDITOR_H

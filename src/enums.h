@@ -135,4 +135,9 @@ public:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(enums::controlsVisibility)
 
+enum class ControlCharacterMode { AsIs = 0x0, Picture = 0x1, OEM = 0x2 };
+
+// Needed so it can be handled as a QVariant
+Q_DECLARE_METATYPE(ControlCharacterMode)
+
 #endif //ENUMS_H
