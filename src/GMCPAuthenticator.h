@@ -20,20 +20,14 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "Host.h"
 #include "SignInStoreReconciler.h"
-#include "utils.h"
 
 #include <QByteArray>
 #include <QCoreApplication>
 #include <QElapsedTimer>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QPointer>
 #include <QScopedPointer>
 #include <QString>
-#include <QVariantMap>
 #include <QStringList>
 
 #include <chrono>
