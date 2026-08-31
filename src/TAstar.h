@@ -23,40 +23,19 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "TRoom.h"
 
 #ifndef Q_MOC_RUN
+#include "mapRouteTypes.h"
+
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/astar_search.hpp>
 #include <boost/graph/graphviz.hpp>
 #endif
 
-#include <QDebug>
-#include <QString>
 
 #include <math.h> // for sqrt
 
-class TRoom;
-
 using namespace boost;
-
-
-// auxiliary types
-struct location
-{
-    int id;    // Typically 4 bytes
-    TRoom* pR; // 4 or 8 bytes? - so may have reduced size from 20 to 8 or 12 plus padding...?
-};
-
-typedef float cost;
-
-// Used to record edge details and to deduplicate parallel ones:
-struct route
-{
-    float cost;              // Needed during establishing the best parallel edge
-    quint8 direction;        // Use DIR_xxx values to code exit direction
-    QString specialExitName; // If direction is DIR_OTHER then this is needed
-};
 
 // euclidean distance heuristic
 template <class Graph, class CostType, class LocMap>

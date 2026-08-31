@@ -336,6 +336,7 @@ set(mudlet_HDRS
     LuaInterface.h
     LuaLiteral.h
     mapInfoContributorManager.h
+    mapRouteTypes.h
     MiddleMousePanHandler.h
     MMCP.h
     MMCPClient.h

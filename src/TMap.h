@@ -24,23 +24,30 @@
  ***************************************************************************/
 
 
-#include "TAstar.h"
-#if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
-#endif
+#include "mapRouteTypes.h"
 #include "utils.h"
 
+#include <QChar>
 #include <QColor>
 #include <QFont>
 #include <QJsonObject>
+#include <QList>
 #include <QMap>
 #include <QNetworkReply>
+#include <QObject>
+#include <QPair>
 #include <QPointer>
+#include <QPointF>
 #include <QSet>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 #include <QVector3D>
-#include <stdlib.h>
+#include <cstddef>
 #include <memory>
 #include <optional>
+#include <utility>
+#include <vector>
 
 #define DIR_NORTH 1
 #define DIR_NORTHEAST 2
@@ -311,11 +318,10 @@ public:
     // unique name, List:parent name ("" if null), display name
     QMap<QString, QStringList> mUserMenus;
 
-    typedef boost::adjacency_list<boost::listS, boost::vecS, boost::directedS, boost::no_property, boost::property<boost::edge_weight_t, cost>> mygraph_t;
-    typedef boost::property_map<mygraph_t, boost::edge_weight_t>::type WeightMap;
-    typedef mygraph_t::vertex_descriptor vertex;
-    typedef mygraph_t::edge_descriptor edge_descriptor;
-    mygraph_t g;
+    using vertex = std::size_t;
+
+    struct Graph;
+    std::unique_ptr<Graph> mpGraph;
     QHash<QPair<unsigned int, unsigned int>, route> edgeHash; // For Mudlet to decode BGL edges
     std::vector<location> locations;
     bool mMapGraphNeedsUpdate = true;
