@@ -36,9 +36,7 @@
 #include <QPixmap>
 #include <QPoint>
 #include <QPointer>
-#include <QImage>
 #include <QRect>
-#include <QTimer>
 #include <QRegion>
 #include <QString>
 #include <QStringList>

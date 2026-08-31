@@ -41,7 +41,6 @@
 #include <QWidget>
 #include <optional>
 
-#include <hunspell/hunspell.h>
 
 #include <list>
 #include <string>
