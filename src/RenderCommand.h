@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 #include <QMatrix4x4>
-#include <QMatrix3x3>
 #include <QOpenGLBuffer>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLShaderProgram>

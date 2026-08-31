@@ -24,7 +24,6 @@
  ***************************************************************************/
 
 
-#include <QtGlobal>
 #include <QByteArray>
 #include <QColor>
 #include <QFont>

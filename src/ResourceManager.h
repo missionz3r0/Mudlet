@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 #include <QOpenGLFunctions>
-#include <QDebug>
 #include <QString>
 
 #include <cstddef>

@@ -29,7 +29,6 @@
 #include <QOpenGLFunctions>
 
 #include "RenderCommand.h"
-#include "GeometryManager.h"
 
 class GeometryManager;
 
