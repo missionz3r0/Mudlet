@@ -21,7 +21,6 @@
 #define MUDLET_ALTFOCUSMENUBARDISABLE_H
 
 #include <QProxyStyle>
-#include <QStyleFactory>
 #include <QString>
 
 class AltFocusMenuBarDisable : public QProxyStyle
