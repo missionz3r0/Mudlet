@@ -20,7 +20,6 @@
 #define MUDLET_TMXPNODEBUILDER_H
 
 #include "MxpTag.h"
-#include "TStringUtils.h"
 
 #include <QByteArray>
 #include <QList>
