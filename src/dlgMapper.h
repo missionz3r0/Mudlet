@@ -40,7 +40,6 @@ class QProgressBar;
 class QPushButton;
 struct MapInfoProperties;
 #if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
 class QOpenGLWidget;
 #endif
 

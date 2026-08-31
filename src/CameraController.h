@@ -22,7 +22,6 @@
 
 #include <QMatrix4x4>
 #include <QVector3D>
-#include <numbers>
 //#include <boost/math/constants/constants.hpp>
 
 class CameraController
