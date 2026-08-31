@@ -19,7 +19,13 @@
  ***************************************************************************/
 #include "TMxpElementDefinitionHandler.h"
 #include "TMxpContext.h"
+#include "TMxpElementRegistry.h"
 #include "TMxpTagParser.h"
+
+#include <QList>
+#include <QSharedPointer>
+#include <QString>
+#include <QStringList>
 
 #ifdef DEBUG_MXP_PROCESSING
 #include <QDebug>

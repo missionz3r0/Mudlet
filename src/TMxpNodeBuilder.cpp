@@ -18,8 +18,10 @@
  ***************************************************************************/
 
 #include "TMxpNodeBuilder.h"
-#include "TMxpTagParser.h"
+#include "MxpTag.h"
 #include "TStringUtils.h"
+
+#include <QChar>
 
 TMxpNodeBuilder::TMxpNodeBuilder(bool ignoreText)
 : mOptionIgnoreText(ignoreText)

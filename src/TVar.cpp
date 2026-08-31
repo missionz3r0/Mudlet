@@ -22,6 +22,10 @@
 
 #include "TVar.h"
 
+#include <QtAlgorithms>
+
+#include <algorithm>
+
 /*
  * LUA type values from lua.h for lua 5.1:
  * LUA_TNONE          (-1)

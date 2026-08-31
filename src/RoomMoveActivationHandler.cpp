@@ -22,9 +22,17 @@
 #include "TMap.h"
 #include "TRoom.h"
 #include "TRoomDB.h"
+#include <QEvent>
 #include <QMouseEvent>
 #include <QPointF>
 #include <QRect>
+#include <QRectF>
+#include <QSet>
+#include <QString>
+#include <QtGlobal>
+
+#include <memory>
+#include <optional>
 
 RoomMoveActivationHandler::RoomMoveActivationHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)

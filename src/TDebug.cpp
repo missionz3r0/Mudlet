@@ -24,12 +24,23 @@
 
 #include "TDebug.h"
 
+#include "Host.h"
 #include "TConsole.h"
 #include "TDebugFilterBar.h"
 #include "TTabBar.h"
 #include "mudlet.h"
 
+#include <QFlags>
+#include <QMapIterator>
+#include <QPointer>
+#include <QStringBuilder>
+#include <QStringList>
+#include <QTime>
+#include <QTimer>
+
+#include <algorithm>
 #include <chrono>
+#include <utility>
 
 using namespace std::chrono_literals;
 

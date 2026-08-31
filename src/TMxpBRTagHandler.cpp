@@ -19,6 +19,8 @@
  ***************************************************************************/
 
 #include "TMxpBRTagHandler.h"
+
+#include <QtGlobal>
 TMxpTagHandlerResult TMxpBRTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)
 {
     Q_UNUSED(ctx)

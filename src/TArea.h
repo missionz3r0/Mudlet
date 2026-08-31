@@ -32,6 +32,7 @@
 
 #include "TMapLabel.h"
 
+#include <QCoreApplication>
 #include <QList>
 #include <QMap>
 #include <QPair>

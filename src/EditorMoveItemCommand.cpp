@@ -19,14 +19,17 @@
 
 #include "EditorMoveItemCommand.h"
 
+#include "ActionUnit.h"
+#include "AliasUnit.h"
 #include "Host.h"
-#include "TAction.h"
-#include "TAlias.h"
-#include "TKey.h"
-#include "TScript.h"
-#include "TTimer.h"
-#include "TTrigger.h"
+#include "KeyUnit.h"
+#include "ScriptUnit.h"
+#include "TimerUnit.h"
+#include "TriggerUnit.h"
 #include "utils.h"
+
+#include <QDebug>
+#include <QObject>
 
 EditorMoveItemCommand::EditorMoveItemCommand(EditorViewType viewType, int itemID, int oldParentID, int newParentID, int oldPosition, int newPosition, const QString& itemName, Host* host)
 : EditorCommand(generateText(viewType, itemName), host)

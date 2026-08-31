@@ -34,7 +34,16 @@
 #include <memory>
 #include <utility>
 #include <QAudioOutput>
+#include <QDebug>
+#include <QList>
+#include <QMap>
 #include <QMediaPlayer>
+#include <QObject>
+#include <QPointer>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
+#include <QDir>
 #include <QUrl>
 
 class QJsonObject;

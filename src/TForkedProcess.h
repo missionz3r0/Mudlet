@@ -24,6 +24,9 @@
 
 
 #include <QProcess>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 
 class TLuaInterpreter;
 struct lua_State;

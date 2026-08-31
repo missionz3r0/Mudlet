@@ -20,6 +20,15 @@
 #include "FileOpenHandler.h"
 #include "MudletInstanceCoordinator.h"
 #include "mudlet.h"
+#include "utils.h"
+
+#include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
+#include <QEvent>
+#include <QFileOpenEvent>
+#include <QString>
+#include <QUrl>
 
 FileOpenHandler::FileOpenHandler(QObject* parent)
 : QObject(parent)

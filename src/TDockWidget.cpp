@@ -22,8 +22,14 @@
 #include "TDockWidget.h"
 
 #include "Host.h"
-#include "mudlet.h"
 #include "TConsole.h"
+#include "TMainConsole.h"
+
+#include <QCloseEvent>
+#include <QFlags>
+#include <QMap>
+#include <QWidget>
+#include <QtGlobal>
 
 TDockWidget::TDockWidget(Host* pH, const QString& consoleName)
 : QDockWidget()

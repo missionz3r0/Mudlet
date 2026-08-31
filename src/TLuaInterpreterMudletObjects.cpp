@@ -30,43 +30,59 @@
 
 #include "TLuaInterpreter.h"
 
+#include "ActionUnit.h"
+#include "AliasUnit.h"
 #include "EAction.h"
 #include "EventLoopPump.h"
+#include "GifTracker.h"
 #include "Host.h"
+#include "HostManager.h"
+#include "KeyUnit.h"
+#include "ScriptUnit.h"
+#include "TAction.h"
 #include "TAlias.h"
-#include "TArea.h"
+#include "TBuffer.h"
 #include "TCommandLine.h"
 #include "TConsole.h"
-#include "TDebug.h"
 #include "TEvent.h"
 #include "TFlipButton.h"
-#include "TForkedProcess.h"
-#include "TLabel.h"
-#include "TMap.h"
-#include "TMapLabel.h"
-#include "TMedia.h"
-#include "TRoomDB.h"
+#include "TKey.h"
+#include "TScript.h"
 #include "TTabBar.h"
-#include "TTextEdit.h"
 #include "TTimer.h"
-#include "dlgComposer.h"
-#include "dlgIRC.h"
-#include "dlgMapper.h"
-#include "dlgModuleManager.h"
-#include "dlgTriggerEditor.h"
-#include "mapInfoContributorManager.h"
+#include "TTrigger.h"
+#include "TimerUnit.h"
+#include "TriggerUnit.h"
+#include "ctelnet.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "utils.h"
 #include "TGameDetails.h"
-#if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
-#endif
+#include "TMainConsole.h"
 
+#include <QByteArray>
+#include <QColor>
+#include <QDir>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QList>
+#include <QMap>
+#include <QMultiMap>
+#include <QPair>
+#include <QPointer>
 #include <QScopeGuard>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
+#include <QTextCursor>
 
 #include <algorithm>
 #include <cmath>
-#include <limits>
+#include <cstdint>
+#include <functional>
 #include <math.h>
+#include <utility>
+#include <vector>
 
 #ifdef MUDLET_MEMORY_TRACKING
 #if defined(Q_OS_LINUX)
@@ -92,9 +108,22 @@
 #include <QFileInfo>
 #include <QMovie>
 #include <QVector>
+#include <QNetworkReply>
 #ifdef QT_TEXTTOSPEECH_LIB
 #include <QTextToSpeech>
 #endif // QT_TEXTTOSPEECH_LIB
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lua.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+#endif
+}
 
 static const char* bad_window_type = "%s: bad argument #%d type (window name as string expected, got %s)!";
 static const char* bad_cmdline_type = "%s: bad argument #%d type (command line name as string expected, got %s)!";

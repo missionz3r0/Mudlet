@@ -24,8 +24,11 @@
 
 
 #include "ui_composer.h"
+#include <QMainWindow>
 #include <QPointer>
 #include <QPoint>
+#include <QString>
+#include <QtGlobal>
 
 class Host;
 class QMenu;

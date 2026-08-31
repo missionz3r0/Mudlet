@@ -22,12 +22,19 @@
 #include "TConsoleModel.h"
 
 #include "Host.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QChar>
 #include <QCoreApplication>
 #include <QDateTime>
+#include <QDebug>
 #include <QDir>
 #include <QFontInfo>
+#include <QIODevice>
+#include <QList>
+#include <QStringList>
 
 TConsoleModel::TConsoleModel(Host* pHost)
 : buffer(pHost)

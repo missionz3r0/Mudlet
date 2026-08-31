@@ -30,49 +30,45 @@
 
 #include "TLuaInterpreter.h"
 
-#include "EAction.h"
 #include "Host.h"
-#include "TAlias.h"
-#include "TArea.h"
-#include "TCommandLine.h"
-#include "TConsole.h"
 #include "TDebug.h"
 #include "TEvent.h"
-#include "TFlipButton.h"
-#include "TForkedProcess.h"
-#include "TLabel.h"
-#include "TMap.h"
-#include "TMapLabel.h"
-#include "TMedia.h"
-#include "TRoomDB.h"
-#include "TTabBar.h"
-#include "TTextEdit.h"
-#include "TTimer.h"
-#include "dlgComposer.h"
-#include "dlgIRC.h"
-#include "dlgMapper.h"
-#include "dlgModuleManager.h"
-#include "dlgTriggerEditor.h"
-#include "mapInfoContributorManager.h"
+#include "HostManager.h"
 #include "mudlet.h"
-#if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
-#endif
+#include "utils.h"
 
 #include <chrono>
-#include <limits>
+#include <cstddef>
 #include <math.h>
+#include <vector>
 
+#include <QApplication>
+#include <QByteArray>
 #include <QCollator>
+#include <QColor>
 #include <QCoreApplication>
 #include <QDesktopServices>
 #include <QFileInfo>
+#include <QLatin1String>
+#include <QList>
 #include <QMovie>
+#include <QPointer>
+#include <QString>
+#include <QtGlobal>
 #include <QTimer>
 #include <QVector>
 #ifdef QT_TEXTTOSPEECH_LIB
 #include <QTextToSpeech>
+#include <QVoice>
 #endif // QT_TEXTTOSPEECH_LIB
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lua.h>
+#else
+#include <lua.h>
+#endif
+}
 
 #ifdef QT_TEXTTOSPEECH_LIB
 QPointer<QTextToSpeech> speechUnit;

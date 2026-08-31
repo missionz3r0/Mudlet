@@ -20,7 +20,10 @@
 
 
 #include "TMxpVersionTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
+
+#include <QtGlobal>
 
 TMxpTagHandlerResult TMxpVersionTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)
 {

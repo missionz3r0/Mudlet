@@ -20,6 +20,9 @@
 
 #include "AltFocusMenuBarDisable.h"
 
+#include <QStyle>
+#include <QStyleFactory>
+
 AltFocusMenuBarDisable::AltFocusMenuBarDisable()
 {
     setObjectName(baseStyle()->objectName());

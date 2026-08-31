@@ -33,9 +33,29 @@
 
 #include <QtEvents>
 #include <QDebug>
+#include <QFlags>
+#include <QFont>
+#include <QList>
+#include <QMap>
+#include <QMatrix4x4>
+#include <QMouseEvent>
+#include <QOpenGLContext>
+#include <QOpenGLShaderProgram>
 #include <QPainter>
+#include <QPen>
+#include <QPixmap>
+#include <QPoint>
+#include <QPointF>
+#include <QQuaternion>
+#include <QSetIterator>
+#include <QSizeF>
+#include <QSurfaceFormat>
+#include <QTimer>
+#include <QVector3D>
 #include <QKeyEvent>
+
 #include <chrono>
+#include <cstdlib>
 
 using namespace std::chrono_literals;
 

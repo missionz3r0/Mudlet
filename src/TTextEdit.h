@@ -28,18 +28,29 @@
  ***************************************************************************/
 
 
+#include <QChar>
 #include <QColor>
 #include <QElapsedTimer>
+#include <QList>
 #include <QMap>
+#include <QPixmap>
+#include <QPoint>
 #include <QPointer>
 #include <QImage>
 #include <QRect>
 #include <QTimer>
+#include <QRegion>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 #include <QWidget>
 
 #include <chrono>
 #include <string>
+#include <utility>
 #include <vector>
+
+class QTimer;
 
 #include "THyperlinkStyling.h"
 

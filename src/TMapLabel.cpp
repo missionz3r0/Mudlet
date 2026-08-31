@@ -24,6 +24,7 @@
 
 #include <QBuffer>
 #include <QDebug>
+#include <QIODevice>
 
 QByteArray TMapLabel::base64EncodePixmap() const
 {

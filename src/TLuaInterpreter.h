@@ -29,17 +29,26 @@
 #include "TTrigger.h"
 #include "utils.h"
 
+#include <QByteArray>
+#include <QColor>
 #include <QEvent>
 #include <QFileSystemWatcher>
+#include <QList>
+#include <QMap>
 #include <QNetworkAccessManager>
 #include <QNetworkCookieJar>
 #include <QNetworkCookie>
 #include <QNetworkReply>
+#include <QPair>
 #include <QPointer>
 #include <QProcess>
 #include <QQueue>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 #include <QThread>
 #include <QTimer>
+#include <QVector>
 #ifdef QT_TEXTTOSPEECH_LIB
 #include <QTextToSpeech>
 #endif // QT_TEXTTOSPEECH_LIB
@@ -60,6 +69,11 @@ extern "C" {
 #include <string>
 #include <memory>
 #include <optional>
+#include <tuple>
+#include <utility>
+
+class QFileSystemWatcher;
+class QNetworkReply;
 
 class Host;
 class TAction;

@@ -25,8 +25,28 @@
 #include "TForkedProcess.h"
 
 #include "TLuaInterpreter.h"
+#include "utils.h"
 
+#include <QByteArray>
 #include <QDir>
+#include <QIODevice>
+#include <QList>
+#include <QNonConstOverload>
+#include <QPointer>
+
+#include <cstddef>
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lua.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+#endif
+}
 
 
 TForkedProcess::~TForkedProcess()

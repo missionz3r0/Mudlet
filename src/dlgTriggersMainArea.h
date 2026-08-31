@@ -25,6 +25,9 @@
 
 #include "ui_triggers_main_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 
 class dlgTriggersMainArea : public QWidget, public Ui::trigger_main_area
 {

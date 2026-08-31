@@ -21,6 +21,10 @@
 #ifndef MUDLET_TMXPVERSIONTAGHANDLER_H
 #define MUDLET_TMXPVERSIONTAGHANDLER_H
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+#include "utils.h"
+
+#include <QString>
 
 class TMxpVersionTagHandler : public TMxpSingleTagHandler
 {

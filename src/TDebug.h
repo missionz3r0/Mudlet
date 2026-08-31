@@ -25,13 +25,16 @@
  ***************************************************************************/
 
 
+#include <QChar>
 #include <QColor>
 #include <QCoreApplication>
 #include <QList>
 #include <QMap>
+#include <QPair>
 #include <QQueue>
 #include <QSet>
 #include <QString>
+#include <QtGlobal>
 
 #include "utils.h"
 

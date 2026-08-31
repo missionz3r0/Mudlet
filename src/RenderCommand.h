@@ -26,6 +26,8 @@
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLFunctions>
+#include <QVector>
+#include <QVector3D>
 
 #include "GeometryManager.h"
 

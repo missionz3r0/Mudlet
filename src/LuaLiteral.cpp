@@ -21,6 +21,8 @@
 
 #include "utils.h"
 
+#include <QLatin1Char>
+
 QString LuaLiteral::quote(const QString& text)
 {
     // Escalate the bracket level until the text can do none of three things:

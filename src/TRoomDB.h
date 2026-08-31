@@ -25,8 +25,12 @@
 
 
 #include <QHash>
+#include <QList>
 #include <QMap>
+#include <QMultiMap>
 #include <QString>
+#include <QCoreApplication>
+#include <QtGlobal>
 
 #include "utils.h"
 

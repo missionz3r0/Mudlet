@@ -24,6 +24,7 @@
 
 
 #include <QSplitter>
+#include <QtGlobal>
 
 class TSplitterHandle;
 

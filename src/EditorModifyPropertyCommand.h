@@ -23,6 +23,7 @@
 #include "EditorCommand.h"
 
 #include <QElapsedTimer>
+#include <QList>
 #include <QString>
 
 // Undo command for modifying item properties. Stores complete XML snapshots of old and new states.

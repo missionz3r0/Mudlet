@@ -20,6 +20,9 @@
 #ifndef MUDLET_TMXPLINKTAGHANDLER_H
 #define MUDLET_TMXPLINKTAGHANDLER_H
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 
 // <A href=URL [hint=text] [expire=name]>
 class TMxpLinkTagHandler : public TMxpSingleTagHandler

@@ -32,46 +32,79 @@
 #include <QClipboard>
 #include <QGuiApplication>
 
-#include "EAction.h"
+#include "ActionUnit.h"
 #include "Host.h"
-#include "TArea.h"
+#include "HostManager.h"
+#include "TAction.h"
+#include "TBuffer.h"
 #include "TCommandLine.h"
 #include "TConsole.h"
+#include "TConsoleModel.h"
 #include "TDebug.h"
 #include "TEvent.h"
 #include "TLabel.h"
-#include "TMap.h"
-#include "TMapLabel.h"
-#include "TMedia.h"
-#include "TRoomDB.h"
 #include "TTabBar.h"
 #include "TTextBox.h"
 #include "TTextEdit.h"
-#include "TTimer.h"
-#include "dlgComposer.h"
-#include "dlgIRC.h"
-#include "dlgMapper.h"
-#include "dlgModuleManager.h"
-#include "dlgTriggerEditor.h"
-#include "mapInfoContributorManager.h"
+#include "ctelnet.h"
 #include "mudlet.h"
-#if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
-#endif
+#include "utils.h"
+#include "TMainConsole.h"
 
+#include <algorithm>
 #include <array>
-#include <limits>
+#include <list>
 #include <math.h>
+#include <optional>
+#include <string>
+#include <utility>
+#include <vector>
 
+#include <QApplication>
+#include <QByteArray>
 #include <QCollator>
+#include <QColor>
 #include <QCoreApplication>
+#include <QCursor>
+#include <QDebug>
 #include <QDesktopServices>
 #include <QFileInfo>
+#include <QFlags>
+#include <QFont>
+#include <QFontInfo>
+#include <QFontMetrics>
+#include <QLatin1String>
+#include <QList>
+#include <QMap>
+#include <QMapIterator>
+#include <QMargins>
 #include <QMovie>
+#include <QObject>
+#include <QPair>
+#include <QPoint>
+#include <QPointer>
+#include <QRect>
+#include <QSize>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 #include <QVector>
+#include <QNetworkReply>
 #ifdef QT_TEXTTOSPEECH_LIB
 #include <QTextToSpeech>
 #endif // QT_TEXTTOSPEECH_LIB
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lua.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+#endif
+}
 
 static const char* bad_window_type = "%s: bad argument #%d type (window name as string expected, got %s)!";
 static const char* bad_cmdline_type = "%s: bad argument #%d type (command line name as string expected, got %s)!";

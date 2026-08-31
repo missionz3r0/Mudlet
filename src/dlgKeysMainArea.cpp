@@ -22,6 +22,9 @@
 
 #include "dlgKeysMainArea.h"
 
+#include <QLineEdit>
+#include <QString>
+
 
 dlgKeysMainArea::dlgKeysMainArea(QWidget* pParentWidget)
 : QWidget(pParentWidget)

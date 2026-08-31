@@ -26,48 +26,56 @@
 
 #include "TLuaInterpreter.h"
 
-#include "EAction.h"
 #include "Host.h"
-#include "TAlias.h"
-#include "TArea.h"
-#include "TCommandLine.h"
-#include "TConsole.h"
 #include "TDebug.h"
 #include "TEvent.h"
-#include "TFlipButton.h"
-#include "TForkedProcess.h"
-#include "TLabel.h"
-#include "TMap.h"
-#include "TMapLabel.h"
-#include "TMedia.h"
-#include "TRoomDB.h"
-#include "TTabBar.h"
-#include "TTextEdit.h"
-#include "TTimer.h"
-#include "dlgComposer.h"
 #include "dlgIRC.h"
-#include "dlgMapper.h"
-#include "dlgModuleManager.h"
-#include "dlgTriggerEditor.h"
-#include "mapInfoContributorManager.h"
+#include "ctelnet.h"
 #include "mudlet.h"
-#if defined(INCLUDE_3DMAPPER)
-#include "glwidget_integration.h"
-#endif
+#include "utils.h"
 
 #include <algorithm>
-#include <limits>
 #include <math.h>
+#include <string>
 
+#include <QAbstractSocket>
+#include <QByteArray>
+#include <QChar>
 #include <QCollator>
+#include <QColor>
 #include <QCoreApplication>
 #include <QDesktopServices>
 #include <QFileInfo>
+#include <QLatin1Char>
+#include <QLatin1String>
+#include <QList>
+#include <QMap>
 #include <QMovie>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QPair>
+#include <QPointer>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
+#include <QUrl>
 #include <QVector>
+#include <QNetworkReply>
 #ifdef QT_TEXTTOSPEECH_LIB
 #include <QTextToSpeech>
 #endif // QT_TEXTTOSPEECH_LIB
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lua.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+#endif
+}
 
 
 // Documentation: https://wiki.mudlet.org/w/Manual:Lua_Functions#connectToServer

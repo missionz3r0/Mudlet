@@ -23,6 +23,12 @@
 #include "dlgSystemMessageArea.h"
 
 #include "mudlet.h"
+#include "utils.h"
+
+#include <QFrame>
+#include <QLabel>
+#include <QPixmap>
+#include <QString>
 
 
 dlgSystemMessageArea::dlgSystemMessageArea(QWidget* pParentWidget)

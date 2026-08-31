@@ -18,11 +18,18 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "Host.h"
-#include "TrailingWhitespaceMarker.h"
 #include "TriggerHighlighter.h"
 #include "edbee/views/texttheme.h"
 #include "edbee/models/textdocumentscopes.h"
+#include "edbee/edbee.h"
+
+#include <QColor>
+#include <QFont>
+#include <QList>
+#include <QRegularExpressionMatchIterator>
+
+#include <map>
+#include <utility>
 
 TriggerHighlighter::TriggerHighlighter(QTextDocument* parent)
 : QSyntaxHighlighter(parent)

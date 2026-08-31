@@ -25,7 +25,17 @@
 
 #include "ui_room_properties.h"
 
+#include <QColor>
+#include <QDialog>
+#include <QFont>
+#include <QHash>
 #include <QListWidget>
+#include <QSet>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
+
+#include <optional>
 
 class Host;
 class TRoom;

@@ -23,12 +23,14 @@
 
 #include "utils.h"
 
+#include <QList>
 #include <QMap>
 #include <QPair>
 #include <QString>
 #include <QStringList>
 
 #include <functional>
+#include <utility>
 
 class MxpTagAttribute : public QPair<QString, QString>
 {

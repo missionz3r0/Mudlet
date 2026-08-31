@@ -21,9 +21,14 @@
 #define MUDLET_TMAPVIEWMANAGER_H
 
 #include <QDockWidget>
+#include <QList>
 #include <QMap>
 #include <QObject>
 #include <QPointer>
+#include <QString>
+#include <QtGlobal>
+
+#include <utility>
 
 class Host;
 class TMap;

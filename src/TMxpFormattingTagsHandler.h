@@ -22,6 +22,7 @@
  ***************************************************************************/
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
 
 class TMxpFormattingTagsHandler : public TMxpTagHandler
 {

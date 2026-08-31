@@ -24,14 +24,35 @@
 #include "glwidget.h"
 
 
+#include "Host.h"
 #include "mudlet.h"
 #include "TArea.h"
+#include "TMap.h"
+#include "TRoom.h"
 #include "TRoomDB.h"
-#include "dlgMapper.h"
+#include "TMainConsole.h"
+#include "utils.h"
 
 #include <QtEvents>
 
+#include <QColor>
+#include <QDebug>
+#include <QFlags>
+#include <QFont>
+#include <QList>
+#include <QMap>
+#include <QMouseEvent>
 #include <QPainter>
+#include <QPoint>
+#include <QPointF>
+#include <QSetIterator>
+#include <QString>
+#include <QVector3D>
+#include <QWheelEvent>
+#include <QtGlobal>
+
+#include <cstdlib>
+#include <memory>
 #ifdef Q_OS_MACOS
 #include <OpenGL/glu.h>
 #else

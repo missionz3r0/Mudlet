@@ -24,10 +24,14 @@
 #include <map>
 #include <memory>
 
+#include <QKeySequence>
+#include <QList>
 #include <QMap>
 #include <QObject>
 #include <QString>
 #include <QShortcut>
+#include <QStringList>
+#include <QKeySequence>
 
 class ShortcutsManager : public QObject
 {

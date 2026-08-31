@@ -22,6 +22,9 @@
 
 #include <QOpenGLFunctions>
 #include <QDebug>
+#include <QString>
+
+#include <cstddef>
 
 // Resource manager for OpenGL error checking and monitoring
 class ResourceManager : protected QOpenGLFunctions

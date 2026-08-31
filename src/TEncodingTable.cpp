@@ -26,6 +26,10 @@
 #include "TEncodingHelper.h"
 #include "TTextCodec.h"
 
+#include <QByteArrayList>
+#include <QChar>
+#include <QMutableByteArrayListIterator>
+
 const TEncodingTable TEncodingTable::csmDefaultInstance = TEncodingTable(csmEncodings);
 
 QList<QByteArray> TEncodingTable::getEncodingNames() const

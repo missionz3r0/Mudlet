@@ -23,9 +23,12 @@
 
 #include "THyperlinkStyling.h"
 
+#include <QList>
 #include <QMap>
 #include <QMultiHash>
+#include <QPair>
 #include <QSet>
+#include <QString>
 #include <QStringList>
 #include <QVector>
 

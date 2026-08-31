@@ -44,6 +44,7 @@
 #include "TGameDetails.h"
 #include "TRoomDB.h"
 #include "TTabBar.h"
+#include "TTimer.h"
 #include "TUiTour.h"
 #include "XMLimport.h"
 #include "dlgAboutDialog.h"
@@ -55,6 +56,12 @@
 #include "dlgPackageManager.h"
 #include "dlgProfilePreferences.h"
 #include "MMCPServer.h"
+#include "dlgTriggerEditor.h"
+#include "TMainConsole.h"
+
+#include "edbee/edbee.h"
+#include "edbee/models/textgrammar.h"
+#include "edbee/views/texttheme.h"
 
 #include <QAccessible>
 #include <QAccessibleAnnouncementEvent>
@@ -74,6 +81,7 @@
 #include <QMediaDevices>
 #include <QMediaPlayer>
 #include <QMessageBox>
+#include <QMimeData>
 #include <QPoint>
 #include <QScreen>
 #include <QScrollBar>
@@ -99,6 +107,13 @@
 #include <memory>
 #include <zip.h>
 #include <QStyle>
+#include <hunspell/hunspell.h>
+
+#if defined(INCLUDE_OWN_QT6_KEYCHAIN)
+#include <qtkeychain/keychain.h>
+#else
+#include <qt6keychain/keychain.h>
+#endif
 
 // for system physical memory info
 #if defined(Q_OS_WINDOWS)

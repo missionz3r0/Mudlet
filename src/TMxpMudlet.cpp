@@ -19,12 +19,29 @@
 
 #include "TMxpMudlet.h"
 #include "Host.h"
+#include "MxpTag.h"
+#include "TBuffer.h"
 #include "TMedia.h"
-#include "TConsole.h"
 #include "TLinkStore.h"
+#include "TMainConsole.h"
+#include "TMxpContext.h"
+#include "TMxpElementRegistry.h"
+#include "TMxpEvent.h"
+#include "TMxpFrameManager.h"
+#include "ctelnet.h"
+#include "mudlet.h"
+#include "utils.h"
 
+#include <QLatin1String>
+#include <QMap>
+#include <QPointer>
+#include <QScopedPointer>
 #include <QSet>
 #include <QStack>
+#include <QVector>
+#include <QtGlobal>
+
+#include <string>
 
 static const QString PLACEHOLDER_TEXT = QLatin1String("&text;");
 

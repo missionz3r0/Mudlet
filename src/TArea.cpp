@@ -24,11 +24,13 @@
 
 #include "TArea.h"
 
+#include "TRoom.h"
+
 
 #include "Host.h"
 #include "T2DMap.h"
-#include "TConsole.h"
 #include "TRoomDB.h"
+#include "TMainConsole.h"
 
 #include <QBuffer>
 

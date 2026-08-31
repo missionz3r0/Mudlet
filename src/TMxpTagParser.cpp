@@ -20,9 +20,10 @@
 
 #include "TMxpTagParser.h"
 #include "TMxpNodeBuilder.h"
-#include "TStringUtils.h"
 
 #include <QDebug>
+
+#include <string>
 
 QList<QSharedPointer<MxpNode>> TMxpTagParser::parseToMxpNodeList(const QString& tagText, bool ignoreText)
 {

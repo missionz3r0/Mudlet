@@ -18,8 +18,8 @@
  ***************************************************************************/
 
 #include "ResourceManager.h"
-#include "utils.h"
 
+#include <QDebug>
 #include <QOpenGLContext>
 
 ResourceManager::ResourceManager() {}

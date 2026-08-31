@@ -24,11 +24,17 @@
 #include "mudlet.h"
 
 #include <QAccessible>
+#include <QChar>
 #include <QDateTime>
 #include <QDebug>
+#include <QList>
 #include <QTimer>
+#include <QVector>
+
+#include <algorithm>
 #include <chrono>
 #include <limits>
+#include <utility>
 
 using namespace std::chrono_literals;
 

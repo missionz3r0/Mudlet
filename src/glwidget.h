@@ -33,6 +33,8 @@
 #include <QElapsedTimer>
 #include <QOpenGLWidget>
 #include <QPointer>
+#include <QSize>
+#include <QtGlobal>
 
 class Host;
 class TMap;

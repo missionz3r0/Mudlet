@@ -24,6 +24,7 @@
 
 
 #include <QTreeWidget>
+#include <QtGlobal>
 
 
 class ExitsTreeWidget : public QTreeWidget

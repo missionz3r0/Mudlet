@@ -25,6 +25,8 @@
 
 #include <QPointer>
 #include <QPushButton>
+#include <QSize>
+#include <QStyleOptionButton>
 
 class Host;
 class TAction;

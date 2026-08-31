@@ -22,8 +22,17 @@
 
 
 #include "TMxpSupportTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
 #include "TMxpContext.h"
+#include "utils.h"
+
+#include <QChar>
+#include <QLatin1String>
+#include <QList>
+#include <QMap>
+#include <QStringList>
+#include <QVector>
 
 TMxpTagHandlerResult TMxpSupportTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)
 {

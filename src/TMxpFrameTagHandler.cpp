@@ -18,7 +18,11 @@
  ***************************************************************************/
 
 #include "TMxpFrameTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
+
+#include <QList>
+#include <QtGlobal>
 
 bool TMxpFrameTagHandler::supports(TMxpContext& ctx, TMxpClient& client, MxpTag* tag)
 {

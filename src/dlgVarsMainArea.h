@@ -25,6 +25,9 @@
 
 #include "ui_vars_main_area.h"
 
+#include <QWidget>
+#include <QtGlobal>
+
 
 class dlgVarsMainArea : public QWidget, public Ui::vars_main_area
 {

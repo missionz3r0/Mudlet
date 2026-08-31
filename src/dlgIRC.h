@@ -35,7 +35,14 @@
 #include <IrcMessage>
 #include <IrcUserModel>
 
+#include <QHash>
+#include <QList>
+#include <QMainWindow>
+#include <QPair>
 #include <QPointer>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 
 #include "utils.h"
 

@@ -23,7 +23,10 @@
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
 #include <QFileSystemWatcher>
+#include <QObject>
+#include <QString>
 #include <QTimer>
+
 #include <memory>
 
 class ResourceManager;

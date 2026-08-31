@@ -32,26 +32,40 @@
 #include <winsock2.h>
 #endif
 
+#include <QAbstractSocket>
+#include <QByteArray>
+#include <QByteArrayList>
 #include <QElapsedTimer>
 #include <QHostAddress>
 #include <QHostInfo>
+#include <QList>
+#include <QMap>
+#include <QObject>
+#include <QPair>
 #include <QPointer>
 #include <QScopeGuard>
+#include <QSet>
+#include <QString>
 #include <QStringList>
 #if defined(QT_NO_SSL)
 #include <QTcpSocket>
 #else
+#include <QSslCertificate>
+#include <QSslError>
 #include <QSslSocket>
 #endif
 #include <QTime>
+#include <QtGlobal>
 #include <QVector>
 
 #include <zlib.h>
 
 #include <bitset>
 #include <iostream>
+#include <optional>
 #include <queue>
 #include <string>
+#include <tuple>
 #include <utility>
 
 #if defined(Q_OS_WINDOWS)

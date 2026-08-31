@@ -20,14 +20,24 @@
 #include "RoomMoveDragHandler.h"
 
 #include "TArea.h"
+#include "TMap.h"
 #include "TRoom.h"
 #include "TRoomDB.h"
 
+#include <QEvent>
+#include <QList>
+#include <QMap>
+#include <QMapIterator>
 #include <QMouseEvent>
 #include <QPointF>
 #include <QRect>
+#include <QRectF>
 #include <QSet>
+#include <QSetIterator>
+#include <QString>
 #include <QtGlobal>
+
+#include <memory>
 
 RoomMoveDragHandler::RoomMoveDragHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)

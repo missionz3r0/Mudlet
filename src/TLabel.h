@@ -34,6 +34,10 @@
 #include <QSet>
 #include <QString>
 #include <QVideoWidget>
+#include <QtGlobal>
+
+class QMovie;
+class QVideoWidget;
 
 class Host;
 class QMouseEvent;

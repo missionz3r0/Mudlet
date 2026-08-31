@@ -23,6 +23,9 @@
 #include "TrailingWhitespaceMarker.h"
 #include "mudlet.h"
 
+#include <QLineEdit>
+#include <QString>
+
 dlgAliasMainArea::dlgAliasMainArea(QWidget* pParentWidget)
 : QWidget(pParentWidget)
 {

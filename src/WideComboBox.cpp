@@ -20,6 +20,7 @@
 
 #include "WideComboBox.h"
 #include <QScrollBar>
+#include <QSize>
 #include <QAbstractItemView>
 
 void WideComboBox::showPopup()

@@ -21,6 +21,9 @@
 
 #include "dlgTimersMainArea.h"
 
+#include <QLineEdit>
+#include <QString>
+
 
 dlgTimersMainArea::dlgTimersMainArea(QWidget* pParentWidget)
 : QWidget(pParentWidget)

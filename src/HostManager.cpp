@@ -24,9 +24,22 @@
 #include "HostManager.h"
 
 #include "Host.h"
+#include "TConsole.h"
 #include "dlgMapper.h"
-#include "mudlet.h"
 #include "TMap.h"
+#include "TMainConsole.h"
+#include <QApplication>
+#include <QByteArray>
+#include <QDebug>
+#include <QList>
+#include <QMutableMapIterator>
+#include <QPalette>
+#include <QPointer>
+#include <QScopedPointer>
+#include <QSharedPointer>
+#include <QtGlobal>
+
+#include <utility>
 
 void HostManager::deleteHost(const QString& hostname)
 {

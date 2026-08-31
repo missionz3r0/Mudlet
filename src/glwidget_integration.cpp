@@ -19,6 +19,10 @@
 
 #include "glwidget_integration.h"
 #include "Host.h"
+#include "glwidget.h"
+#include "modern_glwidget.h"
+
+#include <QOpenGLWidget>
 
 QOpenGLWidget* GLWidgetFactory::createGLWidget(TMap* pMap, Host* pHost, QWidget* parent)
 {

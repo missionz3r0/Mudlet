@@ -23,17 +23,35 @@
 
 
 #include "TLabel.h"
+#include "Host.h"
+#include "TCommandLine.h"
 #include "TConsole.h"
 #include "TDockWidget.h"
+#include "TLuaInterpreter.h"
 #include "mudlet.h"
+#include "TMainConsole.h"
+#include "utils.h"
 
+#include <QChar>
 #include <QDesktopServices>
+#include <QEnterEvent>
+#include <QEvent>
+#include <QLatin1Char>
+#include <QList>
+#include <QMouseEvent>
+#include <QPalette>
 #include <QRegularExpression>
+#include <QRegularExpressionMatchIterator>
 #include <QTextCursor>
 #include <QTimer>
 #include <QUrl>
+#include <QWheelEvent>
+#include <QWidget>
 #include <QtEvents>
+#include <QMovie>
+
 #include <chrono>
+#include <initializer_list>
 
 using namespace std::chrono_literals;
 

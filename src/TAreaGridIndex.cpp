@@ -19,6 +19,10 @@
 
 #include "TAreaGridIndex.h"
 
+#include <QHashIterator>
+
+#include <utility>
+
 const TAreaGridIndex::RoomIds TAreaGridIndex::csmEmptyCell;
 
 // There are two ways to reach the cells of a Y range: probe the range's keys

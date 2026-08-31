@@ -22,6 +22,8 @@
 
 #include "dlgTriggerPatternEdit.h"
 
+#include "SingleLineTextEdit.h"
+
 #include <QAbstractButton>
 #include <QAbstractItemView>
 #include <QAbstractScrollArea>
@@ -34,6 +36,10 @@
 #include <QWidget>
 #include <QAction>
 #include <QDebug>
+#include <QIcon>
+#include <QLabel>
+#include <QPushButton>
+#include <QSpinBox>
 
 dlgTriggerPatternEdit::dlgTriggerPatternEdit(QWidget* pParentWidget)
 : QWidget(pParentWidget)

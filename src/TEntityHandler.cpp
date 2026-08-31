@@ -22,6 +22,8 @@
 
 #include "TEntityHandler.h"
 
+#include <cctype>
+
 // returns true if the char is handled by the EntityHandler (i.e. it is part of an entity)
 bool TEntityHandler::handle(char c, bool resolveCustomEntities)
 {

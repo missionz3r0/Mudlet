@@ -20,11 +20,14 @@
  ***************************************************************************/
 
 #include "TLinkStore.h"
-#include "TBuffer.h" // For Mudlet::HyperlinkStyling definition
 #include "Host.h"
-#include "utils.h" // For qsl() macro
+#include "TLuaInterpreter.h"
 
+#include <QKeyValueIterator>
+#include <QMultiHash>
 #include <QSet>
+
+#include <utility>
 
 int TLinkStore::addLinks(const QStringList& links, const QStringList& hints, Host* pH, const QVector<int>& luaReference, const QString& expireName)
 {

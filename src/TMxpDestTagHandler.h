@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 
 // Handles MXP <DEST> tag for redirecting output to frames
 // Usage: <DEST frameName EOF>output here</DEST>

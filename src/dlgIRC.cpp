@@ -25,6 +25,7 @@
 
 #include "dlgIRC.h"
 #include "Host.h"
+#include "enums.h"
 #include "ircmessageformatter.h"
 
 #include <IrcTextFormat>
@@ -32,10 +33,31 @@
 
 #include "mudlet.h"
 
+#include <QDataStream>
+#include <QDateTime>
+#include <QDebug>
 #include <QDesktopServices>
+#include <QFile>
+#include <QIODevice>
+#include <QIcon>
+#include <QItemSelectionModel>
+#include <QLatin1String>
+#include <QLineEdit>
+#include <QListView>
+#include <QModelIndex>
 #include <QScrollBar>
 #include <QSettings>
 #include <QShortcut>
+#include <QShowEvent>
+#include <QSaveFile>
+#include <QTextBrowser>
+#include <QTextCursor>
+#include <QTextDocument>
+#include <QVariant>
+#include <QVersionNumber>
+
+#include <cstdlib>
+#include <utility>
 
 
 dlgIRC::dlgIRC(Host* pHost)
