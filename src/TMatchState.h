@@ -28,8 +28,6 @@
 #include <list>
 #include <string>
 
-#include <QString>
-#include <QPair>
 #include <QVector>
 
 

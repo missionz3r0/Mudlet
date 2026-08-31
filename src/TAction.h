@@ -26,7 +26,6 @@
 
 #include "Tree.h"
 
-#include <QColor>
 #include <QDebug>
 #include <QDebugStateSaver>
 #include <QIcon>

@@ -24,7 +24,6 @@
 
 
 #include <QDebug>
-#include <QStringBuilder>
 #include <QStringList>
 
 #define ARGUMENT_TYPE_NUMBER 0
