@@ -409,6 +409,7 @@ set(mudlet_HDRS
     TEvent.h
     TFeatureCallout.h
     TFlipButton.h
+    TFontAttributes.h
     TForkedProcess.h
     TGameDetails.h
     THyperlinkCompactManager.h

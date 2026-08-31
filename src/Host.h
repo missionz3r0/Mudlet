@@ -34,25 +34,54 @@
 #include "TCommandLine.h"
 #include "TLuaInterpreter.h"
 #include "TimerUnit.h"
-#include "TMainConsole.h"
 #include "TWindowRegistry.h"
 #include "TriggerUnit.h"
 #include "ctelnet.h"
 #include "enums.h"
+#include "TFontAttributes.h"
+#include "utils.h"
 
 #include <QColor>
+#include <QDateTime>
+#include <QDebug>
+#include <QDebugStateSaver>
 #include <QFile>
 #include <QFont>
 #include <QFuture>
+#include <QKeySequence>
+#include <QLatin1String>
 #include <QList>
+#include <QMap>
 #include <QMargins>
+#include <QObject>
+#include <QPair>
 #include <QPointer>
 #include <QRect>
+#include <QScopedPointer>
+#include <QSet>
+#include <QSize>
 #include <QStack>
+#include <QString>
+#include <QStringList>
 #include <QTextStream>
+#include <QTime>
+#include <QTimer>
+#include <QtGlobal>
 
+#include <map>
 #include <memory>
+#include <optional>
 #include <string>
+#include <tuple>
+#include <utility>
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lua.h>
+#else
+#include <lua.h>
+#endif
+}
 
 #include "TMxpMudlet.h"
 #include "TMxpProcessor.h"
@@ -605,13 +634,7 @@ public:
     bool setMMCPChatName(const QString&);
     void setShowIdsInEditor(const bool isShown);
     bool getF3SearchEnabled() const { return mF3SearchEnabled; }
-    void setF3SearchEnabled(const bool enabled)
-    {
-        mF3SearchEnabled = enabled;
-        if (mpConsole) {
-            mpConsole->setF3SearchEnabled(enabled);
-        }
-    }
+    void setF3SearchEnabled(const bool enabled);
     bool getForceMXPProcessorOn() const { return mForceMXPProcessorOn; }
     void setForceMXPProcessorOn(bool value)
     {

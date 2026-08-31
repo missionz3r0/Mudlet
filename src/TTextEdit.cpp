@@ -37,6 +37,7 @@
 #include "THyperlinkVisibilityManager.h"
 #include "TLinkStore.h"
 #include "TLuaInterpreter.h"
+#include "enums.h"
 #include "mudlet.h"
 #include "utils.h"
 #include "TTextProperties.h"

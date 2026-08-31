@@ -4429,6 +4429,14 @@ void Host::setShowIdsInEditor(const bool isShown)
     emit signal_showIdsInEditorChanged(isShown);
 }
 
+void Host::setF3SearchEnabled(const bool enabled)
+{
+    mF3SearchEnabled = enabled;
+    if (mpConsole) {
+        mpConsole->setF3SearchEnabled(enabled);
+    }
+}
+
 // The single answer to "does this profile have a map widget on screen right
 // now" - null both for a profile that has never opened one and for one that put
 // it away again, which a script cannot tell apart and does not need to.
