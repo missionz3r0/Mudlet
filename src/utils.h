@@ -22,17 +22,18 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <QApplication>
-#include <QCryptographicHash>
-#include <QEnterEvent>
-#include <QDir>
-#include <QRegularExpression>
+#include <QPair>
 #include <QString>
-#include <QScreen>
-#include <QWidget>
+#include <QStringLiteral>
+#include <QVector>
 
 #include <cstdint>
 #include <cstring>
+
+class QEnterEvent;
+class QRegularExpression;
+class QScreen;
+class QWidget;
 
 #define qsl(s) QStringLiteral(s)
 
@@ -104,6 +105,8 @@ public:
     // qsl all over the place:
     static QString richText(const QString& text) { return qsl("<p>%1</p>").arg(text); }
 
+    static QString dateStamp();
+
     // Call this in the destructor of a window class that connects any of its
     // own widgets to its own slots - keep it first, so that nothing else the
     // destructor does can deliver a child's signal either.
@@ -126,48 +129,11 @@ public:
     // this only reaches connections whose receiver is the window: a
     // connect(child, &Signal, [this]{...}) written without a context object
     // survives it and brings the crash back, so always pass the context:
-    static void disconnectChildSignals(QWidget* window)
-    {
-        for (QObject* child : window->findChildren<QObject*>()) {
-            QObject::disconnect(child, nullptr, window, nullptr);
-        }
-    }
-
-    // Qt 6.9 deprecated QDateTime::setOffsetFromUtc(int) and made it hard to
-    // replicate the exact strings that we had before:
-    static QString dateStamp() {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-        auto localNow = QDateTime::currentDateTime();
-        const int offset = localNow.offsetFromUtc();
-        if (offset) {
-            unsigned hoursOff = abs(offset/3600);
-            unsigned minutesOff = (abs(offset) - hoursOff * 3600) / 60;
-            return localNow.toString(Qt::ISODate).append(qsl("%1%2:%3")
-                                                                 .arg(offset >= 0 ? QLatin1Char('+') : QLatin1Char('-'))
-                                                                 .arg(hoursOff, 2, 10, QLatin1Char('0'))
-                                                                 .arg(minutesOff, 2, 10, QLatin1Char('0')));
-        }
-        return localNow.toString(Qt::ISODate).append(qsl("+00:00"));
-#else
-        auto localNow = QDateTime::currentDateTime();
-        const int offset = localNow.offsetFromUtc();
-        localNow.setOffsetFromUtc(offset);
-        return localNow.toString(Qt::ISODate);
-#endif
-    }
+    static void disconnectChildSignals(QWidget* window);
 
     // Return a new QString with path made absolute, resolved against base and cleaned if it was relative
     // Returns path unchanged if it was already absolute or an empty string
-    static QString pathResolveRelative(const QString& path, const QString& base)
-    {
-        if (path.isEmpty()) {
-            return path;
-        }
-        if (QDir::isAbsolutePath(path)) {
-            return path;
-        }
-        return QDir::cleanPath(base + "/" + path);
-    }
+    static QString pathResolveRelative(const QString& path, const QString& base);
 
     struct ConfigDirResolution
     {
@@ -194,77 +160,25 @@ public:
 
     // A directory that cannot be listed must never read as "nothing here": that
     // inference is what hides profiles, so assume the strongest content instead.
-    static bool configDirHoldsProfiles(const QString& dir)
-    {
-        if (!QDir(dir).exists()) {
-            return false;
-        }
-        if (!QFileInfo(dir).isReadable()) {
-            return true;
-        }
-        const QDir profiles(qsl("%1/profiles").arg(dir));
-        if (!profiles.exists()) {
-            return false;
-        }
-        // Counted as mudlet.cpp's anyProfilesExist() does, so the two cannot disagree
-        return !QFileInfo(profiles.path()).isReadable() || !profiles.entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty();
-    }
+    static bool configDirHoldsProfiles(const QString& dir);
 
-    static ConfigDirClaim configDirClaim(const QString& dir)
-    {
-        if (!QDir(dir).exists()) {
-            return ConfigDirClaim::absent;
-        }
-        if (configDirHoldsProfiles(dir)) {
-            return ConfigDirClaim::profiles;
-        }
-        if (QFileInfo::exists(qsl("%1/Mudlet.ini").arg(dir))) {
-            return ConfigDirClaim::settings;
-        }
-        return ConfigDirClaim::unclaimed;
-    }
+    static ConfigDirClaim configDirClaim(const QString& dir);
 
     // $XDG_CONFIG_HOME/mudlet claims more than it holds, because creating
     // profiles/ there is the deliberate opt-in into an isolated config root. The
     // legacy dir gets no such credit: an empty profiles/ left behind by deleting
     // the last profile would otherwise outrank a config root in active use.
-    static ConfigDirClaim xdgConfigDirClaim(const QString& dir)
-    {
-        if (QDir(qsl("%1/profiles").arg(dir)).exists()) {
-            return ConfigDirClaim::profiles;
-        }
-        return configDirClaim(dir);
-    }
+    static ConfigDirClaim xdgConfigDirClaim(const QString& dir);
 
     // cleanPath() is not enough: a symlinked ~/.config gives one directory two
     // spellings, and dotfile managers produce exactly that
-    static QString configDirIdentity(const QString& dir)
-    {
-        const QString canonical = QFileInfo(dir).canonicalFilePath();
-        return canonical.isEmpty() ? QDir::cleanPath(dir) : canonical;
-    }
+    static QString configDirIdentity(const QString& dir);
 
     // Resolve Mudlet's config root honoring XDG_CONFIG_HOME; the caller handles
     // portable.txt first, which still wins. $XDG_CONFIG_HOME/mudlet takes a tie so
     // that a fresh install lands there.
-    static ConfigDirResolution xdgConfigDir(const QString& legacyDefault)
-    {
-        const QString xdgConfigHome = qEnvironmentVariable("XDG_CONFIG_HOME");
-        // The XDG base-dir spec requires an absolute path; a relative (or empty)
-        // value must be ignored, which also avoids a surprising CWD-relative root.
-        if (xdgConfigHome.isEmpty() || !QDir::isAbsolutePath(xdgConfigHome)) {
-            return {legacyDefault, false, QString()};
-        }
-        const QString xdgTarget = QDir::cleanPath(qsl("%1/mudlet").arg(xdgConfigHome));
-        if (xdgConfigDirClaim(xdgTarget) < configDirClaim(legacyDefault)) {
-            return {legacyDefault, true, QString()};
-        }
-        // XDG_CONFIG_HOME=$HOME/.config makes both candidates one directory
-        const bool shadowing = configDirIdentity(legacyDefault) != configDirIdentity(xdgTarget) && configDirHoldsProfiles(legacyDefault);
-        return {xdgTarget, false, shadowing ? legacyDefault : QString()};
-    }
+    static ConfigDirResolution xdgConfigDir(const QString& legacyDefault);
 
-    inline static const auto scmfileSystemUnsafeChars = QRegularExpression(qsl(R"REGEX([/\\:*?"<>|])REGEX"));
     static constexpr int scmMaxPathComponentLength = 50;
     static constexpr int scmPathComponentDigestLength = 16;
 
@@ -274,116 +188,25 @@ public:
     // inputs distinct: a shortened name carries a digest of the whole input,
     // since plain truncation made two long profile names share - and overwrite -
     // one stored password.
-    static QString sanitizeForPath(const QString& input)
-    {
-        QString sanitized = input;
-        // Replace filesystem-unsafe characters with underscores
-        sanitized.replace(scmfileSystemUnsafeChars, qsl("_"));
-        // Limit length to prevent filesystem issues
-        if (sanitized.length() > scmMaxPathComponentLength) {
-            const QString digest = QString::fromLatin1(QCryptographicHash::hash(input.toUtf8(), QCryptographicHash::Sha256).toHex()).left(scmPathComponentDigestLength);
-            sanitized = qsl("%1-%2").arg(sanitized.left(scmMaxPathComponentLength - scmPathComponentDigestLength - 1), digest);
-        }
-        return sanitized;
-    }
+    static QString sanitizeForPath(const QString& input);
 
     // Position a dialog on the same screen as its parent window
     // This improves multi-monitor UX by keeping dialogs with their parent windows
-    static void positionDialogOnParentScreen(QWidget* dialog, QWidget* parent)
-    {
-        if (!dialog || !parent) {
-            return;
-        }
-
-        // Get the screen containing the parent window
-        // Use mapToGlobal to get the actual screen position of the parent widget
-        QPoint parentPos = parent->mapToGlobal(parent->rect().center());
-        const QScreen* parentScreen = QApplication::screenAt(parentPos);
-        if (!parentScreen) {
-            // Fallback to parent's screen property if screenAt fails
-            parentScreen = parent->screen();
-        }
-
-        if (parentScreen) {
-            // Get the current screen of the dialog to see if it needs repositioning
-            // Use the dialog's current geometry center for more accurate screen detection
-            QPoint dialogCenter = dialog->mapToGlobal(dialog->rect().center());
-            const QScreen* dialogScreen = QApplication::screenAt(dialogCenter);
-
-            // If the dialog is not visible or not yet positioned, or if it's on the wrong screen,
-            // then reposition it. This handles cases where the dialog retains old positions.
-            if (!dialog->isVisible() || !dialogScreen || dialogScreen != parentScreen) {
-                centerDialogOnScreen(dialog, parentScreen);
-            }
-        }
-    }
+    static void positionDialogOnParentScreen(QWidget* dialog, QWidget* parent);
 
     // Position a dialog on the same screen as the active profile's console
     // This version considers the actual console widget position for better accuracy
-    static void positionDialogOnActiveProfileScreen(QWidget* dialog, QWidget* parentWindow, QWidget* activeConsole)
-    {
-        if (!dialog) {
-            return;
-        }
-
-        // Prefer the active console position if available, otherwise fall back to parent window
-        QWidget* referenceWidget = activeConsole ? activeConsole : parentWindow;
-        if (referenceWidget) {
-            positionDialogOnParentScreen(dialog, referenceWidget);
-        }
-    }
+    static void positionDialogOnActiveProfileScreen(QWidget* dialog, QWidget* parentWindow, QWidget* activeConsole);
 
     // Force reposition a dialog on the specified screen, regardless of current position
     // This is useful for singleton dialogs that may retain old positions
-    static void forceRepositionDialogOnParentScreen(QWidget* dialog, QWidget* parent)
-    {
-        if (!dialog || !parent) {
-            return;
-        }
-
-        // Get the screen containing the parent window
-        QPoint parentPos = parent->mapToGlobal(parent->rect().center());
-        const QScreen* parentScreen = QApplication::screenAt(parentPos);
-        if (!parentScreen) {
-            parentScreen = parent->screen();
-        }
-
-        if (parentScreen) {
-            // Always reposition, regardless of current dialog position
-            centerDialogOnScreen(dialog, parentScreen);
-        }
-    }
+    static void forceRepositionDialogOnParentScreen(QWidget* dialog, QWidget* parent);
 
     // Position a dialog in the center of the specified screen
-    static void centerDialogOnScreen(QWidget* dialog, const QScreen* screen)
-    {
-        if (!dialog || !screen) {
-            return;
-        }
+    static void centerDialogOnScreen(QWidget* dialog, const QScreen* screen);
 
-        const QRect screenGeometry = screen->availableGeometry();
-
-        // Ensure dialog has a size first
-        if (dialog->size().isEmpty()) {
-            dialog->adjustSize();
-        }
-
-        // Calculate center position
-        const QSize dialogSize = dialog->size();
-        const QPoint centerPoint = screenGeometry.center();
-        const QPoint newPos(
-            centerPoint.x() - dialogSize.width() / 2,
-            centerPoint.y() - dialogSize.height() / 2);
-
-        // Ensure dialog stays within screen bounds
-        QPoint constrainedPos = newPos;
-        constrainedPos.setX(qMax(screenGeometry.left(),
-                                qMin(newPos.x(), screenGeometry.right() - dialogSize.width())));
-        constrainedPos.setY(qMax(screenGeometry.top(),
-                                qMin(newPos.y(), screenGeometry.bottom() - dialogSize.height())));
-
-        dialog->move(constrainedPos);
-    }
+private:
+    static const QRegularExpression scmfileSystemUnsafeChars;
 };
 
-#endif // UPDATER_H
+#endif // MUDLET_UTILS_H

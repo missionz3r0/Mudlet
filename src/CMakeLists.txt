@@ -218,6 +218,7 @@ set(mudlet_SRCS
     TUiTour.cpp
     TVar.cpp
     UntrustedText.cpp
+    utils.cpp
     VarUnit.cpp
     WideComboBox.cpp
     XMLexport.cpp
