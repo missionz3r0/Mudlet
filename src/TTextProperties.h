@@ -29,7 +29,6 @@
 
 #include <QStringView>
 
-#include <string>
 #include "widechar_width.h"
 
 namespace graphemeInfo {

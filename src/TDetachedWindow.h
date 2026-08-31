@@ -27,7 +27,6 @@
 #include <QAction>
 #include <QToolButton>
 #include <QKeySequence>
-#include <QLabel>
 #include <QList>
 #include <QMap>
 #include <QPoint>

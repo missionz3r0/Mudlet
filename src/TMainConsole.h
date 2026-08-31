@@ -27,7 +27,6 @@
 
 #include "TBuffer.h"
 #include "TConsole.h"
-#include "TScrollBox.h"
 #include <QByteArray>
 #include <QColor>
 #include <QFile>
@@ -42,7 +41,6 @@
 #include <QWidget>
 #include <optional>
 
-#include <hunspell/hunspell.h>
 
 #include <list>
 #include <string>

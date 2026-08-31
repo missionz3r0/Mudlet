@@ -29,11 +29,9 @@
 
 #include <QColor>
 #include <QLabel>
-#include <QMovie>
 #include <QPointer>
 #include <QSet>
 #include <QString>
-#include <QVideoWidget>
 #include <QtGlobal>
 
 class QMovie;

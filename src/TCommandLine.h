@@ -36,9 +36,6 @@
 #include <QSet>
 #include <QString>
 #include <QStringList>
-#include <QStringDecoder>
-#include <QToolButton>
-#include <QResizeEvent>
 #include <QtGlobal>
 
 class QResizeEvent;

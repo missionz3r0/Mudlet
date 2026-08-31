@@ -22,7 +22,6 @@
 #define WIDECOMBOBOX_H
 
 #include <QComboBox>
-#include <QObject>
 
 class WideComboBox : public QComboBox {
     Q_OBJECT
