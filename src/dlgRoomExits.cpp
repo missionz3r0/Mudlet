@@ -27,13 +27,40 @@
 
 #include "Host.h"
 #include "TArea.h"
+#include "TMap.h"
+#include "TRoom.h"
 #include "TRoomDB.h"
 #include "exitstreewidget.h"
 #include "utils.h"
 
 
+#include <QAbstractButton>
+#include <QAbstractItemModel>
 #include <QAction>
+#include <QButtonGroup>
+#include <QCheckBox>
+#include <QColor>
+#include <QDebug>
+#include <QGroupBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QList>
+#include <QMap>
+#include <QMapIterator>
+#include <QModelIndex>
+#include <QNonConstOverload>
+#include <QPushButton>
+#include <QRadioButton>
+#include <QScopedPointer>
+#include <QSize>
+#include <QSpinBox>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QVariant>
+#include <QWidget>
+
 #include <set>
+#include <utility>
 
 // A template for tooltip HTML formatting so that we do not have
 // 30 copies of the same QString in the read-only segment of the code:

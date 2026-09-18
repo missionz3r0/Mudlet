@@ -25,9 +25,18 @@
  ***************************************************************************/
 
 
+#include "TBuffer.h"
 #include "TConsole.h"
+#include <QByteArray>
+#include <QColor>
 #include <QFile>
+#include <QMap>
+#include <QPair>
 #include <QPointer>
+#include <QSet>
+#include <QSize>
+#include <QString>
+#include <QtGlobal>
 #include <QTextStream>
 #include <QWidget>
 #include <optional>
@@ -35,6 +44,10 @@
 #include <hunspell/hunspell.h>
 
 #include <list>
+#include <string>
+#include <utility>
+
+struct Hunhandle;
 
 class TAction;
 class TEasyButtonBar;

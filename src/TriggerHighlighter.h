@@ -21,8 +21,13 @@
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
 #include <QRegularExpression>
+#include <QString>
 #include <QVector>
 #include "edbee/views/texttheme.h"
+
+namespace edbee {
+class TextThemeRule;
+}
 
 class TriggerHighlighter : public QSyntaxHighlighter
 {

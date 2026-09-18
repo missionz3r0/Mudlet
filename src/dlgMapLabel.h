@@ -22,7 +22,11 @@
  ***************************************************************************/
 
 #include "ui_map_label.h"
+#include <QColor>
 #include <QDialog>
+#include <QFont>
+#include <QString>
+#include <QtGlobal>
 
 class QColorDialog;
 class QFontDialog;

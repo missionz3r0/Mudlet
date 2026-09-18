@@ -21,6 +21,9 @@
 #ifndef MUDLET_TMXPBRTAGHANDLER_H
 #define MUDLET_TMXPBRTAGHANDLER_H
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 
 class TMxpBRTagHandler : public TMxpSingleTagHandler
 {

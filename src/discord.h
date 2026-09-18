@@ -21,16 +21,26 @@
  ***************************************************************************/
 
 #include "Host.h"
+#include "utils.h"
 
+#include <cstddef>
+#include <cstdint>
 #include <functional>
 #include <map>
 #include <memory>
 #include <utility>
 #include <QDebug>
+#include <QDebugStateSaver>
+#include <QMap>
+#include <QObject>
+#include <QPair>
+#include <QScopedPointer>
+#include <QString>
 #include <QTimer>
 #include <QTimerEvent>
 #include <QLibrary>
 #include "../3rdparty/discord/rpc/include/discord_register.h"
+#include <QVector>
 #include "../3rdparty/discord/rpc/include/discord_rpc.h"
 
 /*

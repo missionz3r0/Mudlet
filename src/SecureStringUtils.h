@@ -22,6 +22,7 @@
 
 #include <QString>
 #include <QByteArray>
+#include <QtGlobal>
 
 #include <string>
 

@@ -20,7 +20,11 @@
 #include "LabelTextureCache.h"
 
 #include <QImage>
+#include <QList>
 #include <QOpenGLContext>
+#include <QPixmap>
+
+#include <utility>
 
 LabelTextureCache::LabelTextureCache() = default;
 

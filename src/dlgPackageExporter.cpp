@@ -48,6 +48,8 @@
 #include <QStandardPaths>
 #include <QTimer>
 #include <QUrl>
+#include <zip.h>
+#include <QApplication>
 #include <chrono>
 
 using namespace std::chrono_literals;

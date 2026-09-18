@@ -26,9 +26,7 @@
 
 #include "dlgTriggerEditor.h"
 #include "Host.h"
-#include "TTextEdit.h"
 #include "TTrigger.h"
-#include "mudlet.h"
 
 
 dlgColorTrigger::dlgColorTrigger(QWidget* pParentWidget, TTrigger* pT, const bool isBackGround, const QString& title)

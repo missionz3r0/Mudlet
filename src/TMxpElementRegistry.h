@@ -26,6 +26,7 @@
 #include <QStringList>
 #include <QList>
 #include <QSharedPointer>
+#include <QString>
 
 struct TMxpElement
 {

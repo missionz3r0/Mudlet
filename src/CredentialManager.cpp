@@ -23,6 +23,7 @@
 #include "SecureStringUtils.h"
 #include "utils.h"
 
+#include <QByteArray>
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDebug>
@@ -37,6 +38,7 @@
 #include <QCryptographicHash>
 #include <QStandardPaths>
 #include <QTimer>
+#include <QIODevice>
 #include <QVersionNumber>
 
 #include <memory>

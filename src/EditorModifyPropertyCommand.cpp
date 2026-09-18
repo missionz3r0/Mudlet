@@ -19,14 +19,17 @@
 
 #include "EditorModifyPropertyCommand.h"
 
+#include "ActionUnit.h"
+#include "AliasUnit.h"
 #include "EditorItemXMLHelpers.h"
 #include "Host.h"
-#include "TAction.h"
-#include "TAlias.h"
-#include "TKey.h"
-#include "TScript.h"
-#include "TTimer.h"
-#include "TTrigger.h"
+#include "KeyUnit.h"
+#include "ScriptUnit.h"
+#include "TimerUnit.h"
+#include "TriggerUnit.h"
+
+#include <QObject>
+#include <QUndoCommand>
 
 EditorModifyPropertyCommand::EditorModifyPropertyCommand(EditorViewType viewType, int itemID, const QString& itemName, const QString& oldStateXML, const QString& newStateXML, Host* host)
 : EditorCommand(generateText(viewType, itemName), host)

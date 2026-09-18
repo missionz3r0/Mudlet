@@ -25,13 +25,18 @@
 #include "TRoomDB.h"
 
 #include <QEvent>
+#include <QFlags>
+#include <QList>
+#include <QMap>
 #include <QMouseEvent>
 #include <QPointF>
 #include <QLineF>
 #include <QMapIterator>
 #include <QSetIterator>
+#include <QString>
 
 #include <cmath>
+#include <memory>
 
 CustomLineEditHandler::CustomLineEditHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)

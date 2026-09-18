@@ -27,6 +27,13 @@
 #include "TRoomDB.h"
 #include "utils.h"
 
+#include <QDebug>
+#include <QDockWidget>
+#include <QKeyValueIterator>
+#include <QtGlobal>
+
+#include <memory>
+
 TMapViewManager::TMapViewManager(Host* pHost, TMap* pMap)
 : QObject(pMap)
 , mpHost(pHost)

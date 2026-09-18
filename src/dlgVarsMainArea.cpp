@@ -22,6 +22,9 @@
 
 #include "dlgVarsMainArea.h"
 
+#include <QComboBox>
+#include <QFlags>
+#include <QListWidget>
 #include <QListWidgetItem>
 
 extern "C" {

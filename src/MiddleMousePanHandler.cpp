@@ -19,9 +19,17 @@
 
 #include "MiddleMousePanHandler.h"
 
+#include <QColor>
 #include <QCursor>
+#include <QEvent>
+#include <QList>
 #include <QMouseEvent>
+#include <QObject>
 #include <QPainter>
+#include <QPen>
+#include <QPolygonF>
+#include <QtGlobal>
+
 #include <algorithm>
 #include <cmath>
 

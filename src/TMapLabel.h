@@ -25,10 +25,12 @@
 
 
 #include <QtGlobal>
+#include <QByteArray>
 #include <QColor>
 #include <QFont>
 #include <QPixmap>
 #include <QSizeF>
+#include <QString>
 #include <QVector3D>
 
 

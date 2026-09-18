@@ -63,6 +63,10 @@
 #include "edbee/edbee.h"
 #include "MMCPServer.h"
 #include "widgetutils.h"
+#include "TMainConsole.h"
+
+#include "edbee/models/textgrammar.h"
+#include "edbee/views/texttheme.h"
 
 #include <QDataStream>
 #include <QSaveFile>
@@ -84,6 +88,7 @@
 #include <QMediaDevices>
 #include <QMediaPlayer>
 #include <QMessageBox>
+#include <QMimeData>
 #include <QPoint>
 #include <QScopeGuard>
 #include <QScreen>
@@ -110,6 +115,13 @@
 #include <cmath>
 #include <memory>
 #include <QStyle>
+#include <hunspell/hunspell.h>
+
+#if defined(INCLUDE_OWN_QT6_KEYCHAIN)
+#include <qtkeychain/keychain.h>
+#else
+#include <qt6keychain/keychain.h>
+#endif
 
 #if defined(Q_OS_WINDOWS)
 // GetShortPathNameW() for getShortPathName()

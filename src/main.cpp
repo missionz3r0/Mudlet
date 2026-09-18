@@ -30,7 +30,6 @@
 #undef nil
 #endif
 
-#include "HostManager.h"
 #include "MudletPaths.h"
 #include "mudlet.h"
 #include "MudletInstanceCoordinator.h"
@@ -43,7 +42,6 @@
 #include <QPainter>
 #include <iostream>
 #include <memory>
-#include <vector>
 
 #include <QStandardPaths>
 
@@ -62,7 +60,6 @@
 #include <QStringList>
 #include <QThreadPool>
 #include <QTranslator>
-#include "AltFocusMenuBarDisable.h"
 #include "TAccessibleConsole.h"
 #include "TAccessibleTextEdit.h"
 #include "FileOpenHandler.h"
@@ -82,6 +79,7 @@
 #if defined(Q_OS_WINDOWS) && defined(INCLUDE_UPDATER)
 #include <windows.h>
 #include <QThread>
+#include <QApplication>
 #endif
 
 using namespace std::chrono_literals;

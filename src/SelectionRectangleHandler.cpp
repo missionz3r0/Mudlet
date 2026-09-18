@@ -26,13 +26,21 @@
 #include "TRoomDB.h"
 #include "utils.h"
 
+#include <QEvent>
 #include <QKeySequence>
+#include <QLatin1Char>
 #include <QMouseEvent>
 #include <QRect>
 #include <QRectF>
 #include <QSet>
+#include <QSetIterator>
+#include <QString>
 #include <QtGlobal>
+#include <QTreeWidget>
 #include <QTreeWidgetItem>
+
+#include <memory>
+#include <utility>
 
 SelectionRectangleHandler::SelectionRectangleHandler(T2DMap& mapWidget)
 : mMapWidget(mapWidget)

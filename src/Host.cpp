@@ -59,34 +59,83 @@
 #include "XMLexport.h"
 #include "XMLimport.h"
 #include "CredentialManager.h"
+#include "FontManager.h"
 #include "SecureStringUtils.h"
+#include "ShortcutsManager.h"
+#include "T2DMap.h"
+#include "TBuffer.h"
+#include "TAction.h"
+#include "TAlias.h"
+#include "TKey.h"
+#include "TTimer.h"
+#include "TTrigger.h"
+#if defined(INCLUDE_3DMAPPER)
+#include <QOpenGLWidget>
+#endif
 
 #include <chrono>
 #include <QtConcurrentRun>
 #include <QApplication>
+#include <QByteArray>
+#include <QChar>
 #include <QCoreApplication>
 #include <QDataStream>
+#include <QDebug>
+#include <QDir>
 #include <QDirIterator>
+#include <QDockWidget>
 #include <QElapsedTimer>
+#include <QEvent>
 #include <QEventLoop>
+#include <QFileInfo>
+#include <QFileInfoList>
+#include <QFlags>
 #include <QFontInfo>
+#include <QFontMetrics>
+#include <QFutureWatcher>
+#include <QIODevice>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QKeyEvent>
+#include <QLatin1Char>
+#include <QMapIterator>
+#include <QNetworkAccessManager>
 #include <QNetworkProxy>
+#include <QPoint>
 #include <QRandomGenerator>
 #include <QRegularExpression>
+#include <QResizeEvent>
 #include <QSaveFile>
 #include <QScopeGuard>
 #include <QSettings>
+#include <QSharedPointer>
 #include <QTemporaryFile>
 #include <QTextStream>
 #include <QThread>
 #include <QTimer>
+#include <QUrl>
 #include <QUuid>
+#include <QVariant>
+#include <QVector>
+#include <QWidget>
 #include <zip.h>
+#include <cstdint>
+#include <list>
 #include <memory>
+#include <ratio>
+#include <string>
+
+extern "C" {
+#if defined(INCLUDE_VERSIONED_LUA_HEADERS)
+#include <lua5.1/lauxlib.h>
+#include <lua5.1/lualib.h>
+#else
+#include <lauxlib.h>
+#include <lualib.h>
+#endif
+}
 
 // We are now using code that won't work with really old versions of libzip;
 // some of the error handling was improved in 1.0 . Unfortunately libzip 1.7.0

@@ -23,6 +23,8 @@
 #include "TDebug.h"
 
 #include <QMap>
+#include <QString>
+#include <QStringList>
 #include <QToolBar>
 
 class QAction;

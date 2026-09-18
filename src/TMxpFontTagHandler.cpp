@@ -19,7 +19,10 @@
  ***************************************************************************/
 
 #include "TMxpFontTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
+
+#include <QtGlobal>
 
 TMxpTagHandlerResult TMxpFontTagHandler::handleStartTag(TMxpContext& context, TMxpClient& client, MxpStartTag* tag)
 {

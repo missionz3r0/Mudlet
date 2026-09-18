@@ -25,6 +25,8 @@
 
 #include "ui_module_manager.h"
 #include <QDialog>
+#include <QString>
+#include <QtGlobal>
 
 class Host;
 class QCloseEvent;

@@ -25,6 +25,8 @@
 
 #include "ui_trigger_pattern_edit.h"
 #include <QPalette>
+#include <QWidget>
+#include <QtGlobal>
 
 
 class QAction;

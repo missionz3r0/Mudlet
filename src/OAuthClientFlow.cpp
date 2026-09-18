@@ -22,14 +22,25 @@
 #include "SecureStringUtils.h"
 #include "utils.h"
 
+#include <QByteArray>
+#include <QChar>
 #include <QCryptographicHash>
+#include <QDebug>
+#include <QHash>
+#include <QHostAddress>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonParseError>
+#include <QJsonValueRef>
 #include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QRandomGenerator>
 #include <QTcpSocket>
 #include <QUrlQuery>
 
+#include <chrono>
+#include <cstddef>
+#include <utility>
 #include <vector>
 
 namespace {

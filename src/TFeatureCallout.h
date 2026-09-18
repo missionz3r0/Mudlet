@@ -22,6 +22,7 @@
 
 #include <QPointer>
 #include <QSet>
+#include <QString>
 #include <QWidget>
 
 // A small dismissible balloon anchored to another widget, used to point out

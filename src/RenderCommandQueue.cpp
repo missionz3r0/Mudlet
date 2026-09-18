@@ -20,7 +20,9 @@
 #include "RenderCommandQueue.h"
 
 #include <QDebug>
+
 #include <cstring>
+#include <utility>
 
 RenderCommandQueue::RenderCommandQueue() {}
 

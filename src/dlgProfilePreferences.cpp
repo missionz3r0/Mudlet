@@ -32,7 +32,6 @@
 #include "MudletPaths.h"
 #include "TAction.h"
 #include "TAlias.h"
-#include "TConsole.h"
 #include "TKey.h"
 #include "TMainConsole.h"
 #include "TMap.h"
@@ -45,10 +44,16 @@
 #include "TTrigger.h"
 #include "ctelnet.h"
 #include "discord.h"
-#include "dlgIRC.h"
 #include "dlgMapper.h"
 #include "dlgTriggerEditor.h"
+#include "mudlet.h"
+#include "edbee/edbee.h"
+#include "edbee/models/textdocument.h"
+#include "edbee/models/textgrammar.h"
 #include "edbee/views/texteditorscrollarea.h"
+#if defined(INCLUDE_3DMAPPER)
+#include <QOpenGLWidget>
+#endif
 #include "MMCP.h"
 #include "widgetutils.h"
 #include "utils.h"

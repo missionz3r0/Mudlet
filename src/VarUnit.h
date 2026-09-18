@@ -29,6 +29,7 @@
 #include <QHash>
 #include <QMap>
 #include <QSet>
+#include <QString>
 #include <QStringList>
 
 

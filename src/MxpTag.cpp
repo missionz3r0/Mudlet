@@ -20,7 +20,7 @@
  ***************************************************************************/
 
 #include "MxpTag.h"
-#include "TMxpTagParser.h"
+#include "utils.h"
 
 MxpTagAttribute::MxpTagAttribute(const QString& name, const QString& value)
 : QPair<QString, QString>(name, value)

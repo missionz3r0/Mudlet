@@ -18,8 +18,12 @@
  ***************************************************************************/
 
 #include "TMxpExpireTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
 #include "TMxpContext.h"
+
+#include <QString>
+#include <QtGlobal>
 
 #ifdef DEBUG_MXP_PROCESSING
 #include <QDebug>

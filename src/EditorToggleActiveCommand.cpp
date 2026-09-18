@@ -19,13 +19,22 @@
 
 #include "EditorToggleActiveCommand.h"
 
+#include "ActionUnit.h"
+#include "AliasUnit.h"
 #include "Host.h"
+#include "KeyUnit.h"
+#include "ScriptUnit.h"
 #include "TAction.h"
 #include "TAlias.h"
 #include "TKey.h"
 #include "TScript.h"
 #include "TTimer.h"
 #include "TTrigger.h"
+#include "TimerUnit.h"
+#include "TriggerUnit.h"
+
+#include <QDebug>
+#include <QObject>
 
 EditorToggleActiveCommand::EditorToggleActiveCommand(EditorViewType viewType, int itemID, bool oldState, bool newState, const QString& itemName, Host* host)
 : EditorCommand(generateText(viewType, itemName, newState), host)

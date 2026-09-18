@@ -22,6 +22,7 @@
 
 #include <QStyledItemDelegate>
 #include <QPainter>
+#include <QSize>
 #include <QStyleOptionViewItem>
 #include <QModelIndex>
 

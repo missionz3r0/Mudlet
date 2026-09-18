@@ -22,6 +22,8 @@
 
 #include <QPlainTextEdit>
 #include <QPointer>
+#include <QString>
+#include <QtGlobal>
 
 class Host;
 

@@ -19,6 +19,10 @@
 
 #include "TMxpHRTagHandler.h"
 #include "TMxpClient.h"
+#include "utils.h"
+
+#include <QChar>
+#include <QtGlobal>
 
 TMxpTagHandlerResult TMxpHRTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)
 {

@@ -22,10 +22,15 @@
  ***************************************************************************/
 
 #include <QHash>
+#include <QPoint>
 #include <QProxyStyle>
+#include <QRect>
 #include <QSet>
+#include <QSize>
 #include <QString>
+#include <QStringList>
 #include <QTabBar>
+#include <QtGlobal>
 
 // Connection status indicator drawn next to the tab text by TStyle. We paint
 // it ourselves rather than via QTabBar::setTabIcon() because the macOS native

@@ -29,8 +29,9 @@
 #include <QDateTime>
 #include <QMessageBox>
 #include <QPushButton>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 #include <chrono>
+#include <QApplication>
 #include "../3rdparty/kdtoolbox/singleshot_connect/singleshot_connect.h"
 
 using namespace std::chrono_literals;

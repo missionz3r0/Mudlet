@@ -20,11 +20,26 @@
 
 #include "mapInfoContributorManager.h"
 #include "TArea.h"
+#include "TLuaInterpreter.h"
+#include "TMap.h"
+#include "TRoom.h"
 #include "TRoomDB.h"
-#include "dlgMapper.h"
+#include "Host.h"
+#include "utils.h"
+
+#include <QChar>
+#include <QKeyValueIterator>
+#include <QRegularExpression>
+#include <QScopedPointer>
+#include <QSet>
+#include <QtGlobal>
+
+#include <memory>
+#include <utility>
 
 extern "C" {
 #include <lauxlib.h>
+#include <lua.h>
 }
 
 MapInfoContributorManager::MapInfoContributorManager(QObject* parent, Host* pH)

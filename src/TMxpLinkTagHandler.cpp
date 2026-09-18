@@ -20,8 +20,14 @@
 
 #include "TMxpLinkTagHandler.h"
 #include "LuaLiteral.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
 #include "UntrustedText.h"
+#include "utils.h"
+
+#include <QList>
+#include <QStringList>
+#include <QtGlobal>
 
 // <A href=URL [hint=text] [expire=name]>
 TMxpTagHandlerResult TMxpLinkTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)

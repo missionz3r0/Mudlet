@@ -21,10 +21,15 @@
  ***************************************************************************/
 
 
+#include <QAbstractSocket>
+#include <QByteArray>
 #include <QTcpSocket>
 #include <QObject>
 #include <QString>
 #include <QTimer>
+#include <QtGlobal>
+
+#include <string>
 
 #include "MMCP.h"
 

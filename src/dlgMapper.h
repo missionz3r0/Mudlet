@@ -26,7 +26,11 @@
 
 
 #include "ui_mapper.h"
+#include <QColor>
 #include <QPointer>
+#include <QString>
+#include <QWidget>
+#include <QtGlobal>
 
 class Host;
 class TMap;

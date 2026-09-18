@@ -20,6 +20,10 @@
 
 #include "DarkTheme.h"
 #include "AltFocusMenuBarDisable.h"
+#include "utils.h"
+
+#include <QColor>
+#include <QPalette>
 
 //DarkTheme only works with Fusion style
 DarkTheme::DarkTheme()

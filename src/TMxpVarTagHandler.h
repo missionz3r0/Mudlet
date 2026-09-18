@@ -26,7 +26,11 @@
 
 //<VAR>     <V>
 //<VAR Name [DESC=description] [PRIVATE] [PUBLISH] [DELETE] [ADD] [REMOVE]>Value</VAR>
+#include "MxpTag.h"
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 class TMxpVarTagHandler : public TMxpTagHandler {
     MxpStartTag mCurrentStartTag;
     QString mCurrentVarContent;

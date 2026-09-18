@@ -23,7 +23,12 @@
 #include "TSplitter.h"
 
 #include <QtEvents>
+#include <QLinearGradient>
+#include <QPaintEvent>
 #include <QPainter>
+#include <QPointF>
+#include <QRect>
+#include <QSplitter>
 
 TSplitterHandle::TSplitterHandle(Qt::Orientation orientation, TSplitter* parent)
 : QSplitterHandle(orientation, qobject_cast<QSplitter*>(parent))

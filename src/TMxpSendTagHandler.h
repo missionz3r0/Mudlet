@@ -22,7 +22,10 @@
 
 #include "TEntityResolver.h"
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
 #include "utils.h"
+
+#include <QString>
 
 // <SEND [href=command] [hint=text] [prompt] [expire=name]>
 class TMxpSendTagHandler : public TMxpSingleTagHandler

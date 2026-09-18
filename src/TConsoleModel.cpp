@@ -23,13 +23,20 @@
 
 #include "Host.h"
 #include "MudletPaths.h"
+#include "enums.h"
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QChar>
 #include <QCoreApplication>
 #include <QDateTime>
+#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QFontInfo>
+#include <QIODevice>
+#include <QList>
+#include <QStringList>
 
 TConsoleModel::TConsoleModel(Host* pHost)
 : buffer(pHost)

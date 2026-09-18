@@ -19,14 +19,25 @@
 
 #include "EditorAddItemCommand.h"
 
+#include "ActionUnit.h"
+#include "AliasUnit.h"
 #include "EditorItemXMLHelpers.h"
 #include "Host.h"
+#include "KeyUnit.h"
+#include "ScriptUnit.h"
 #include "TAction.h"
 #include "TAlias.h"
 #include "TKey.h"
 #include "TScript.h"
 #include "TTimer.h"
 #include "TTrigger.h"
+#include "TimerUnit.h"
+#include "TriggerUnit.h"
+
+#include <QObject>
+
+#include <functional>
+#include <list>
 
 EditorAddItemCommand::EditorAddItemCommand(EditorViewType viewType, int itemID, int parentID, int positionInParent, bool isFolder, const QString& itemName, Host* host)
 : EditorCommand(generateText(viewType, itemName, isFolder), host)

@@ -23,6 +23,9 @@
 #define MUDLET_TMXPSUPPORTTAGHANDLER_H
 
 #include "TMxpTagHandler.h"
+#include "TMxpTagHandlerResult.h"
+
+#include <QString>
 
 class TMxpSupportTagHandler : public TMxpSingleTagHandler
 {

@@ -25,9 +25,13 @@
 
 #include "ui_room_exits.h"
 #include <QDialog>
+#include <QIcon>
 #include <QPointer>
 #include <QSet>
+#include <QString>
+#include <QStyleOptionViewItem>
 #include <QStyledItemDelegate>
+#include <QtGlobal>
 #include <map>
 #include <memory>
 

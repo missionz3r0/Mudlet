@@ -18,7 +18,12 @@
  ***************************************************************************/
 
 #include "TMxpDestTagHandler.h"
+#include "MxpTag.h"
 #include "TMxpClient.h"
+#include "utils.h"
+
+#include <QList>
+#include <QtGlobal>
 
 bool TMxpDestTagHandler::supports(TMxpContext& ctx, TMxpClient& client, MxpTag* tag)
 {

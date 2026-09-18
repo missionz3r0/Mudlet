@@ -24,6 +24,8 @@
 
 #include <QDockWidget>
 #include <QPointer>
+#include <QString>
+#include <QtGlobal>
 
 class Host;
 class TAction;

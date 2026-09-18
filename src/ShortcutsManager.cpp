@@ -20,6 +20,8 @@
 
 #include "ShortcutsManager.h"
 
+#include <utility>
+
 ShortcutsManager::~ShortcutsManager() = default;
 
 void ShortcutsManager::registerShortcut(const QString& key, const QString& translation, QKeySequence* sequence)

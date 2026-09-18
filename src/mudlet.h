@@ -58,10 +58,16 @@
 #include <hunspell/hunspell.hxx>
 #include <hunspell/hunspell.h>
 
+struct Hunhandle;
+namespace QKeychain {
+class Job;
+}
+
 class QAction;
 class QCloseEvent;
 class QDateTime;
 class QDockWidget;
+class QHBoxLayout;
 class QKeyEvent;
 class QMediaDevices;
 class QMediaPlayer;
@@ -69,12 +75,14 @@ class QMenu;
 class QLabel;
 class QListWidget;
 class QPushButton;
+class QNetworkRequest;
 class QSettings;
 class QShortcut;
 class QSplitter;
 class QTableWidget;
 class QTableWidgetItem;
 class QTextEdit;
+class QToolBar;
 class QToolButton;
 class QTimer;
 
@@ -98,6 +106,7 @@ class TDetachedWindow;
 class TDockWidget;
 class TEvent;
 class TLabel;
+class TMainConsole;
 class translation;
 class TScrollBox;
 class TTabBar;

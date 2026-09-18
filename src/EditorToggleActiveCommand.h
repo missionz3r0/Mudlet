@@ -22,6 +22,9 @@
 
 #include "EditorCommand.h"
 
+#include <QList>
+#include <QString>
+
 // Undo command for toggling active/inactive state of items (triggers, aliases, timers, etc.)
 class EditorToggleActiveCommand : public EditorCommand
 {

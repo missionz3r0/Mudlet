@@ -30,6 +30,9 @@
 
 #include "TTextCodec.h"
 
+#include <QChar>
+#include <QLatin1Char>
+
 // Lookup tables copied from original TTextCodec implementation
 // clang-format off
 const QVector<QChar> TTextCodec_437::CptoUnicode{

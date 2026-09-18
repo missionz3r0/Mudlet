@@ -22,6 +22,10 @@
 
 #include "EditorCommand.h"
 
+#include <QList>
+#include <QPair>
+#include <QString>
+
 class Host;
 
 // Undo command for adding items. Undo exports to XML and deletes; redo recreates from XML.

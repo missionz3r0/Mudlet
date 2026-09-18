@@ -20,18 +20,31 @@
 #include "TFeatureCallout.h"
 
 #include "mudlet.h"
+#include "utils.h"
 
+#include <QBrush>
 #include <QEvent>
+#include <QFont>
 #include <QGuiApplication>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QLayout>
+#include <QObject>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPalette>
+#include <QPen>
+#include <QPoint>
 #include <QPushButton>
+#include <QRect>
+#include <QRectF>
 #include <QScreen>
 #include <QSettings>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QVariant>
+
+#include <chrono>
 
 using namespace std::chrono_literals;
 

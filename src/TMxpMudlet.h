@@ -27,11 +27,19 @@
 #include "TMxpEvent.h"
 #include "TMxpProcessor.h"
 
+#include "TMxpTagHandlerResult.h"
+
+#include <QByteArray>
+#include <QColor>
 #include <QList>
 #include <QQueue>
 #include <QStack>
+#include <QString>
+#include <QStringList>
+#include <QtGlobal>
 
 class Host;
+class TLinkStore;
 class TMediaData;
 
 class TMxpMudlet : public TMxpClient

@@ -21,7 +21,17 @@
 
 #include "ircmessageformatter.h"
 
+#include <Irc>
 #include <IrcTextFormat>
+
+#include <QDateTime>
+#include <QFlags>
+#include <QLatin1Char>
+#include <QList>
+#include <QObject>
+#include <QStringList>
+#include <QTime>
+#include <QtGlobal>
 
 // communi escapes & and < before it strips the IRC formatting codes, and hands
 // out the plain text with those entities still in it; a script wants the text

@@ -20,8 +20,18 @@
 #include "PackageItemDelegate.h"
 
 #include <QApplication>
+#include <QFlags>
+#include <QFont>
 #include <QFontMetrics>
+#include <QIcon>
+#include <QModelIndex>
+#include <QPainter>
 #include <QPalette>
+#include <QRect>
+#include <QString>
+#include <QStyle>
+#include <QVariant>
+#include <QWidget>
 
 PackageItemDelegate::PackageItemDelegate(QObject* parent)
 : QStyledItemDelegate(parent)

@@ -21,12 +21,17 @@
 
 #include "utils.h"
 
-#include <atomic>
+#include <QChar>
 #include <QCoreApplication>
 #include <QCryptographicHash>
 #include <QDataStream>
+#include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
+#include <QIODevice>
+#include <QList>
+#include <QStringList>
 #include <QObject>
 #include <QRandomGenerator>
 #include <QRegularExpression>

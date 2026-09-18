@@ -24,6 +24,7 @@
 #include <QDebug>
 #include <QEventLoop>
 #include <QThread>
+#include <QtGlobal>
 
 // A nested QEventLoop::exec() cannot be used here. exec() sets
 // QEventLoop::EventLoopExec, which QCocoaEventDispatcher answers by re-entering

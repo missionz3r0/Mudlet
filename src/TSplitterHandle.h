@@ -23,6 +23,7 @@
 
 
 #include <QSplitterHandle>
+#include <QtGlobal>
 
 class TSplitter;
 

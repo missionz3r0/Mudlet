@@ -27,13 +27,22 @@
 
 #include "utils.h"
 
+#include <QList>
+#include <QMap>
+#include <QPalette>
 #include <QPlainTextEdit>
+#include <QPoint>
 #include <QPointer>
+#include <QSet>
 #include <QString>
 #include <QStringList>
 #include <QStringDecoder>
 #include <QToolButton>
 #include <QResizeEvent>
+#include <QtGlobal>
+
+class QResizeEvent;
+class QToolButton;
 
 class Host;
 class KeyUnit;

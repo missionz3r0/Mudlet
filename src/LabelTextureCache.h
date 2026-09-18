@@ -21,8 +21,10 @@
  ***************************************************************************/
 
 #include <QHash>
+#include <QPair>
 #include <QPixmap>
 #include <QOpenGLFunctions>
+#include <QtGlobal>
 
 // Cache entry storing OpenGL texture ID and pixmap cache key for change detection
 struct LabelTextureCacheEntry {

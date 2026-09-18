@@ -21,7 +21,14 @@
 #include "TMxpCustomElementTagHandler.h"
 #include "TEntityResolver.h"
 #include "TMxpClient.h"
-#include "TMxpTagParser.h"
+
+#include <QHash>
+#include <QList>
+#include <QSharedPointer>
+#include <QtGlobal>
+
+#include <functional>
+#include <utility>
 
 
 TMxpTagHandlerResult TMxpCustomElementTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)

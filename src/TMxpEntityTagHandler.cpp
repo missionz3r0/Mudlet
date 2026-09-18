@@ -17,7 +17,13 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "TMxpEntityTagHandler.h"
-#include "TStringUtils.h"
+#include "TEntityResolver.h"
+#include "TMxpClient.h"
+#include "TMxpContext.h"
+
+#include <QList>
+#include <QString>
+#include <QStringList>
 
 TMxpTagHandlerResult TMxpEntityTagHandler::handleStartTag(TMxpContext& ctx, TMxpClient& client, MxpStartTag* tag)
 {

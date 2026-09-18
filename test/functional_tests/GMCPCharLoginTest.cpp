@@ -49,6 +49,7 @@
 #include "GMCPAuthenticator.h"
 #include "Host.h"
 #include "MudletInstanceCoordinator.h"
+#include "TMainConsole.h"
 #include "ctelnet.h"
 #include "SignInStoreReconciler.h"
 #include "dlgConnectionProfiles.h"

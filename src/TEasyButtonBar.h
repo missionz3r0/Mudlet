@@ -23,7 +23,9 @@
  ***************************************************************************/
 
 
+#include <QString>
 #include <QWidget>
+#include <QtGlobal>
 
 #include <list>
 
